@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="441px" preserveAspectRatio="none" style="width:671px;height:441px;" version="1.1" viewBox="0 0 671 441" width="671px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="261" x="216.5" y="18.6855">C4 Model Helper Container View</text><!--MD5=[7a98050484e7b672042f0b6eff223c89]
+cluster vsc--><a href="https://modelhelper.home.blog/2020/07/24/c4-plantuml-helper/ " target="_top" title="click to return to c4_helper context view" xlink:actuate="onRequest" xlink:href="https://modelhelper.home.blog/2020/07/24/c4-plantuml-helper/ " xlink:show="new" xlink:title="click to return to c4_helper context view" xlink:type="simple"><rect fill="#FFFFFF" height="157" style="stroke: #444444; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;" width="425" x="235" y="46.6406"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="76" x="409.5" y="63.1738">«boundary»</text><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="146" x="374.5" y="82.8594">Visual Studio Code</text><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="63" x="416" y="98.832">[Container]</text></a><!--MD5=[59b9fcab7688afb9e03ce302bdf03589]
+cluster plantuml--><a href="https://modelhelper.home.blog/2020/07/24/c4-plantuml-helper/ " target="_top" title="click to return to c4_helper context view" xlink:actuate="onRequest" xlink:href="https://modelhelper.home.blog/2020/07/24/c4-plantuml-helper/ " xlink:show="new" xlink:title="click to return to c4_helper context view" xlink:type="simple"><rect fill="#FFFFFF" height="157" style="stroke: #444444; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;" width="142" x="22" y="46.6406"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="76" x="55" y="63.1738">«boundary»</text><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="74" x="56" y="82.8594">PlantUML</text><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="63" x="61.5" y="98.832">[Container]</text></a><!--MD5=[46add8cf7bf384e60847f614ab2d9898]
+cluster github--><a href="https://modelhelper.home.blog/2020/07/24/c4-plantuml-helper/ " target="_top" title="click to return to c4_helper context view" xlink:actuate="onRequest" xlink:href="https://modelhelper.home.blog/2020/07/24/c4-plantuml-helper/ " xlink:show="new" xlink:title="click to return to c4_helper context view" xlink:type="simple"><rect fill="#FFFFFF" height="177" style="stroke: #444444; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;" width="422" x="234" y="253.6406"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="76" x="407" y="270.1738">«boundary»</text><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="53" x="418.5" y="289.8594">GitHub</text><text fill="#444444" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="63" x="413.5" y="305.832">[Container]</text></a><!--MD5=[beb77923cafbdab422cb0ecfa4b9ad1c]
+entity vsc_plant--><a href="https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml" target="_top" title="view  vsc_plant" xlink:actuate="onRequest" xlink:href="https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml" xlink:show="new" xlink:title="view  vsc_plant" xlink:type="simple"><rect fill="#85BBF0" height="70.3125" style="stroke: #78A8D8; stroke-width: 1.5;" width="175" x="251.5" y="117.6406"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="76" x="301" y="140.0977">«component»</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="155" x="261.5" y="159.3438">PlantUML Extension</text><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="22" x="328" y="175.3164">[ext]</text></a><!--MD5=[63ab234d57dc1ab5f8dc643f2f953cf6]
+entity vsc_snippet--><a href="add link" target="_top" title="view  vsc_snippet" xlink:actuate="onRequest" xlink:href="add link" xlink:show="new" xlink:title="view  vsc_snippet" xlink:type="simple"><rect fill="#85BBF0" height="70.3125" style="stroke: #78A8D8; stroke-width: 1.5;" width="182" x="462" y="117.6406"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="76" x="515" y="140.0977">«component»</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="162" x="472" y="159.3438">C4 PlantUML Snippet</text><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="35" x="535.5" y="175.3164">[script]</text></a><!--MD5=[c2796faf4134bd8b5f3bc71f44d02e74]
+entity jar--><rect fill="#85BBF0" height="70.3125" style="stroke: #78A8D8; stroke-width: 1.5;" width="109" x="38.5" y="117.6406"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="76" x="55" y="140.0977">«component»</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="89" x="48.5" y="159.3438">plantuml.jar</text><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="29" x="78.5" y="175.3164">[java]</text><!--MD5=[653f354b1bcf62d33f1d8f89a21f5333]
+entity git_c4--><a href="https://github.com/RicardoNiepel/C4-PlantUML" target="_top" title="view  git_c4" xlink:actuate="onRequest" xlink:href="https://github.com/RicardoNiepel/C4-PlantUML" xlink:show="new" xlink:title="view  git_c4" xlink:type="simple"><rect fill="#85BBF0" height="70.3125" style="stroke: #78A8D8; stroke-width: 1.5;" width="177" x="250.5" y="334.6406"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="76" x="301" y="357.0977">«component»</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="157" x="260.5" y="376.3438">C4 PlantUML Scripts</text><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="31" x="323.5" y="392.3164">[repo]</text></a><!--MD5=[b9b84772ae5e9c65065850601932e847]
+entity git_c4_helper--><a href="https://github.com/gobravedave/C4-Plantuml-Helper" target="_top" title="view  git_c4_helper" xlink:actuate="onRequest" xlink:href="https://github.com/gobravedave/C4-Plantuml-Helper" xlink:show="new" xlink:title="view  git_c4_helper" xlink:type="simple"><rect fill="#85BBF0" height="90.4375" style="stroke: #78A8D8; stroke-width: 1.5;" width="177" x="462.5" y="324.6406"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="76" x="513" y="347.0977">«component»</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="153" x="472.5" y="366.3438">C4 PlantUML Helper</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="54" x="524" y="386.4688">Scripts</text><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="31" x="535.5" y="402.4414">[repo]</text></a><!--MD5=[d9254dfc9f7674991c7ad5c28a235cad]
+link jar to vsc_plant--><path d="M147.595,152.6406 C176.483,152.6406 212.752,152.6406 245.928,152.6406 " fill="none" id="jar-&gt;vsc_plant" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="251.225,152.6406,242.225,148.6406,246.225,152.6406,242.225,156.6406,251.225,152.6406" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="67" x="166" y="146.1357">references</text><!--MD5=[4aa786fb5f3a06637e96eacbf1a8fd81]
+reverse link vsc_plant to git_c4--><path d="M339,193.0226 C339,233.4976 339,295.8806 339,334.3776 " fill="none" id="vsc_plant&lt;-git_c4" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="339,187.7076,335,196.7076,339,192.7076,343,196.7076,339,187.7076" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="53" x="340" y="234.1357">includes</text><!--MD5=[b118e50b05601958205f260144c41429]
+reverse link vsc_plant to git_c4_helper--><path d="M385.288,191.2976 C404.344,207.4356 426.291,226.8656 445,245.6406 C469.873,270.6006 495.728,300.5116 515.676,324.5866 " fill="none" id="vsc_plant&lt;-git_c4_helper" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="381.016,187.6946,385.3168,196.5548,384.8381,190.9182,390.4746,190.4395,381.016,187.6946" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="53" x="435" y="234.1357">includes</text><!--MD5=[37d6bd02dfb002b12a0502856996568d]
+reverse link vsc_snippet to git_c4_helper--><path d="M552.633,193.0446 C552.288,230.1516 551.772,285.6566 551.413,324.2966 " fill="none" id="vsc_snippet&lt;-git_c4_helper" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="552.683,187.7076,548.6009,196.6707,552.6373,192.7074,556.6005,196.7438,552.683,187.7076" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="87" x="553" y="234.1357">installed from</text><!--MD5=[c3d38c4ab261c6b97802ef5483465e59]
+@startuml C4 Model Helper Container View
+
+
+
+
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam Arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 12
+}
+
+skinparam rectangle<<boundary>> {
+    Shadowing false
+    StereotypeFontSize 0
+    FontColor #444444
+    BorderColor #444444
+    BorderStyle dashed
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam rectangle<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+skinparam database<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam database<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam Arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 12
+}
+
+skinparam rectangle<<boundary>> {
+    Shadowing false
+    StereotypeFontSize 0
+    FontColor #444444
+    BorderColor #444444
+    BorderStyle dashed
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam rectangle<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+skinparam database<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam database<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+skinparam database<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam Arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 12
+}
+
+skinparam rectangle<<boundary>> {
+    Shadowing false
+    StereotypeFontSize 0
+    FontColor #444444
+    BorderColor #444444
+    BorderStyle dashed
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam rectangle<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+skinparam database<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam database<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+skinparam database<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<component>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #000000
+    BackgroundColor #85BBF0
+    BorderColor #78A8D8
+}
+
+skinparam database<<component>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #000000
+    BackgroundColor #85BBF0
+    BorderColor #78A8D8
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Title C4 Model Helper Container View 
+
+
+
+
+            
+            
+            
+                
+                
+                
+
+    rectangle "==Visual Studio Code\n<size:12>[Container]</size>" <<boundary>> as vsc [[https://modelhelper.home.blog/2020/07/24/c4-plantuml-helper/ {click to return to c4_helper context view}]] {
+
+	
+            
+            
+            
+                
+                
+
+        rectangle "==PlantUML Extension\n//<size:12>[ext]</size>//" <<component>> as vsc_plant [[https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml{view  vsc_plant}]] {
+
+	}
+	
+            
+            
+            
+                
+                
+
+        rectangle "==C4 PlantUML Snippet\n//<size:12>[script]</size>//" <<component>> as vsc_snippet [[add link{view  vsc_snippet}]] {
+
+	}
+}
+
+
+
+            
+            
+            
+                
+                
+                
+
+    rectangle "==PlantUML\n<size:12>[Container]</size>" <<boundary>> as plantuml [[https://modelhelper.home.blog/2020/07/24/c4-plantuml-helper/ {click to return to c4_helper context view}]] {
+
+	rectangle "==plantuml.jar\n//<size:12>[java]</size>//" <<component>> as jar		
+}
+
+
+            
+            
+            
+                
+                
+                
+
+    rectangle "==GitHub\n<size:12>[Container]</size>" <<boundary>> as github [[https://modelhelper.home.blog/2020/07/24/c4-plantuml-helper/ {click to return to c4_helper context view}]] {
+
+	
+            
+            
+            
+                
+                
+
+        rectangle "==C4 PlantUML Scripts\n//<size:12>[repo]</size>//" <<component>> as git_c4 [[https://github.com/RicardoNiepel/C4-PlantUML{view  git_c4}]] {
+
+	}
+	
+            
+            
+            
+                
+                
+
+        rectangle "==C4 PlantUML Helper Scripts\n//<size:12>[repo]</size>//" <<component>> as git_c4_helper [[https://github.com/gobravedave/C4-Plantuml-Helper{view  git_c4_helper}]] {
+
+	}
+}
+jar -RIGHT-> vsc_plant : "===references"
+git_c4 -UP-> vsc_plant : "===includes"
+git_c4_helper -UP-> vsc_plant : "===includes"
+git_c4_helper -UP-> vsc_snippet : "===installed from"
+
+@enduml
+
+PlantUML version 1.2020.07beta15(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_241-b07
+Operating System: Windows 10
+Default Encoding: Cp1252
+Language: en
+Country: AU
+--></g></svg>

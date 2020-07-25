@@ -1,0 +1,134 @@
+= C4 PlantUML Helper Macro
+
+Getting up to speed with C4 is easy peasy and before you know it you have more diagram scripts than you can shake a stick at.
+
+The issue then becomes:
+
+* how do you standardise on alias and label names used?
+* how do you pickup and maintain common descriptions?
+* how easy is it to add navigational links as the C4 maker had intended?
+* How do we maintain and integrate all these scripts so to produce a “Model” of the architecture.
+
+C4 Helper to the rescue.
+
+image:C4 Model Helper Context.svg[Context]
+
+== Container 
+.container diagram example
+[source, script]
+----
+@startuml C4 Model Helper Container View
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Context.puml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Component.puml
+!include C4_helper.iuml
+Title C4 Model Helper Container View 
+%set_variable_value("$C4_LEVEL", "CONTAINER")
+'%set_variable_value("$INCLUDE_DESC", "Y")
+
+$container_boundary(vsc)
+	$component(vsc_plant)
+	}
+	$component(vsc_snippet)
+	}
+}
+
+$container_boundary(plantuml)
+	Component(jar, "plantuml.jar", "java")		
+}
+$container_boundary(github)
+	$component(git_c4)
+	}
+	$component(git_c4_helper)
+	}
+}
+Rel_Right(jar, vsc_plant, "references")
+Rel_Up(git_c4, vsc_plant, "includes")
+Rel_Up(git_c4_helper, vsc_plant, "includes")
+Rel_Up(git_c4_helper, vsc_snippet, "installed from")
+
+@enduml
+----
+
+image:C4 Model Helper Container View.svg[Container]
+
+[source, script]
+----
+@startuml C4 Model Helper Container List
+Title C4 Model Helper Container List 
+!include C4_helper.iuml
+$container_list()
+@enduml
+----
+image:C4 Model Helper Container List.svg[Container List]
+
+== Component 
+.component diagram example
+In this example thre is a mox of helper macro and normally coded components.
+[source, script]
+----
+@startuml C4 Model Helper Component View
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Context.puml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Component.puml
+!include C4_helper.iuml
+Title C4 Model Helper Component View 
+%set_variable_value("$C4_LEVEL", "COMPONENT")
+'%set_variable_value("$INCLUDE_DESC", "Y")
+
+$component(git_c4_helper)
+	Component(c4ctxr, "Context Registry ", "json", "list of registered contexts")
+	Component(c4conr, "Container Registry ", "json", "list of registered containers")
+	Component(c4comr, "Component Registry ", "json", "list of registered components")
+	Component(c4ctx, "Locate Context ", "script", "locates context by id and returns values")
+	Component(c4con, "Locate Container", "script", "locates container by id and returns values")
+	Component(c4com, "Locate Component", "script", "locates component by id and returns values")
+	Component(c4ctxl, "Context Legend ", "script", "creates a legend using the context registery")
+	Component(c4conl, "Container Legend ", "script", "creates a legend using the container registery")
+	Component(c4coml, "Component Legend ", "script", "creates a legend using the component registery")
+}
+
+Rel_Up(c4ctx, c4ctxr, "get by context id")
+Rel_Up(c4ctxl, c4ctx, "get all")
+Rel_Up(c4con, c4conr, "get by container id")
+Rel_Up(c4conl, c4con, "get all")
+Rel_Up(c4com, c4comr, "get by component id")
+Rel_Up(c4coml, c4com, "get all")
+Rel_Left(c4com, c4con, "get container by id")
+Rel_Left(c4con, c4ctx, "get context by id")
+@enduml
+----
+
+image:C4 Model Helper Component View.svg[Component]
+
+.$component_list()
+creates a legend containing a list of registered componenets
+[source, script]
+----
+@startuml C4 Model Helper Component List
+Title C4 Model Helper Component List 
+!include C4_helper.iuml
+$component_list()
+@enduml
+----
+
+image:C4 Model Helper Component List.svg[Component List]
+
+== Installation Notes
+The C4_helper.iuml is a PlantUML Preprocessor and requires the V2 of the https://plantuml.com/preprocessing[plantuml preprocessor] and at least release  of 1.2020.07.
+
+An updated C4 Code Snippet is included which cater for the new helper routines introduced.
+Thje following variable are used
+
+[options="header",cols="<.<2,<.<1, <.<4"]
+|===
+|Variable|Value|Behaviour
+| $INCLUDE_DESC| Y | Incldues description of object from respective registry. If the variable is not set or initialised to another value, descriptions are not shown.
+.3+|$C4_LEVEL|CONTEXT| Container objects will have the link as per the container registary
+|CONTAINER|Container objects will have a link based on the assocated context identifier. Component objects will contain a link based on teh component registry.
+|COMPONENT|Components will link back to the associated container. 
+|===
+
+== Future Considerations
+The scripts have been coded to support the externalisation of the Context, Container and Compoenent registries. 
+The json based regesistries are currrently imbedded within the helper script pending plantumls release of the *%loadJSON("context.json")* function.
