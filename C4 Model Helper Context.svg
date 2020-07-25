@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="505px" preserveAspectRatio="none" style="width:787px;height:505px;" version="1.1" viewBox="0 0 787 505" width="787px" zoomAndPan="magnify"><defs/><g><!--MD5=[7f1db14b27b7629509c802e44e13c9c4]
+cluster context--><rect fill="#FFFFFF" height="470" style="stroke: #444444; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;" width="754" x="22" y="24"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="76" x="361" y="40.5332">«boundary»</text><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="163" x="317.5" y="60.2188">C4 PlantUML Context</text><!--MD5=[0ccfdb9502303978ec59c101ac430911]
+entity tw--><rect fill="#08427B" height="164.0469" style="stroke: #073B6F; stroke-width: 1.5;" width="219" x="38.5" y="314"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="52" x="122" y="336.457">«person»</text><path d="M148,339.0938 C140.265,339.0938 134,346.9268 134,356.5938 C134,366.2608 140.265,374.0938 148,374.0938 C155.735,374.0938 162,366.2608 162,356.5938 C162,346.9268 155.735,339.0938 148,339.0938 M133.342,374.0938 C125.852,374.3738 120,380.5338 120,388.0938 L120,395.0938 L176,395.0938 L176,388.0938 C176,380.5338 170.148,374.3738 162.658,374.0938 C158.878,378.3638 153.67,381.0938 148,381.0938 C142.33,381.0938 137.122,378.3638 133.342,374.0938 " fill="#FFFFFF" style="stroke: ; stroke-width: 0.0; stroke-dasharray: ;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="123" x="86.5" y="411.7031">Technical Writer</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="150" y="429.752"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="199" x="48.5" y="447.3613">Produces Software Architecture</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="95" x="100.5" y="464.9707">Documentation</text><!--MD5=[4e65b8472facb0b840c3c2201cf517f0]
+entity vsc--><a href="https://code.visualstudio.com/docs" target="_top" title="view  vsc" xlink:actuate="onRequest" xlink:href="https://code.visualstudio.com/docs" xlink:show="new" xlink:title="view  vsc" xlink:type="simple"><rect fill="#438DD5" height="105.5313" style="stroke: #3C7FC0; stroke-width: 1.5;" width="166" x="322" y="343"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="65" x="372.5" y="365.457">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="146" x="332" y="384.7031">Visual Studio Code</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="55" x="377.5" y="400.6758">[Windows]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="407" y="417.8457"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="75" x="367.5" y="435.4551">Code Editor</text></a><!--MD5=[68180f917081af7ea13a4188db3c6e18]
+entity c4--><a href="https://c4model.com/" target="_top" title="view  c4" xlink:actuate="onRequest" xlink:href="https://c4model.com/" xlink:show="new" xlink:title="view  c4" xlink:type="simple"><rect fill="#438DD5" height="140.75" style="stroke: #3C7FC0; stroke-width: 1.5;" width="169" x="590.5" y="80"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="65" x="642.5" y="102.457">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="21" x="664.5" y="121.7031">C4</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="48" x="651" y="137.6758">[method]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="677" y="154.8457"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="145" x="600.5" y="172.4551">Modelling approach for</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="124" x="611" y="190.0645">visualising Software</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="76" x="637" y="207.6738">Architecture</text></a><!--MD5=[f34abdc907f3da33f3fd0e2cc8b4f06b]
+entity plantuml--><a href="https://plantuml.com/" target="_top" title="view  plantuml" xlink:actuate="onRequest" xlink:href="https://plantuml.com/" xlink:show="new" xlink:title="view  plantuml" xlink:type="simple"><rect fill="#438DD5" height="140.75" style="stroke: #3C7FC0; stroke-width: 1.5;" width="219" x="274.5" y="80"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="65" x="351.5" y="102.457">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="74" x="347" y="121.7031">PlantUML</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="74" x="347" y="137.6758">[open source]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="386" y="154.8457"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="152" x="306" y="172.4551">Creates UML (and other</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="199" x="284.5" y="190.0645">diagrams types) using plain text</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="59" x="354.5" y="207.6738">language</text></a><!--MD5=[608d1cc913e673ee5f798ece544755a2]
+entity github--><a href="https://github.com/" target="_top" title="view  github" xlink:actuate="onRequest" xlink:href="https://github.com/" xlink:show="new" xlink:title="view  github" xlink:type="simple"><rect fill="#438DD5" height="105.5313" style="stroke: #3C7FC0; stroke-width: 1.5;" width="159" x="600.5" y="343"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="65" x="647.5" y="365.457">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="53" x="653.5" y="384.7031">GitHub</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="74" x="643" y="400.6758">[open source]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="682" y="417.8457"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="139" x="610.5" y="435.4551">Development Platform</text></a><!--MD5=[5a51309a456a5c308b7894baa0d234f2]
+link tw to vsc--><path d="M257.737,396 C277.315,396 297.488,396 316.383,396 " fill="none" id="tw-&gt;vsc" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="321.677,396,312.677,392,316.677,396,312.677,400,321.677,396" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="28" x="275.75" y="389.4951">uses</text><!--MD5=[b2939cef8e860f511e620b026c262846]
+link vsc to github--><path d="M488.255,396 C522.018,396 560.978,396 594.924,396 " fill="none" id="vsc-&gt;github" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="600.327,396,591.327,392,595.327,396,591.327,400,600.327,396" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="76" x="506.25" y="374.4951">architecture</text><text fill="#666666" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="35" x="526.75" y="389.8086">model</text><!--MD5=[fab9bc852cf888e48cc6b9634a13f744]
+link plantuml to vsc--><path d="M390.018,221.277 C393.195,258.113 397.045,302.762 400.047,337.571 " fill="none" id="plantuml-&gt;vsc" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="400.484,342.633,403.6978,333.3233,400.0554,337.6514,395.7273,334.009,400.484,342.633" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="60" x="396" y="265.4951">extended</text><text fill="#666666" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="55" x="398.5" y="280.8086">to support</text><!--MD5=[99d5d06b79b22afa632a38126583e136]
+reverse link plantuml to c4--><path d="M498.881,150.5 C529.427,150.5 561.858,150.5 590.454,150.5 " fill="none" id="plantuml&lt;-c4" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="493.6,150.5,502.6,154.5,498.6,150.5,502.6,146.5,493.6,150.5" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="60" x="512" y="128.9951">extended</text><text fill="#666666" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="55" x="514.5" y="144.3086">to support</text><!--MD5=[15d0541a925b4c971af05bbbe6958bf0]
+@startuml C4 Model Helper Context
+
+
+
+
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam Arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 12
+}
+
+skinparam rectangle<<boundary>> {
+    Shadowing false
+    StereotypeFontSize 0
+    FontColor #444444
+    BorderColor #444444
+    BorderStyle dashed
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam Arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 12
+}
+
+skinparam rectangle<<boundary>> {
+    Shadowing false
+    StereotypeFontSize 0
+    FontColor #444444
+    BorderColor #444444
+    BorderStyle dashed
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam rectangle<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+skinparam database<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam database<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+skinparam database<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rectangle "==C4 PlantUML Context" <<boundary>> as context{
+	rectangle "<&person,scale=6>\n ==Technical Writer\n\n Produces Software Architecture Documentation" <<person>> as tw
+	
+
+            
+            
+            
+                
+                
+        rectangle "==Visual Studio Code\n//<size:12>[Windows]</size>//\n\n Code Editor" <<container>> as vsc [[https://code.visualstudio.com/docs{view  vsc}]] {
+	}
+	
+
+            
+            
+            
+                
+                
+        rectangle "==C4\n//<size:12>[method]</size>//\n\n Modelling approach for visualising Software Architecture" <<container>> as c4 [[https://c4model.com/{view  c4}]] {
+	}
+	
+
+            
+            
+            
+                
+                
+        rectangle "==PlantUML\n//<size:12>[open source]</size>//\n\n Creates UML (and other diagrams types) using plain text language" <<container>> as plantuml [[https://plantuml.com/{view  plantuml}]] {
+	}
+	
+
+            
+            
+            
+                
+                
+        rectangle "==GitHub\n//<size:12>[open source]</size>//\n\n Development Platform" <<container>> as github [[https://github.com/{view  github}]] {
+	}
+	tw -RIGHT-> vsc : "===uses"
+	vsc -RIGHT-> github : "===architecture \nmodel"
+	plantuml - -> vsc : "===extended \nto support"
+	c4 -LEFT-> plantuml : "===extended \nto support"
+}
+
+
+@enduml
+
+PlantUML version 1.2020.07beta15(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_241-b07
+Operating System: Windows 10
+Default Encoding: Cp1252
+Language: en
+Country: AU
+--></g></svg>

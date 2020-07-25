@@ -1,0 +1,415 @@
+{
+	"ANZx_C4_Template": {
+		"scope": "diagram",
+		"prefix": "ANZx C4 Template",
+		"body": [
+			"@startuml",
+			"'--------------------------"
+			"!include plantuml\\C4\\C4.puml",
+			"!include plantuml\\C4\\C4_Context.puml",
+			"!include plantuml\\C4\\C4_Container.puml",
+			"!include plantuml\\C4\\C4_Component.puml",
+			"!include plantuml\\macro\\C4_helper.iuml",
+			"!include plantuml\\macro\\anz_apps.iuml",
+			"'--------------------------"
+			"'!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Context.puml",
+			"'!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml",
+			"'!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Component.puml",
+			"'--------------------------",
+			"'LAYOUT_LEFT_RIGHT",
+			"'skinparam linetype polyline",
+			"'--------------------------",
+			"'Title diagram title",
+			"'---- the following variable is used to include application description when using the app macro"
+			"'%set_variable_value(\"\\$INCLUDE_DESC\", \"Y\")",
+			"''%set_variable_value(\"\\$C4_LEVEL\", \"CONTEXT\")",
+			"'%set_variable_value(\"\\$C4_LEVEL\", \"CONTAINER\")",
+			"''%set_variable_value(\"\\$C4_LEVEL\", \"COMPONENT\")",
+			"'--------Person Example-----------",
+			"'Person(p1, \"person 1\", \"description of person 1\")",
+			"'Person(p2, \"person 2\")",
+			"'Person_Ext(xp1, \"external perseon 1\")",
+			"'Person_Ext(xp2, \"external person 2\", \"description of external person 2\")",
+			"'--------System Example------------",
+			"'System_Boundary(sb, \"system boundary\"){",
+			"'	System(s1, \"aaa system\")",
+			"'	System(s2, \"s2 system\", \"description of the s2 system\")",
+			"'	System_Ext(s3, \"s3 system\")",
+			"'	System_Ext(s4, \"s4 system\", \"description of the s4 external system\")",  
+			"'	SystemDb(s5, \"s5ddb\")",
+			"'	SystemDb(s6, \"s6 db\", \"description of the s6 db\")",
+			"'	SystemDb_Ext(s7, \"external database\")",
+			"'	SystemDb_Ext(s8, \"s8 ext db\", \"description of the s8 external db\")",
+			"'  }",
+			"'--------Container Example--------",
+			"'Container_Boundary(cb, \"container boundary\"){",
+			"'	Container(c1, \"container 1\", \"technology\")",
+			"'	Container(c2, \"container 2\", \"technology\", \"description for container 2\")",
+			"'	ContainerDb(c3, \"container database\", \"technology\")",
+			"'	ContainerDb(c4, \"container database\", \"technology\", \"description for container database\")",
+			"'  }",
+			"'-----Component Example---------",
+			"'Boundary(b1, \"boundary\"){",
+			"'  Component(cp1, \"component 1\", \"technology\")",
+			"'  Component(cp2, \"component 2\", \"technology\", \"description\")",
+			"'  ComponentDb(cp3, \"database component\", \"technology\")",
+			"'  ComponentDb(cp4, \"database component\", \"technology\", \"description\")",
+			"'  }",
+			"'-----C4 Helper Functions---------",
+			"'\\$container(aaa)",
+			"'	\\$component(aaa001)",
+			"'	}",
+			"'}",
+			"'\\$context_list()",
+			"'\\$container_list()",
+			"'\\$component_list()",
+			"@enduml"
+		],
+		"description": "C4 Diagram Template"		
+	},
+	"C4_Person": {
+		"scope": "diagram",
+		"prefix": "Person",
+		"body": [
+			"Person(${1:alias}, \"${2:label}\")",
+			"$0"
+		],
+		"description": "Add Person to C4 diagram"
+	},
+	"C4_Person_Descr": {
+		"scope": "diagram",
+		"prefix": "Person with Description",
+		"body": [
+			"Person(${1:alias}, \"${2:label}\", \"${3:description}\")",
+			"$0"
+		],
+		"description": "Add Person with Description to C4 diagram"
+	},
+	"C4_Person_Ext": {
+		"scope": "diagram",
+		"prefix": [
+			"External Person",
+			"Person (External)"
+		],
+		"body": [
+			"Person_Ext(${1:alias}, \"${2:label}\")",
+			"$0"
+		],
+		"description": "Add External Person to C4 diagram"
+	},
+	"C4_Person_Ext_Descr": {
+		"scope": "diagram",
+		"prefix": [
+			"External Person with Description",
+			"Person (External) with Description"
+		],
+		"body": [
+			"Person_Ext(${1:alias}, \"${2:label}\", \"${3:description}\")",
+			"$0"
+		],
+		"description": "Add External Person with Description to C4 diagram"
+	},
+	"$Context_List": {
+		"scope": "diagram",
+		"prefix": "Context List",
+		"body": [
+			"\\$context_list()",
+			"$0"
+		],
+		"description": "C4 Context list"
+	},
+	"C4_Container": {
+		"scope": "diagram",
+		"prefix": "Container",
+		"body": [
+			"Container(${1:alias}, \"${2:label}\", \"${3:technology}\")",
+			"$0"
+		],
+		"description": "Add Container to C4 diagram"
+	},
+	"C4_ContainerDb": {
+		"scope": "diagram",
+		"prefix": "ContainerDb",
+		"body": [
+			"ContainerDb(${1:alias}, \"${2:label}\", \"${3:technology}\")",
+			"$0"
+		],
+		"description": "Add ContainerDb to C4 diagram"
+	},
+	"C4_Container_Descr": {
+		"scope": "diagram",
+		"prefix": "Container with Description",
+		"body": [
+			"Container(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")",
+			"$0"
+		],
+		"description": "Add Container with Description to C4 diagram"
+	},
+	"C4_ContainerDb_Descr": {
+		"scope": "diagram",
+		"prefix": "ContainerDb with Description",
+		"body": [
+			"ContainerDb(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")",
+			"$0"
+		],
+		"description": "Add ContainerDb with description to C4 diagram"
+	},
+	"$Container": {
+		"scope": "diagram",
+		"prefix": "Container",
+		"body": [
+			"\\$container(${1:id})",
+			"$0",
+			"}"
+		],
+		"description": "C4 Container helper"
+	},
+	"$ContainerDb": {
+		"scope": "diagram",
+		"prefix": "ContainerDb",
+		"body": [
+			"\\$containerDb(${1:id})",
+			"$0",
+			"}"
+		],
+		"description": "C4 ContainerDb helper"
+	},
+	"C4_Container_Boundary": {
+		"scope": "diagram",
+		"prefix": [
+			"Container Boundary",
+			"Boundary for Container"
+		],
+		"body": [
+			"Container_Boundary(${1:alias}, \"${2:label}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add a Container Boundary to C4 diagram"
+	},
+	"$Container_List": {
+		"scope": "diagram",
+		"prefix": "Container List",
+		"body": [
+			"\\$container_list()",
+			"$0"
+		],
+		"description": "C4 Container list"
+	},
+	"C4_Component": {
+		"scope": "diagram",
+		"prefix": "Component",
+		"body": [
+			"Component(${1:alias}, \"${2:label}\", \"${3:technology}\")",
+			"$0"
+		],
+		"description": "Add Component to C4 diagram"
+	},
+	"$Component": {
+		"scope": "diagram",
+		"prefix": "Component",
+		"body": [
+			"\\$component(${1:id})",
+			"$0",
+			"}"
+		],
+		"description": "C4 Component helper"
+	},
+	"$ComponentDb": {
+		"scope": "diagram",
+		"prefix": "ComponentDb",
+		"body": [
+			"\\$componentDb(${1:id})",
+			"$0",
+			"}"
+		],
+		"description": "C4 ComponentDb helper"
+	},
+	"$Component_List": {
+		"scope": "diagram",
+		"prefix": "Component List",
+		"body": [
+			"\\$component_list()",
+			"$0"
+		],
+		"description": "C4 Component list"
+	},
+	"C4_Component_Descr": {
+		"scope": "diagram",
+		"prefix": "Component with Description",
+		"body": [
+			"Component(${1:alias}, \"${2:label}\", \"${3:technology}\", \"${4:description}\")",
+			"$0"
+		],
+		"description": "Add Component with Description to C4 diagram"
+	},
+	"C4_System": {
+		"scope": "diagram",
+		"prefix": "System",
+		"body": [
+			"System(${1:alias}, \"${2:label}\")",
+			"$0"
+		],
+		"description": "Add System to C4 diagram"
+	},
+	"C4_SystemDb": {
+		"scope": "diagram",
+		"prefix": "SystemDb",
+		"body": [
+			"SystemDb(${1:alias}, \"${2:label}\")",
+			"$0"
+		],
+		"description": "Add SystemDb to C4 diagram"
+	},
+	"C4_System_Descr": {
+		"scope": "diagram",
+		"prefix": "System with Description",
+		"body": [
+			"System(${1:alias}, \"${2:label}\", \"${3:description}\")",
+			"$0"
+		],
+		"description": "Add System with Description to C4 diagram"
+	},
+	"C4_SystemDb_Descr": {
+		"scope": "diagram",
+		"prefix": "SystemDb with Description",
+		"body": [
+			"SystemDb(${1:alias}, \"${2:label}\", \"${3:description}\")",
+			"$0"
+		],
+		"description": "Add SystemDb with Description to C4 diagram"
+	},
+
+	"C4_System_Ext": {
+		"scope": "diagram",
+		"prefix": [
+			"External System",
+			"System (External)"
+		],
+		"body": [
+			"System_Ext(${1:alias}, \"${2:label}\")",
+			"$0"
+		],
+		"description": "Add External System to C4 diagram"
+	},
+	"C4_SystemDb_Ext": {
+		"scope": "diagram",
+		"prefix": [
+			"External DB System",
+			"SystemDb (External)"
+		],
+		"body": [
+			"SystemDb_Ext(${1:alias}, \"${2:label}\")",
+			"$0"
+		],
+		"description": "Add External SystemDb to C4 diagram"
+	},
+	"C4_System_Ext_Descr": {
+		"scope": "diagram",
+		"prefix": [
+			"External System with Description",
+			"System (External) with Description"
+		],
+		"body": [
+			"System_Ext(${1:alias}, \"${2:label}\", \"${3:description}\")",
+			"$0"
+		],
+		"description": "Add External System with Description to C4 diagram"
+	},
+	"C4_SystemDb_Ext_Descr": {
+		"scope": "diagram",
+		"prefix": [
+			"External SystemDb with Description",
+			"SystemDb (External) with Description"
+		],
+		"body": [
+			"SystemDb_Ext(${1:alias}, \"${2:label}\", \"${3:description}\")",
+			"$0"
+		],
+		"description": "Add External SystemDb with Description to C4 diagram"
+	},
+	"C4_System_Boundary": {
+		"scope": "diagram",
+		"prefix": [
+			"System Boundary",
+			"Boundary for System"
+		],
+		"body": [
+			"System_Boundary(${1:alias}, \"${2:label}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add a System Boundary to C4 diagram"
+	},
+	"C4_Enterprise_Boundary": {
+		"scope": "diagram",
+		"prefix": [
+			"Enterprise Boundary",
+			"Boundary for Enterprise"
+		],
+		"body":[
+			"Enterprise_Boundary(${1:alias}, \"${2:label}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add an Enterprise Boundary to C4 diagram"
+	},
+	"C4_Relationship": {
+		"scope": "diagram",
+		"prefix": "Relationship",
+		"body": [
+			"Rel(${1:from_alias}, ${2:to_alias}, \"${3:label}\")",
+			"$0"
+		],
+		"description": "Add unidirectional Relationship to C4 diagram"
+	},
+	"C4_Relationship_Techn": {
+		"scope": "diagram",
+		"prefix": "Relationship with Technology",
+		"body": [
+			"Rel(${1:from_alias}, ${2:to_alias}, \"${3:label}\", \"${4:technology}\")",
+			"$0"
+		],
+		"description": "Add unidirectional Relationship with Technology to C4 diagram"
+	},
+	"C4_Layout_Right": {
+		"scope": "diagram",
+		"prefix": "Layout to Right side",
+		"body": [
+			"Lay_R(${1:from_alias}, ${2:to_alias})",
+			"$0"
+		],
+		"description": "Add hidden layout line to put {to} to the right of {from}"
+	},
+	"C4_Layout_Left": {
+		"scope": "diagram",
+		"prefix": "Layout to Left side",
+		"body": [
+			"Lay_L(${1:from_alias}, ${2:to_alias})",
+			"$0"
+		],
+		"description": "Add hidden layout line to put {to} to the left of {from}"
+	},
+	"C4_Boundary": {
+		"scope": "diagram",
+		"prefix": "Boundary",
+		"body": [
+			"Boundary(${1:alias}, \"${2:label}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add a generic boundary to C4 diagram."
+	},
+	"C4_Boundary_Type": {
+		"scope": "diagram",
+		"prefix": [
+			"Boundary with type"
+		],
+		"body": [
+			"Boundary(${1:alias}, \"${2:label}\", \"${3:type}\"){",
+			"\t$0",
+			"}"
+		],
+		"description": "Add a generic boundary to C4 diagram."
+	}
+}

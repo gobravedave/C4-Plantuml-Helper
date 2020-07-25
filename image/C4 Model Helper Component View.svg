@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="652px" preserveAspectRatio="none" style="width:943px;height:652px;" version="1.1" viewBox="0 0 943 652" width="943px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="275" x="345.5" y="18.6855">C4 Model Helper Component View</text><!--MD5=[5b06e99c6b7e472e433097e30abda3f4]
+cluster git_c4_helper--><a href="https://github.com/" target="_top" title="view  github" xlink:actuate="onRequest" xlink:href="https://github.com/" xlink:show="new" xlink:title="view  github" xlink:type="simple"><rect fill="#85BBF0" height="595" style="stroke: #78A8D8; stroke-width: 1.5;" width="910" x="22" y="46.6406"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="86" x="434" y="63.1738">«component»</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="211" x="371.5" y="82.8594">C4 PlantUML Helper Scripts</text><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="34" x="460" y="98.832">[repo]</text></a><!--MD5=[588ebe31372bd8adc4776f0a7ac05c44]
+entity c4ctxr--><rect fill="#85BBF0" height="105.5313" style="stroke: #78A8D8; stroke-width: 1.5;" width="177" x="39.5" y="117.6406"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="76" x="90" y="140.0977">«component»</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="128" x="64" y="159.3438">Context Registry</text><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="29" x="113.5" y="175.3164">[json]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="130" y="192.4863"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="157" x="49.5" y="210.0957">list of registered contexts</text><!--MD5=[12007192a1903580fab8a0a885798548]
+entity c4conr--><rect fill="#85BBF0" height="105.5313" style="stroke: #78A8D8; stroke-width: 1.5;" width="191" x="362.5" y="117.6406"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="76" x="420" y="140.0977">«component»</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="143" x="386.5" y="159.3438">Container Registry</text><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="29" x="443.5" y="175.3164">[json]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="460" y="192.4863"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="171" x="372.5" y="210.0957">list of registered containers</text><!--MD5=[4f3ad370dc8b49ac1c06cb9a3dd730c7]
+entity c4comr--><rect fill="#85BBF0" height="105.5313" style="stroke: #78A8D8; stroke-width: 1.5;" width="202" x="683" y="117.6406"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="76" x="746" y="140.0977">«component»</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="158" x="705" y="159.3438">Component Registry</text><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="29" x="769.5" y="175.3164">[json]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="786" y="192.4863"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="182" x="693" y="210.0957">list of registered components</text><!--MD5=[c7036581f32a572fa5c0fbe8e187accf]
+entity c4ctx--><rect fill="#85BBF0" height="123.1406" style="stroke: #78A8D8; stroke-width: 1.5;" width="180" x="38" y="301.6406"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="76" x="90" y="324.0977">«component»</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="116" x="70" y="343.3438">Locate Context</text><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="35" x="110.5" y="359.3164">[script]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="130" y="376.4863"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="156" x="48" y="394.0957">locates context by id and</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="90" x="83" y="411.7051">returns values</text><!--MD5=[e604f7e3dcb6f68eca32ca702f593bbd]
+entity c4con--><rect fill="#85BBF0" height="123.1406" style="stroke: #78A8D8; stroke-width: 1.5;" width="194" x="361" y="301.6406"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="76" x="420" y="324.0977">«component»</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="131" x="392.5" y="343.3438">Locate Container</text><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="35" x="440.5" y="359.3164">[script]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="460" y="376.4863"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="170" x="371" y="394.0957">locates container by id and</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="90" x="413" y="411.7051">returns values</text><!--MD5=[36aefcf5b5629aad21842abe0a8f6d16]
+entity c4com--><rect fill="#85BBF0" height="123.1406" style="stroke: #78A8D8; stroke-width: 1.5;" width="205" x="710.5" y="301.6406"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="76" x="775" y="324.0977">«component»</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="146" x="740" y="343.3438">Locate Component</text><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="35" x="795.5" y="359.3164">[script]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="815" y="376.4863"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="181" x="720.5" y="394.0957">locates component by id and</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="90" x="768" y="411.7051">returns values</text><!--MD5=[9a73f0e0c5ec633ac177d5d5b09ac4a2]
+entity c4ctxl--><rect fill="#85BBF0" height="123.1406" style="stroke: #78A8D8; stroke-width: 1.5;" width="192" x="38" y="502.6406"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="76" x="96" y="525.0977">«component»</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="122" x="73" y="544.3438">Context Legend</text><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="35" x="116.5" y="560.3164">[script]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="136" y="577.4863"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="168" x="48" y="595.0957">creates a legend using the</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="104" x="82" y="612.7051">context registery</text><!--MD5=[a57575083330b126f6ce845d1e870873]
+entity c4conl--><rect fill="#85BBF0" height="123.1406" style="stroke: #78A8D8; stroke-width: 1.5;" width="192" x="362" y="502.6406"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="76" x="420" y="525.0977">«component»</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="137" x="389.5" y="544.3438">Container Legend</text><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="35" x="440.5" y="560.3164">[script]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="460" y="577.4863"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="168" x="372" y="595.0957">creates a legend using the</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="118" x="399" y="612.7051">container registery</text><!--MD5=[3f287f55ada0cbe439061a7e7e96c3b1]
+entity c4coml--><rect fill="#85BBF0" height="123.1406" style="stroke: #78A8D8; stroke-width: 1.5;" width="192" x="717" y="502.6406"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="76" x="775" y="525.0977">«component»</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="152" x="737" y="544.3438">Component Legend</text><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="35" x="795.5" y="560.3164">[script]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="815" y="577.4863"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="168" x="727" y="595.0957">creates a legend using the</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="129" x="748.5" y="612.7051">component registery</text><!--MD5=[3af0a402979fefcea0fe5e3bb612fbf9]
+reverse link c4ctxr to c4ctx--><path d="M128,228.8276 C128,251.7236 128,278.1326 128,301.3746 " fill="none" id="c4ctxr&lt;-c4ctx" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="128,223.6956,124,232.6956,128,228.6956,132,232.6956,128,223.6956" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="106" x="129" y="268.1357">get by context id</text><!--MD5=[a4aa1965023510cadec5450c6655c260]
+reverse link c4ctx to c4ctxl--><path d="M129.983,429.9216 C130.69,453.3466 131.481,479.6006 132.174,502.5686 " fill="none" id="c4ctx&lt;-c4ctxl" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="129.825,424.6576,126.0994,433.7746,129.9764,429.6553,134.0957,433.5324,129.825,424.6576" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="40" x="133" y="469.1357">get all</text><!--MD5=[14740656765267a75a9a91490c72cde9]
+reverse link c4conr to c4con--><path d="M458,228.8276 C458,251.7236 458,278.1326 458,301.3746 " fill="none" id="c4conr&lt;-c4con" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="458,223.6956,454,232.6956,458,228.6956,462,232.6956,458,223.6956" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="119" x="459" y="268.1357">get by container id</text><!--MD5=[c08b5126ba2d79ff34f0ae8e526f0068]
+reverse link c4con to c4conl--><path d="M458,429.9216 C458,453.3466 458,479.6006 458,502.5686 " fill="none" id="c4con&lt;-c4conl" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="458,424.6576,454,433.6576,458,429.6576,462,433.6576,458,424.6576" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="40" x="459" y="469.1357">get all</text><!--MD5=[53cba463cc4ee19f98024ebd230f35f9]
+reverse link c4comr to c4com--><path d="M792.706,228.8276 C796.191,251.7236 800.211,278.1326 803.749,301.3746 " fill="none" id="c4comr&lt;-c4com" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="791.924,223.6956,789.3221,233.1946,792.6755,228.6388,797.2312,231.9922,791.924,223.6956" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="130" x="799" y="268.1357">get by component id</text><!--MD5=[273d08d2c6c763c4c049677436363205]
+reverse link c4com to c4coml--><path d="M813,429.9216 C813,453.3466 813,479.6006 813,502.5686 " fill="none" id="c4com&lt;-c4coml" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="813,424.6576,809,433.6576,813,429.6576,817,433.6576,813,424.6576" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="40" x="814" y="469.1357">get all</text><!--MD5=[c8e2ba12a6902ad60c69972386a20def]
+reverse link c4con to c4com--><path d="M560.119,363.1406 C607.224,363.1406 663.028,363.1406 710.215,363.1406 " fill="none" id="c4con&lt;-c4com" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="555.005,363.1406,564.005,367.1406,560.005,363.1406,564.005,359.1406,555.005,363.1406" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="119" x="573.25" y="356.6357">get container by id</text><!--MD5=[9c7b1fadb2817ba5c0e314aa19d57ac9]
+reverse link c4ctx to c4con--><path d="M223.403,363.1406 C266.606,363.1406 317.604,363.1406 360.996,363.1406 " fill="none" id="c4ctx&lt;-c4con" style="stroke: #666666; stroke-width: 1.0;"/><polygon fill="#666666" points="218.174,363.1406,227.174,367.1406,223.174,363.1406,227.174,359.1406,218.174,363.1406" style="stroke: #666666; stroke-width: 1.0;"/><text fill="#666666" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="106" x="236.5" y="356.6357">get context by id</text><!--MD5=[f0068e8f3a75318ba4cd3bd16010262f]
+@startuml C4 Model Helper Component View
+
+
+
+
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam Arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 12
+}
+
+skinparam rectangle<<boundary>> {
+    Shadowing false
+    StereotypeFontSize 0
+    FontColor #444444
+    BorderColor #444444
+    BorderStyle dashed
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam rectangle<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+skinparam database<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam database<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam Arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 12
+}
+
+skinparam rectangle<<boundary>> {
+    Shadowing false
+    StereotypeFontSize 0
+    FontColor #444444
+    BorderColor #444444
+    BorderStyle dashed
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam rectangle<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+skinparam database<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam database<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+skinparam database<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam Arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 12
+}
+
+skinparam rectangle<<boundary>> {
+    Shadowing false
+    StereotypeFontSize 0
+    FontColor #444444
+    BorderColor #444444
+    BorderStyle dashed
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam rectangle<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+skinparam database<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+skinparam database<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+skinparam database<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<component>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #000000
+    BackgroundColor #85BBF0
+    BorderColor #78A8D8
+}
+
+skinparam database<<component>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #000000
+    BackgroundColor #85BBF0
+    BorderColor #78A8D8
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Title C4 Model Helper Component View 
+
+
+
+            
+            
+            
+                
+                
+
+    
+            
+            
+            
+                
+                
+        rectangle "==C4 PlantUML Helper Scripts\n//<size:12>[repo]</size>//" <<component>> as git_c4_helper [[https://github.com/{view  github}]] {
+
+	rectangle "==Context Registry \n//<size:12>[json]</size>//\n\n list of registered contexts" <<component>> as c4ctxr
+	rectangle "==Container Registry \n//<size:12>[json]</size>//\n\n list of registered containers" <<component>> as c4conr
+	rectangle "==Component Registry \n//<size:12>[json]</size>//\n\n list of registered components" <<component>> as c4comr
+	rectangle "==Locate Context \n//<size:12>[script]</size>//\n\n locates context by id and returns values" <<component>> as c4ctx
+	rectangle "==Locate Container\n//<size:12>[script]</size>//\n\n locates container by id and returns values" <<component>> as c4con
+	rectangle "==Locate Component\n//<size:12>[script]</size>//\n\n locates component by id and returns values" <<component>> as c4com
+	rectangle "==Context Legend \n//<size:12>[script]</size>//\n\n creates a legend using the context registery" <<component>> as c4ctxl
+	rectangle "==Container Legend \n//<size:12>[script]</size>//\n\n creates a legend using the container registery" <<component>> as c4conl
+	rectangle "==Component Legend \n//<size:12>[script]</size>//\n\n creates a legend using the component registery" <<component>> as c4coml
+}
+
+c4ctx -UP-> c4ctxr : "===get by context id"
+c4ctxl -UP-> c4ctx : "===get all"
+c4con -UP-> c4conr : "===get by container id"
+c4conl -UP-> c4con : "===get all"
+c4com -UP-> c4comr : "===get by component id"
+c4coml -UP-> c4com : "===get all"
+c4com -LEFT-> c4con : "===get container by id"
+c4con -LEFT-> c4ctx : "===get context by id"
+@enduml
+
+PlantUML version 1.2020.07beta15(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_241-b07
+Operating System: Windows 10
+Default Encoding: Cp1252
+Language: en
+Country: AU
+--></g></svg>
