@@ -132,3 +132,5 @@ Thje following variable are used
 == Future Considerations
 The scripts have been coded to support the externalisation of the Context, Container and Compoenent registries. 
 The json based regesistries are currrently imbedded within the helper script pending plantumls release of the *%loadJSON("context.json")* function.
+
+I will endevour to source a confluence sandpit site to demonstrate the linakability between the C4 levels.
