@@ -9,7 +9,7 @@ The issue then becomes:
 * how easy is it to add navigational links as the C4 maker had intended?
 * How do we maintain and integrate all these scripts so to produce a “Model” of the architecture.
 
-C4 Helper to the rescue.
+C4_Helper to the rescue.
 
 image:C4 Model Helper Context.svg[Context]
 
@@ -64,7 +64,7 @@ image:C4 Model Helper Container List.svg[Container List]
 
 == Component 
 .component diagram example
-In this example thre is a mox of helper macro and normally coded components.
+In this example there is a mix of components defined using the helper macro and normal C4 coded components.
 [source, script]
 ----
 @startuml C4 Model Helper Component View

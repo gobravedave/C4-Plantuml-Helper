@@ -35,7 +35,8 @@
 {"id": "c4" ,"label": "C4", "tech": "method", "desc": "Modelling approach for visualising Software Architecture", "contextid": "c4_helper", "link": "https://c4model.com/"},
 {"id": "vsc" ,"label": "Visual Studio Code", "tech": "Windows", "desc": "Code Editor", "contextid": "c4_helper", "link": "https://code.visualstudio.com/docs"},
 {"id": "plantuml" ,"label": "PlantUML", "tech": "open source", "desc":"Creates UML (and other diagrams types) using plain text language", "contextid": "c4_helper", "link": "https://plantuml.com/"},
-{"id": "github" ,"label": "GitHub", "tech": "open source", "desc":"Development Platform", "contextid": "c4_helper", "link": "https://github.com/"} 
+{"id": "github" ,"label": "GitHub", "tech": "open source", "desc":"Development Platform", "contextid": "c4_helper", "link": "https://github.com/"}, 
+{"id": "git_c4_helper" ,"label": "C4 PlantUML Helper Scripts" ,"tech": "repo" ,"desc": "helper macros for scripting C4 Diagrms using PlantUML" ,"contextid": "github" ,"link": "https://github.com/gobravedave/C4-Plantuml-Helper"} 
 ]
 }
 
