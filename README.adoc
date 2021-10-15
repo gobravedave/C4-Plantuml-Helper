@@ -118,7 +118,7 @@ image:C4 Model Helper Component List.svg[Component List]
 The C4_helper.iuml is a PlantUML Preprocessor and requires the V2 of the https://plantuml.com/preprocessing[plantuml preprocessor] and at least release  of 1.2020.07.
 
 An updated C4 Code Snippet is included which cater for the new helper routines introduced.
-Thje following variable are used
+The following variable are used
 
 [options="header",cols="<.<2,<.<1, <.<4"]
 |===
