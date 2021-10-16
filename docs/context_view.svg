@@ -1,45 +1,41 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="707px" preserveAspectRatio="none" style="width:788px;height:707px;background:#FFFFFF;" version="1.1" viewBox="0 0 788 707" width="788px" zoomAndPan="magnify"><defs/><g><!--MD5=[7f1db14b27b7629509c802e44e13c9c4]
-cluster context--><rect fill="#FFFFFF" height="694" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="775" x="7" y="7"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="163" x="313" y="35.6094">C4 PlantUML Context</text><!--MD5=[0ccfdb9502303978ec59c101ac430911]
-entity tw--><rect fill="#08427B" height="156.0469" style="stroke:#073B6F;stroke-width:1.5;" width="195" x="23.5" y="56"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="52" x="95" y="78.457">«person»</text><image height="48" width="48" x="97" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAABuUlEQVR42u2Yv0oEMRDGp/QRfIR7BVs7Gx9AH0CwtrtKLNXSRsRSG8HCxkbQVrSykoOrzlILC9v4gwMRNptMMsnu3nHDFMcSLh/f/PsmsrY5HpTLUgHaOri8uHt+eJm8vs/wm8e38fn9aPekB0D7p7df3z+uxYC4sXfWEaD17SPIcAqDreqAQBMgpmnHV091ASm5+W8EtxYgQuCyDF7LA+JPXa5RieUBwbwzWHlAVLIFEB2rMKCk4rK0AC0gZzN9/S8soOnHpwWQvhtpATE4h5XUlrKnIKp06uxCS5poCzs6stvjzuF1XfmRVG4ZkihHMSp5SuXGJGG5LEAVPSIpb4qJfIQzQeF6OMORGXSHbCjLuAb1CYhti7whQHQ5PLrlcHh+kiAyN/RxFE0/9OYvH+dJw33gw/nB4bYa5Ltmokl4MTXqMi+sMFtSfFBEDWoD67bUkPSa+d/Gk3i7i6tvxE4LyLhgGOeu9ELPXzLFAVHJrkNrZreUFfN28S9l1x27upVSLwp5hlIYFqBm8a8ADRxQJIfszy72ZxrpeKxGR6xnltEbupkbXtkpbQsh6ozhV8kDCni1dcT8F2bsoAKLcdt7AAAAAElFTkSuQmCC" y="81.0938"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="123" x="59.5" y="145.7031">Technical Writer</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="123" y="163.752"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119" x="61.5" y="181.3613">Produces Software</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="175" x="33.5" y="198.9707">Architecture Documentation</text><!--MD5=[4e65b8472facb0b840c3c2201cf517f0]
-entity vsc--><rect fill="#438DD5" height="105.5313" style="stroke:#3C7FC0;stroke-width:1.5;" width="166" x="23" y="325"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="65" x="73.5" y="347.457">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="146" x="33" y="366.7031">Visual Studio Code</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="55" x="78.5" y="382.6758">[Windows]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="108" y="399.8457"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="70.5" y="417.4551">Code Editor</text><!--MD5=[68180f917081af7ea13a4188db3c6e18]
-entity c4--><rect fill="#438DD5" height="140.75" style="stroke:#3C7FC0;stroke-width:1.5;" width="173" x="278.5" y="544"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="65" x="332.5" y="566.457">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="21" x="354.5" y="585.7031">C4</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="36" x="347" y="601.6758">[stdlib]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="367" y="618.8457"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="145" x="292.5" y="636.4551">Modelling approach for</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="301" y="654.0645">visualising Software</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="327" y="671.6738">Architecture</text><!--MD5=[f34abdc907f3da33f3fd0e2cc8b4f06b]
-entity plantuml--><rect fill="#438DD5" height="140.75" style="stroke:#3C7FC0;stroke-width:1.5;" width="219" x="23.5" y="544"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="65" x="100.5" y="566.457">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="74" x="96" y="585.7031">PlantUML</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="88" x="89" y="601.6758">[VSC Extension]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="135" y="618.8457"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="152" x="57" y="636.4551">Creates UML (and other</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="199" x="33.5" y="654.0645">diagrams types) using plain text</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="75" y="671.6738">scripting language</text><!--MD5=[b984c150f5f0dcc4bbf43d9d7a7a3ca9]
-entity arc--><rect fill="#438DD5" height="140.75" style="stroke:#3C7FC0;stroke-width:1.5;" width="196" x="267" y="307.5"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="65" x="332.5" y="329.957">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="170" x="280" y="349.2031">Architecture Diagrams</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="35" x="347.5" y="365.1758">[script]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="367" y="382.3457"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="155" x="287.5" y="399.9551">A set of Diagrams use to</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="172" x="277" y="417.5645">capture the architeture of a</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49" x="340.5" y="435.1738">solution</text><!--MD5=[b9b84772ae5e9c65065850601932e847]
-entity git_c4_helper--><rect fill="#438DD5" height="178.4844" style="stroke:#3C7FC0;stroke-width:1.5;" width="219" x="546.5" y="289"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="65" x="623.5" y="311.457">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="153" x="577.5" y="330.7031">C4 PlantUML Helper</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="54" x="629" y="350.8281">Scripts</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="41" x="635.5" y="366.8008">[macro]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="658" y="383.9707"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="185" x="563.5" y="401.5801">helper macros for register C4</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="140" x="584" y="419.1895">elements for resuse in</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="195" x="556.5" y="436.7988">producing C4 type Architecural</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="626" y="454.4082">Diagrams</text><!--MD5=[5a51309a456a5c308b7894baa0d234f2]
-link tw to vsc--><path d="M116.21,212.24 C114.05,247.16 111.53,287.71 109.54,319.84 " fill="none" id="tw-to-vsc" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="109.23,324.92,113.7633,316.1765,109.5303,319.929,105.7778,315.696,109.23,324.92" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="28" x="114" y="255.457">uses</text><!--MD5=[5f88b7af7f042fe71077568fd54be84a]
-link vsc to arc--><path d="M189.02,378 C212.09,378 237.42,378 261.51,378 " fill="none" id="vsc-to-arc" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="266.63,378,257.63,374,261.63,378,257.63,382,266.63,378" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="41" x="207.5" y="371.457">creates</text><!--MD5=[3ffb49247d14419f7f6cd95d8fc242c3]
-reverse link vsc to plantuml--><path d="M112.58,436.18 C116.32,468.63 121.02,509.49 124.98,543.81 " fill="none" id="vsc-backto-plantuml" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="111.99,431.04,109.047,440.4389,112.5626,436.0071,116.9943,439.5227,111.99,431.04" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="47" x="122" y="510.457">includes</text><!--MD5=[8823886b7ba86585faf879e4e7f027e7]
-reverse link arc to c4--><path d="M365,454.04 C365,482.77 365,515.41 365,543.64 " fill="none" id="arc-backto-c4" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="365,448.72,361,457.72,365,453.72,369,457.72,365,448.72" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="47" x="366" y="510.457">includes</text><!--MD5=[913354b2f7adc276db44e28f17db480e]
-reverse link arc to git_c4_helper--><path d="M468.15,378 C493.48,378 520.68,378 546.3,378 " fill="none" id="arc-backto-git_c4_helper" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="463.11,378,472.11,382,468.11,378,472.11,374,463.11,378" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="47" x="481.25" y="371.457">includes</text><!--MD5=[d147bbed05cbc319ea4d56b609bade58]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="709px" preserveAspectRatio="none" style="width:1058px;height:709px;background:#FFFFFF;" version="1.1" viewBox="0 0 1058 709" width="1058px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="0" x="525" y="18.6855"/><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="244" x="400.5" y="41.3262">C4 Model Helper Context View</text><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="0" x="525" y="63.9668"/><!--MD5=[4e65b8472facb0b840c3c2201cf517f0]
+entity vsc--><rect fill="#438DD5" height="105.5313" style="stroke:#3C7FC0;stroke-width:1.5;" width="166" x="309.5" y="343.9219"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="65" x="360" y="366.3789">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="146" x="319.5" y="385.625">Visual Studio Code</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="55" x="365" y="401.5977">[Windows]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="394.5" y="418.7676"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="357" y="436.377">Code Editor</text><!--MD5=[68180f917081af7ea13a4188db3c6e18]
+entity c4--><rect fill="#438DD5" height="140.75" style="stroke:#3C7FC0;stroke-width:1.5;" width="173" x="565" y="562.9219"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="65" x="619" y="585.3789">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="21" x="641" y="604.625">C4</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="36" x="633.5" y="620.5977">[stdlib]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="653.5" y="637.7676"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="145" x="579" y="655.377">Modelling approach for</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="587.5" y="672.9863">visualising Software</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="613.5" y="690.5957">Architecture</text><!--MD5=[f34abdc907f3da33f3fd0e2cc8b4f06b]
+entity plantuml--><rect fill="#438DD5" height="140.75" style="stroke:#3C7FC0;stroke-width:1.5;" width="219" x="7" y="326.4219"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="65" x="84" y="348.8789">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="74" x="79.5" y="368.125">PlantUML</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="88" x="72.5" y="384.0977">[VSC Extension]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="118.5" y="401.2676"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="152" x="40.5" y="418.877">Creates UML (and other</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="199" x="17" y="436.4863">diagrams types) using plain text</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="58.5" y="454.0957">scripting language</text><!--MD5=[b984c150f5f0dcc4bbf43d9d7a7a3ca9]
+entity arc--><rect fill="#438DD5" height="140.75" style="stroke:#3C7FC0;stroke-width:1.5;" width="196" x="553.5" y="326.4219"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="65" x="619" y="348.8789">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="170" x="566.5" y="368.125">Architecture Diagrams</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="35" x="634" y="384.0977">[script]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="653.5" y="401.2676"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="155" x="574" y="418.877">A set of Diagrams use to</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="172" x="563.5" y="436.4863">capture the architeture of a</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49" x="627" y="454.0957">solution</text><!--MD5=[a77d7a0b75738f4eeeb1dc57cbcd2554]
+entity c4_helper--><rect fill="#438DD5" height="178.4844" style="stroke:#3C7FC0;stroke-width:1.5;" width="219" x="833" y="307.9219"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="65" x="910" y="330.3789">«container»</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="153" x="864" y="349.625">C4 PlantUML Helper</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="54" x="915.5" y="369.75">Scripts</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="41" x="922" y="385.7227">[macro]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="944.5" y="402.8926"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="185" x="850" y="420.502">helper macros for register C4</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="140" x="870.5" y="438.1113">elements for resuse in</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="195" x="843" y="455.7207">producing C4 type Architecural</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="912.5" y="473.3301">Diagrams</text><!--MD5=[0ccfdb9502303978ec59c101ac430911]
+entity tw--><rect fill="#08427B" height="156.0469" style="stroke:#073B6F;stroke-width:1.5;" width="195" x="295" y="74.9219"/><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="52" x="366.5" y="97.3789">«person»</text><image height="48" width="48" x="368.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAABuUlEQVR42u2Yv0oEMRDGp/QRfIR7BVs7Gx9AH0CwtrtKLNXSRsRSG8HCxkbQVrSykoOrzlILC9v4gwMRNptMMsnu3nHDFMcSLh/f/PsmsrY5HpTLUgHaOri8uHt+eJm8vs/wm8e38fn9aPekB0D7p7df3z+uxYC4sXfWEaD17SPIcAqDreqAQBMgpmnHV091ASm5+W8EtxYgQuCyDF7LA+JPXa5RieUBwbwzWHlAVLIFEB2rMKCk4rK0AC0gZzN9/S8soOnHpwWQvhtpATE4h5XUlrKnIKp06uxCS5poCzs6stvjzuF1XfmRVG4ZkihHMSp5SuXGJGG5LEAVPSIpb4qJfIQzQeF6OMORGXSHbCjLuAb1CYhti7whQHQ5PLrlcHh+kiAyN/RxFE0/9OYvH+dJw33gw/nB4bYa5Ltmokl4MTXqMi+sMFtSfFBEDWoD67bUkPSa+d/Gk3i7i6tvxE4LyLhgGOeu9ELPXzLFAVHJrkNrZreUFfN28S9l1x27upVSLwp5hlIYFqBm8a8ADRxQJIfszy72ZxrpeKxGR6xnltEbupkbXtkpbQsh6ozhV8kDCni1dcT8F2bsoAKLcdt7AAAAAElFTkSuQmCC" y="100.0156"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="123" x="331" y="164.625">Technical Writer</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="394.5" y="182.6738"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119" x="333" y="200.2832">Produces Software</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="175" x="305" y="217.8926">Architecture Documentation</text><!--MD5=[5a51309a456a5c308b7894baa0d234f2]
+link tw to vsc--><path d="M392.5,231.1619 C392.5,266.0819 392.5,306.6319 392.5,338.7619 " fill="none" id="tw-to-vsc" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="392.5,343.8419,396.5,334.8419,392.5,338.8419,388.5,334.8419,392.5,343.8419" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="28" x="393.5" y="274.3789">uses</text><!--MD5=[5f88b7af7f042fe71077568fd54be84a]
+link vsc to arc--><path d="M475.52,396.9219 C498.59,396.9219 523.92,396.9219 548.01,396.9219 " fill="none" id="vsc-to-arc" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="553.13,396.9219,544.13,392.9219,548.13,396.9219,544.13,400.9219,553.13,396.9219" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="41" x="494" y="390.3789">creates</text><!--MD5=[fab9bc852cf888e48cc6b9634a13f744]
+link plantuml to vsc--><path d="M226.38,396.9219 C252.2,396.9219 279.39,396.9219 304.13,396.9219 " fill="none" id="plantuml-to-vsc" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="309.38,396.9219,300.38,392.9219,304.38,396.9219,300.38,400.9219,309.38,396.9219" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="47" x="244.25" y="390.3789">includes</text><!--MD5=[8823886b7ba86585faf879e4e7f027e7]
+reverse link arc to c4--><path d="M651.5,472.9619 C651.5,501.6919 651.5,534.3319 651.5,562.5619 " fill="none" id="arc-backto-c4" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="651.5,467.6419,647.5,476.6419,651.5,472.6419,655.5,476.6419,651.5,467.6419" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="47" x="652.5" y="529.3789">includes</text><!--MD5=[aab7a2d3fea07847cf227bad0bdc1584]
+reverse link arc to c4_helper--><path d="M754.65,396.9219 C779.98,396.9219 807.18,396.9219 832.8,396.9219 " fill="none" id="arc-backto-c4_helper" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="749.61,396.9219,758.61,400.9219,754.61,396.9219,758.61,392.9219,749.61,396.9219" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="47" x="767.75" y="390.3789">includes</text><!--MD5=[b3878ba7aa0b8ac66ee268d95f73229d]
 @startuml context_view
 '!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 !include ../C4-PlantUML-master/C4_Component.puml
 !include ../C4-Plantuml-Helper/C4_helper.iuml
 
-'Title C4 Model Helper 
+Title \nC4 Model Helper Context View\n  
 %set_variable_value("$C4_LEVEL", "CONTEXT")
 %set_variable_value("$INCLUDE_DESC", "Y")
 
-Boundary(context, "C4 PlantUML Context"){
-	Person(tw, "Technical Writer", "Produces Software Architecture Documentation")
-	$container(vsc)
+Person(tw, "Technical Writer", "Produces Software Architecture Documentation")
+$container(vsc)
 }
-	$container(c4)
-	}
-	$container(plantuml)
-	}
-'	$container(github)
-		$container(arc)
-		}
-'	}
-	$container(git_c4_helper)
-	}
-	tw - -> vsc :uses
-	vsc -> arc :creates
-	vsc <- - plantuml : includes
-	arc <- - c4 :includes
-	arc <- git_c4_helper :includes
+$container(c4)
 }
+$container(plantuml)
+}
+$container(arc)
+}
+$container(c4_helper)
+}
+
+tw - -> vsc :uses
+vsc -> arc :creates
+plantuml -> vsc : includes
+arc <- - c4 :includes
+arc <- c4_helper :includes
 
 @enduml
 
@@ -625,12 +621,12 @@ skinparam queue<<external_component>> {
 
 
 
+Title \nC4 Model Helper Context View\n  
 
 
 
-rectangle "==C4 PlantUML Context" <<boundary>> as context {
-	rectangle "<$person>\n==Technical Writer\n\n Produces Software Architecture Documentation" <<person>> as tw 
-	
+rectangle "<$person>\n==Technical Writer\n\n Produces Software Architecture Documentation" <<person>> as tw 
+
 
             
             
@@ -639,7 +635,7 @@ rectangle "==C4 PlantUML Context" <<boundary>> as context {
                 
         rectangle "==Visual Studio Code\n//<size:12>[Windows]</size>//\n\n Code Editor" <<container>> as vsc  $CONTAINER_LINK {
 }
-	
+
 
             
             
@@ -647,8 +643,8 @@ rectangle "==C4 PlantUML Context" <<boundary>> as context {
                 
                 
         rectangle "==C4\n//<size:12>[stdlib]</size>//\n\n Modelling approach for visualising Software Architecture" <<container>> as c4  $CONTAINER_LINK {
-	}
-	
+}
+
 
             
             
@@ -656,8 +652,8 @@ rectangle "==C4 PlantUML Context" <<boundary>> as context {
                 
                 
         rectangle "==PlantUML\n//<size:12>[VSC Extension]</size>//\n\n Creates UML (and other diagrams types) using plain text scripting language" <<container>> as plantuml  $CONTAINER_LINK {
-	}
-		
+}
+
 
             
             
@@ -665,22 +661,22 @@ rectangle "==C4 PlantUML Context" <<boundary>> as context {
                 
                 
         rectangle "==Architecture Diagrams\n//<size:12>[script]</size>//\n\n A set of Diagrams use to capture the architeture of a solution" <<container>> as arc  $CONTAINER_LINK {
-		}
-	
+}
+
 
             
             
             
                 
                 
-        rectangle "==C4 PlantUML Helper Scripts\n//<size:12>[macro]</size>//\n\n helper macros for register C4 elements for resuse in producing C4 type Architecural Diagrams" <<container>> as git_c4_helper  $CONTAINER_LINK {
-	}
-	tw - -> vsc :uses
-	vsc -> arc :creates
-	vsc <- - plantuml : includes
-	arc <- - c4 :includes
-	arc <- git_c4_helper :includes
+        rectangle "==C4 PlantUML Helper Scripts\n//<size:12>[macro]</size>//\n\n helper macros for register C4 elements for resuse in producing C4 type Architecural Diagrams" <<container>> as c4_helper  $CONTAINER_LINK {
 }
+
+tw - -> vsc :uses
+vsc -> arc :creates
+plantuml -> vsc : includes
+arc <- - c4 :includes
+arc <- c4_helper :includes
 
 @enduml
 
