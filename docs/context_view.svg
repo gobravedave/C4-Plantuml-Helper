@@ -10,8 +10,8 @@ link tw to vsc--><path d="M116.21,212.24 C114.05,247.16 111.53,287.71 109.54,319
 link vsc to arc--><path d="M189.02,378 C212.09,378 237.42,378 261.51,378 " fill="none" id="vsc-to-arc" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="266.63,378,257.63,374,261.63,378,257.63,382,266.63,378" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="41" x="207.5" y="371.457">creates</text><!--MD5=[3ffb49247d14419f7f6cd95d8fc242c3]
 reverse link vsc to plantuml--><path d="M112.58,436.18 C116.32,468.63 121.02,509.49 124.98,543.81 " fill="none" id="vsc-backto-plantuml" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="111.99,431.04,109.047,440.4389,112.5626,436.0071,116.9943,439.5227,111.99,431.04" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="47" x="122" y="510.457">includes</text><!--MD5=[8823886b7ba86585faf879e4e7f027e7]
 reverse link arc to c4--><path d="M365,454.04 C365,482.77 365,515.41 365,543.64 " fill="none" id="arc-backto-c4" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="365,448.72,361,457.72,365,453.72,369,457.72,365,448.72" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="47" x="366" y="510.457">includes</text><!--MD5=[913354b2f7adc276db44e28f17db480e]
-reverse link arc to git_c4_helper--><path d="M468.15,378 C493.48,378 520.68,378 546.3,378 " fill="none" id="arc-backto-git_c4_helper" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="463.11,378,472.11,382,468.11,378,472.11,374,463.11,378" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="47" x="481.25" y="371.457">includes</text><!--MD5=[412dfeadb8cad70833f91094483332a4]
-@startuml C4 Model Helper Context View
+reverse link arc to git_c4_helper--><path d="M468.15,378 C493.48,378 520.68,378 546.3,378 " fill="none" id="arc-backto-git_c4_helper" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="463.11,378,472.11,382,468.11,378,472.11,374,463.11,378" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="47" x="481.25" y="371.457">includes</text><!--MD5=[d147bbed05cbc319ea4d56b609bade58]
+@startuml context_view
 '!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 !include ../C4-PlantUML-master/C4_Component.puml
 !include ../C4-Plantuml-Helper/C4_helper.iuml
@@ -43,7 +43,7 @@ Boundary(context, "C4 PlantUML Context"){
 
 @enduml
 
-@startuml C4 Model Helper Context View
+@startuml context_view
 
 
 
