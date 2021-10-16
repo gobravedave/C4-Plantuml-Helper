@@ -1,35 +1,37 @@
-@startuml C4 Model Helper Context View
+@startuml context_view
 '!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 !include ../C4-PlantUML-master/C4_Component.puml
 !include ../C4-Plantuml-Helper/C4_helper.iuml
 
-'Title C4 Model Helper 
+Title \nC4 Model Helper Context View\n  
 %set_variable_value("$C4_LEVEL", "CONTEXT")
 %set_variable_value("$INCLUDE_DESC", "Y")
 
-Boundary(context, "C4 PlantUML Context"){
-	Person(tw, "Technical Writer", "Produces Software Architecture Documentation")
-	$container(vsc)
-	}
-	$container(c4)
-	}
-	$container(plantuml)
-	}
-	$container(github)
-	}
-	tw -> vsc :uses
-	vsc -Right-> github :architecture\nmodel
-	plantuml -Up-> vsc :extended\nto support
-	c4 -Left-> plantuml :extended\nto support
+Person(tw, "Technical Writer", "Produces Software Architecture Documentation")
+$container(vsc)
 }
+$container(c4)
+}
+$container(plantuml)
+}
+$container(arc)
+}
+$container(c4_helper)
+}
+
+tw --> vsc :uses
+vsc -> arc :creates
+plantuml -> vsc : includes
+arc <-- c4 :includes
+arc <- c4_helper :includes
 
 @enduml
 
-@startuml C4 Model Helper Container View
+@startuml container_view
 '!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 !include ../C4-PlantUML-master/C4_Component.puml
 !include ../C4-Plantuml-Helper/C4_helper.iuml
-Title C4 Model Helper Container View 
+Title \nC4 Model Helper Container View\n 
 %set_variable_value("$C4_LEVEL", "CONTAINER")
 '%set_variable_value("$INCLUDE_DESC", "Y")
 
@@ -44,19 +46,28 @@ $container_boundary(plantuml)
 	Component(jar, "plantuml.jar", "java")		
 }
 $container_boundary(github)
+	$component(git_arc)
+	}
 	$component(git_c4)
 	}
 	$component(git_c4_helper)
 	}
+	$component(git_c4_helper_snippet)
+	}
+	$component(git_svg)
+	}
 }
-Rel_Right(jar, vsc_plant, "references")
-Rel_Up(git_c4, vsc_plant, "includes")
-Rel_Left(git_c4_helper, git_c4, "includes")
-Rel_Up(git_c4_helper, vsc_snippet, "installed from")
+jar --> vsc_plant :references
+vsc_plant -> git_arc : is used to render
+vsc_snippet -> git_arc :to help create
+vsc_plant ---> git_svg :is used to render
+Rel_Up(git_c4, git_arc, "includes")
+Rel_Left(git_c4_helper, git_arc, "includes")
+Rel_Up(git_c4_helper_snippet, vsc_snippet, "manually updated from")
 
 @enduml
 
-@startuml C4 Model Helper Component View
+@startuml component_view
 '!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 !include ../C4-PlantUML-master/C4_Component.puml
 !include ../C4-Plantuml-Helper/C4_helper.iuml

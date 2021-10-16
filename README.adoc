@@ -12,7 +12,7 @@ The issue then becomes:
 * how easy is it to add navigational links as the C4 maker had intended?
 * How do we maintain and integrate all these scripts so to produce a “Model” of the architecture.
 
-C4_Helper to the rescue.
+C4_Plantuml_Helper to the rescue.
 
 image::context_view.svg[Context]
 
