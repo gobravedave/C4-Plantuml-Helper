@@ -6,4 +6,4 @@ a sample context view in svg format with links
 
 <img class="fit-picture"
      src="../C4 Model Helper Context.svg"
-     alt="Grapefruit slice atop a pile of other slices">
+     alt="Sample Comtext View">
