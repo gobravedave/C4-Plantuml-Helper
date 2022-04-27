@@ -1,5 +1,5 @@
 # Software Architecture Diagramming Tooling Discovery
-The following post is a collection of notes, links and learnings asscoaited with a review of various diagraming tools available to be used to document software architeture.
+The following post is a collection of notes, links and learnings associated with a review of diagraming/modelling tools to be used to create and maintain software architecture documents.
 
 ## Needs Analsis 
 The following 
@@ -28,7 +28,7 @@ The following tools have been reviewed:
 
 | Need | PlantUML | DrawIO | Mermaid | Lucidchart| Structurizr | Gliffy | 
 | --- | --- | --- | --- | --- | --- |--- |
-| Easy To Use | Yes | Yes | Yes | Yes | No | No |
+| Easy To Use | Yes | No | Yes | Yes | No | No |
 | UML | Yes | Yes | Yes | Yes | Yes | Yes |
 | Free | Yes | Yes | Yes | No | No | No|
 | Diagrams as Code | Yes | Yes | Yes | No | Yes | No |
