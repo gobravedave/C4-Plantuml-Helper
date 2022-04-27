@@ -23,13 +23,6 @@ The following tools have been reviewed:
 * Structurizr
 * Gliffy
 
----
-**NOTE**
-
-Sparks Enterprise
-
----
-
 ## Comparison Summary
 
 | Need | PlantUML | DrawIO | Mermaid | Lucidchart| Structurizr | Gliffy | 
@@ -77,22 +70,14 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-The above script sourced from https://github.com/plantuml-stdlib/C4-PlantUML#readme renders within the markrkdown document as...
+The above script sourced from https://github.com/plantuml-stdlib/C4-PlantUML#readme renders within the markdown document however it does not automatically render when I publish to github.
 
-```plantuml
-@startuml Basic Sample
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+There is a [generate plantml make action] (https://github.com/marketplace/actions/generate-plantuml) which could automate the rendering.. but this looks like it would require the plantuml scipt to be a separate file and simply pulling in the gnerated imange into the markdown.
 
-Person(admin, "Administrator")
-System_Boundary(c1, "Sample System") {
-    Container(web_app, "Web Application", "C#, ASP.NET Core 2.1 MVC", "Allows users to compare multiple Twitter timelines")
-}
-System(twitter, "Twitter")
+For expediency.. I did this manually via Visual Studio Code.
 
-Rel(admin, web_app, "Uses", "HTTPS")
-Rel(web_app, twitter, "Gets tweets from", "HTTPS")
-@enduml
-```
+![basic sample](/Basic%20Sample.svg) 
+
 Linking is possbile by including [hypertext links](https://plantuml.com/link) on objects.. So it is possible to add but it is fragile and not really testable within Visual Studio Code.
 
 PlantUML is not so good at big complex diagrams. It is possible to add layout hints to the diagram but at times the results are bewildering. Maybe this is a excellent case for keeping the diagrams simple. 
