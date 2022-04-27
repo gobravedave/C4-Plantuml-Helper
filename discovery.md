@@ -12,7 +12,8 @@ The following
 * render in mark down 
 * render in github pages
 * render in confluence
-* layers
+* linking to support C4 navigation
+* layers to support transitional roadmaps 
 
 ## Tooling Reviewed
 The following tools have been reviewed:
@@ -36,6 +37,7 @@ The following tools have been reviewed:
 | Markdown | Yes | Yes | Yes | No | ? | No |
 | Github Pages | ? | via SVG | Yes | via SVG | via SVG | via SVG| 
 | Confluence | Yes | Yes | Yes | Yes | Yes | Yes|
+| Linking | Yes | Yes | Yes | Yes | Yes | Yes |
 | Layers | No | Yes | ? | No | No | Yes |
 
 More details follows for each tool reviewed.
