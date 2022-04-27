@@ -6,7 +6,7 @@ The following
 * easy to use
 * UML diagrams
 * relatively cheap (actually is it available for free)
-* text based to diagrams as code concepts
+* text based to support diagrams as code concepts
 * visual studio code previewer
 * support for [C4 Modelling](https://c4model.com/) would be nice
 * render in mark down 
@@ -31,7 +31,7 @@ The following tools have been reviewed:
 | Easy To Use | Yes | Yes | Yes | Yes | No | No |
 | UML | Yes | Yes | Yes | Yes | Yes | Yes |
 | Free | Yes | Yes | Yes | No | No | No|
-| Text Based | Yes | Yes | Yes | No | Yes | No |
+| Diagrams as Code | Yes | Yes | Yes | No | Yes | No |
 | Visual Studio Code | Yes | Yes | Yes | No | Yes | No |
 | C4 Models | Yes | Yes | Sort of | Yes | Yes | No |
 | Markdown | Yes | Yes | Yes | No | ? | No |
