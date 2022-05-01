@@ -72,7 +72,9 @@ Rel(web_app, twitter, "Gets tweets from", "HTTPS")
 @enduml
 ```
 
-The above script sourced from https://github.com/plantuml-stdlib/C4-PlantUML#readme renders within the markdown document however it does not automatically render when I publish to github.
+The above script sourced from https://github.com/plantuml-stdlib/C4-PlantUML#readme renders within the markdown document as per screen shot, however it does not automatically render when I publish to github.
+
+![Visual Studio Preview](/plantuml_preview.png) 
 
 There is a [generate plantml make action] (https://github.com/marketplace/actions/generate-plantuml) which could automate the rendering.. but this looks like it would require the plantuml scipt to be a separate file and simply pulling in the gnerated imange into the markdown.
 
