@@ -108,40 +108,37 @@ The exported svg, however does not appear to honour the links.
 ### [Mermaid](https://mermaid-js.github.io/mermaid/#/n00b-gettingStarted)
 
 The [Markdown Preview Mermaid Support visual studio code extension](
-https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) makes is easy to script out a diagram and render it within your markdown document while in Visual stodio code.
+https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) makes is easy to script out a diagram and render it within your markdown document while in Visual studio code.
+
+URL links can be added using the `link` key word.
 
 ```code
 classDiagram
-hideEmpty
 class thing
-thing <|-- blob
-thing <|-- rock
-thing <|-- yoyo
 thing <|-- scissors
-thing <|-- card
+thing <|-- paper
+thing <|-- rock
+link thing "http://www.github.com" "This is a tooltip for a link"
+link scissors "http://www.github.com" "This is a tooltip for a link"
+link paper "http://www.github.com" "This is a tooltip for a link"
+link rock "http://www.github.com" "This is a tooltip for a link"
 ```
+
 ```mermaid
 classDiagram
 class thing
-thing <|-- blob
-thing <|-- rock
-thing <|-- yoyo
 thing <|-- scissors
-thing <|-- card
+thing <|-- paper
+thing <|-- rock
+link thing "http://www.github.com" "This is a tooltip for a link"
+link scissors "http://www.github.com" "This is a tooltip for a link"
+link paper "http://www.github.com" "This is a tooltip for a link"
+link rock "http://www.github.com" "This is a tooltip for a link"
 ```
 Confluence is good to go with the [Mermaind confluence plug-in]( https://marketplace.atlassian.com/apps/1214124/mermaid-plugin-for-confluence?tab=overview&hosting=server). Saying that, I have not given it a go (yet).
 
-```mermaid
-sequenceDiagram
-    participant Alice
-    participant John
-    links Alice: {"Dashboard": "https://dashboard.contoso.com/alice", "Wiki": "https://wiki.contoso.com/alice"}
-    links John: {"Dashboard": "https://dashboard.contoso.com/john", "Wiki": "https://wiki.contoso.com/john"}
-    Alice->>John: Hello John, how are you?
-    John-->>Alice: Great!
-    Alice-)John: See you later!
- ```   
-- [ ] c4 models.. linking/layers?
+ 
+- [ ] c4 models.. layers?
 
 ### [Lucidchart](https://www.lucidchart.com/)
 
