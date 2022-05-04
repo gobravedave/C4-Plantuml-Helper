@@ -94,9 +94,9 @@ A simple and easy interface to allow you to create and edit [multi layer](https:
 
 And with the help of the [C4-Draw.io plugin](https://tobiashochguertel.github.io/c4-draw.io/) you can get a head start on creating navigatable C4 models in no time.
 
-- [ ] layer links in the svg not working
+![drawio with layers](/drawio.gif) 
 
-![demo svg with layers](/demoDiagram.svg) 
+The exported svg, however does not appear to honour the links.
 
 ### [Mermaid](https://mermaid-js.github.io/mermaid/#/n00b-gettingStarted)
 
