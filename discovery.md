@@ -45,15 +45,18 @@ More details follows for each tool reviewed.
 ---
 
 ### [PlantUML](https://plantuml.com/)
+
+
 [Jebbs VSC extension ](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) has a 5 star rating and provides the ability to preview, save diagrams as svg/png.
 
-The following extension setting allow you to render the plantuml script when previewing markdown document. 
 
-If you feel OK to share your models you can use the official server https://www.plantuml.com/plantuml. The alernative is to setup you own server which is beyond the scope of this article.
+The following extension setting allow you to render the plantuml script when previewing markdown document. 
 
 ```code
 "plantuml.server": "https://www.plantuml.com/plantuml"
 ```
+
+Only use https://www.plantuml.com/plantuml if you are OK to share your models. The alernative is to setup you own server which is beyond the scope of this article.
 
 C4 Modelling is supported via the inclusion of [plantuml-stdlib](https://github.com/plantuml-stdlib) into your script.
 
@@ -76,13 +79,9 @@ The above script sourced from https://github.com/plantuml-stdlib/C4-PlantUML#rea
 
 ![Visual Studio Preview](/plantuml_preview.png) 
 
-There is a [generate plantml make action] (https://github.com/marketplace/actions/generate-plantuml) which could automate the rendering.. but this looks like it would require the plantuml scipt to be a separate file and simply pulling in the gnerated imange into the markdown.
+There is a [generate plantml](https://github.com/marketplace/actions/generate-plantuml) make action which could automate the rendering.. but this looks like it would require the plantuml script to be a separate file and simply pulling in the generated image into the markdown. I will put this on my backlog.. but for now I will simply include the generated image files into the markdown.
 
-For expediency.. I did this manually via Visual Studio Code.
-
-![basic sample](/Basic%20Sample.svg) 
-
-Linking is possbile by including [hypertext links](https://plantuml.com/link) on objects.. So it is possible to add but it is fragile and not really testable within Visual Studio Code.
+Linking is possbile by including [hypertext links](https://plantuml.com/link) on objects.. So it is possible to add but it is fragile and is not really testable within Visual Studio Code.
 
 PlantUML is not so good at big complex diagrams. It is possible to add layout hints to the diagram but at times the results are bewildering. Maybe this is a excellent case for keeping the diagrams simple. 
 
@@ -92,7 +91,7 @@ See [Visual Studio marketplace](https://marketplace.visualstudio.com/items?itemN
 
 A simple and easy interface to allow you to create and edit [multi layer](https://drawio-app.com/draw-io-training-exercise-7-create-a-diagram-with-layers-and-images/) SVG files and imbed them into your markdown document.
 
-And with the help of the [C4-Draw.io plugin](https://tobiashochguertel.github.io/c4-draw.io/) you can get a head start on creating navigatable C4 models in no time.
+And with the help of the [C4-Draw.io plugin](https://tobiashochguertel.github.io/c4-draw.io/) you can get a head start on creating navigatable C4 models in no time. 
 
 ![drawio with layers](/drawio.gif) 
 
@@ -132,7 +131,7 @@ Sign up for free and then work out your plan starting from $10 per month per use
 
 Great range of diagrams including a [C4 Model template](https://www.lucidchart.com/pages/templates/c-4-model-example?search=c4}).
 
-Lucidchart is pitched at being a cheaper replacement for Viso.. which I am sure it is.. but it missed the mark for me in being able to support the doc-as-code concept.
+Lucidchart is pitched at being a cheaper replacement for Viso, which I am sure it is, but it missed the mark for me in being able to support the concept of diagrams-as-code.
 
 Confluence is an option for you via the [Lucidchart Diagrams Connector](https://marketplace.atlassian.com/vendors/350257/lucid) plug-in.
 
