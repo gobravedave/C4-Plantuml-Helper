@@ -118,10 +118,10 @@ class thing
 thing <|-- scissors
 thing <|-- paper
 thing <|-- rock
-link thing "http://www.github.com" "This is a tooltip for a link"
-link scissors "http://www.github.com" "This is a tooltip for a link"
-link paper "http://www.github.com" "This is a tooltip for a link"
-link rock "http://www.github.com" "This is a tooltip for a link"
+link thing "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/425985/Mermaid+Demo" "This is a tooltip for a link to thing"
+link scissors "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/425985/Mermaid+Demo" "This is a tooltip for a link to link to scissors"
+link paper "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/425985/Mermaid+Demo" "This is a tooltip for a link to paper"
+link rock "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/425985/Mermaid+Demo" "This is a tooltip for a link to rock"
 ```
 
 ```mermaid
@@ -130,11 +130,12 @@ class thing
 thing <|-- scissors
 thing <|-- paper
 thing <|-- rock
-link thing "http://www.github.com" "This is a tooltip for a link"
-link scissors "http://www.github.com" "This is a tooltip for a link"
-link paper "http://www.github.com" "This is a tooltip for a link"
-link rock "http://www.github.com" "This is a tooltip for a link"
+link thing "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/425985/Mermaid+Demo" "This is a tooltip for a link to thing"
+link scissors "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/425985/Mermaid+Demo" "This is a tooltip for a link to link to scissors"
+link paper "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/425985/Mermaid+Demo" "This is a tooltip for a link to paper"
+link rock "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/425985/Mermaid+Demo" "This is a tooltip for a link to rock"
 ```
+
 Confluence is good to go with the [Mermaind confluence plug-in]( https://marketplace.atlassian.com/apps/1214124/mermaid-plugin-for-confluence?tab=overview&hosting=server). Saying that, I have not given it a go (yet).
 
  
