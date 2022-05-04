@@ -1,4 +1,4 @@
-# Software Architecture Diagramming Tooling Discovery
+# Software Architecture Diagramm Tooling Discovery
 The following post is a collection of notes, links and learnings associated with a review of diagraming/modelling tools to be used to create and maintain software architecture documents.
 
 ## Needs Analsis 
@@ -12,8 +12,8 @@ The following
 * render in mark down 
 * render in github pages
 * render in confluence
-* linking to support C4 navigation
-* layers to support transitional roadmaps 
+* add link to suport navigation 
+* layers to support animation would be nice
 
 ## Tooling Reviewed
 The following tools have been reviewed:
@@ -38,7 +38,7 @@ The following tools have been reviewed:
 | Github Pages |  via SVG | via SVG | Yes | via SVG | via SVG | via SVG| 
 | Confluence | Yes | Yes | Yes | Yes | Yes | Yes|
 | Linking | Yes | Yes | Yes | Yes | Yes | Yes |
-| Layers | No | Yes | ? | No | No | Yes |
+| Layers | No | Yes | ? | Yes | No | Yes |
 
 More details follows for each tool reviewed.
 
