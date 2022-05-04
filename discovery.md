@@ -35,7 +35,7 @@ The following tools have been reviewed:
 | Visual Studio Code | Yes | Yes | Yes | No | Yes | No |
 | C4 Models | Yes | Yes | Sort of | Yes | Yes | No |
 | Markdown | Yes | Yes | Yes | No | ? | No |
-| Github Pages | ? | via SVG | Yes | via SVG | via SVG | via SVG| 
+| Github Pages |  via SVG | via SVG | Yes | via SVG | via SVG | via SVG| 
 | Confluence | Yes | Yes | Yes | Yes | Yes | Yes|
 | Linking | Yes | Yes | Yes | Yes | Yes | Yes |
 | Layers | No | Yes | ? | No | No | Yes |
@@ -84,6 +84,14 @@ There is a [generate plantml](https://github.com/marketplace/actions/generate-pl
 Linking is possbile by including [hypertext links](https://plantuml.com/link) on objects.. So it is possible to add but it is fragile and is not really testable within Visual Studio Code.
 
 PlantUML is not so good at big complex diagrams. It is possible to add layout hints to the diagram but at times the results are bewildering. Maybe this is a excellent case for keeping the diagrams simple. 
+
+The [jonashackt/plantuml-markdown](https://github.com/jonashackt/plantuml-markdown/blob/master/README.md) repository contains details on how to Integrate the PlantUML render engine into a GitHub markdown.
+
+```code
+![example-uml](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/jonashackt/plantuml-markdown/master/example-uml.iuml)
+```
+
+![example-uml](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/jonashackt/plantuml-markdown/master/example-uml.iuml)
 
 ### [Diagram.net](https://www.diagrams.net/)
 
