@@ -131,6 +131,16 @@ thing <|-- card
 ```
 Confluence is good to go with the [Mermaind confluence plug-in]( https://marketplace.atlassian.com/apps/1214124/mermaid-plugin-for-confluence?tab=overview&hosting=server). Saying that, I have not given it a go (yet).
 
+```mermaid
+sequenceDiagram
+    participant Alice
+    participant John
+    links Alice: {"Dashboard": "https://dashboard.contoso.com/alice", "Wiki": "https://wiki.contoso.com/alice"}
+    links John: {"Dashboard": "https://dashboard.contoso.com/john", "Wiki": "https://wiki.contoso.com/john"}
+    Alice->>John: Hello John, how are you?
+    John-->>Alice: Great!
+    Alice-)John: See you later!
+ ```   
 - [ ] c4 models.. linking/layers?
 
 ### [Lucidchart](https://www.lucidchart.com/)
