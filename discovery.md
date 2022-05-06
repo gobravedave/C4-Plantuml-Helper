@@ -1,7 +1,7 @@
 # Software Architecture Diagram Tooling Discovery
 The following post is a collection of notes, links and learnings associated with a review of diagraming/modelling tools to be used to create and maintain software architecture documents.
 
-## Needs Analsis 
+## Needs Analysis 
 The following 
 * easy to use
 * UML diagrams
