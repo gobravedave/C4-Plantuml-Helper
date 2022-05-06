@@ -103,7 +103,7 @@ And with the help of the [C4-Draw.io plugin](https://tobiashochguertel.github.io
 
 ![drawio with layers](/drawio.gif) 
 
-Technically speaking this tool does not support diagram-as-code. The underlying **drawio.svg** file is text based, however it does not look you could easily decipher change from one version to another using a differencing tool.
+Technically speaking this tool does not support diagram-as-code. The underlying **drawio.svg** file is text based, however it does not look like somthing you could see what is changed from one version to another using differencing tool.
 
 The exported svg, however does not appear to honour the links.
 
