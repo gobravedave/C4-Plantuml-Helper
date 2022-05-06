@@ -31,7 +31,7 @@ The following tools have been reviewed:
 | Easy To Use | Yes | No | Yes | Yes | No | No |
 | UML | Yes | Yes | Yes | Yes | Yes | Yes |
 | Free | Yes | Yes | Yes | No | No | No|
-| Diagrams as Code | Yes | Yes | Yes | No | Yes | No |
+| Diagrams as Code | Yes | No | Yes | No | Yes | No |
 | Visual Studio Code | Yes | Yes | Yes | No | Yes | No |
 | C4 Models | Yes | Yes | Sort of | Yes | Yes | No |
 | Markdown | Yes | Yes | Yes | No | ? | No |
@@ -102,6 +102,8 @@ A simple and easy interface to allow you to create and edit [multi layer](https:
 And with the help of the [C4-Draw.io plugin](https://tobiashochguertel.github.io/c4-draw.io/) you can get a head start on creating navigatable C4 models in no time. 
 
 ![drawio with layers](/drawio.gif) 
+
+Technically speaking this tool does not support diagram-as-code. The underlying **drawio.svg** file is text based, however it does not look you could easily decipher change from one version to another using a differencing tool.
 
 The exported svg, however does not appear to honour the links.
 
