@@ -1,0 +1,11 @@
+@startuml demo_linking
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+' !include ../C4-PlantUML-master/C4_Component.puml
+
+Component(c1, "context view", "A Context diagram provides a starting point, showing how the software system in scope fits into the world around it") [[https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/229387/Context+View+with+PlantUML+Helper+Script]]
+Component(c2, "container", "A Container diagram zooms into the software system in scope, showing the high-level technical building blocks") [[https://gobravedave.github.io/C4-Plantuml-Helper/container.html]]
+Component(c3, "component", "A Component diagram zooms into an individual container, showing the components inside it.") [[https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/688129/Component+View+using+PlantUML+Helper+Script]]
+
+c1 -> c2 : provides context for
+c2 -> c3 : is further described using
+@enduml
