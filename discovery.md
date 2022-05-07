@@ -1,5 +1,5 @@
 # Software Architecture Diagram Tooling Discovery
-The following post is a collection of notes, links and learnings associated with a review of diagraming/modelling tools to be used to create and maintain software architecture documents.
+The following post is a collection of notes, links and learnings associated with a review of diagram/modelling tools to be used to create and maintain software architecture documents.
 
 ## Needs Analysis 
 The following 
@@ -40,7 +40,7 @@ The following tools have been reviewed:
 | Linking | Yes | Yes | Yes | Yes | Yes | Yes |
 | Layers | No | Yes | ? | Yes | No | Yes |
 
-More details follows for each tool reviewed.
+More details follow for each tool reviewed.
 
 ---
 
@@ -50,13 +50,13 @@ More details follows for each tool reviewed.
 [Jebbs VSC extension ](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) has a 5 star rating and provides the ability to preview, save diagrams as svg/png.
 
 
-The following extension setting allow you to render the plantuml script when previewing markdown document. 
+The following extension setting allows you to render the plantuml script when previewing a markdown document in Visual Studio Code. 
 
 ```code
 "plantuml.server": "https://www.plantuml.com/plantuml"
 ```
 
-Only use https://www.plantuml.com/plantuml if you are OK to share your models. The alernative is to setup you own server which is beyond the scope of this article.
+Only use https://www.plantuml.com/plantuml if you are OK to share your diagrams. The alernative is to setup you own server which is beyond the scope of this article.
 
 C4 Modelling is supported via the inclusion of [plantuml-stdlib](https://github.com/plantuml-stdlib) into your script.
 
@@ -79,7 +79,7 @@ The above script sourced from https://github.com/plantuml-stdlib/C4-PlantUML#rea
 
 ![Visual Studio Preview](/plantuml_preview.png) 
 
-There is a [generate plantml](https://github.com/marketplace/actions/generate-plantuml) make action which could automate the rendering.. but this looks like it would require the plantuml script to be a separate file and simply pulling in the generated image into the markdown. I will put this on my backlog.. but for now I will simply include the generated image files into the markdown.
+There is a [generate plantml](https://github.com/marketplace/actions/generate-plantuml) make action which could automate the rendering.. but this looks like it would require the plantuml script to be managed as a separate file and automates the generation of an image to being included into your markdown. I will put this on my backlog. 
 
 Linking is possible by including [hypertext links](https://plantuml.com/link) on objects. So it is possible to add but it is fragile and is not really testable within Visual Studio Code.
 
@@ -125,9 +125,9 @@ thing <|-- scissors
 thing <|-- paper
 thing <|-- rock
 link thing "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/425985/Mermaid+Demo" "This is a tooltip for a link to thing"
-link scissors "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/425985/Mermaid+Demo" "This is a tooltip for a link to link to scissors"
-link paper "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/425985/Mermaid+Demo" "This is a tooltip for a link to paper"
-link rock "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/425985/Mermaid+Demo" "This is a tooltip for a link to rock"
+link scissors "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/819224/scissors" "This is a tooltip for a link to link to scissors"
+link paper "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/753723/paper" "This is a tooltip for a link to paper"
+link rock "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/655411/rock" "This is a tooltip for a link to rock"
 ```
 
 ```mermaid
@@ -137,9 +137,9 @@ thing <|-- scissors
 thing <|-- paper
 thing <|-- rock
 link thing "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/425985/Mermaid+Demo" "This is a tooltip for a link to thing"
-link scissors "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/425985/Mermaid+Demo" "This is a tooltip for a link to link to scissors"
-link paper "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/425985/Mermaid+Demo" "This is a tooltip for a link to paper"
-link rock "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/425985/Mermaid+Demo" "This is a tooltip for a link to rock"
+link scissors "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/819224/scissors" "This is a tooltip for a link to link to scissors"
+link paper "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/753723/paper" "This is a tooltip for a link to paper"
+link rock "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/655411/rock" "This is a tooltip for a link to rock"
 ```
 
 Confluence is good to go with the [Mermaind confluence plug-in]( https://marketplace.atlassian.com/apps/1214124/mermaid-plugin-for-confluence?tab=overview&hosting=server). Saying that, I have not given it a go (yet).
