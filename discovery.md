@@ -89,7 +89,7 @@ The [jonashackt/plantuml-markdown](https://github.com/jonashackt/plantuml-markdo
 ![demo-linking](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/gobravedave/C4-Plantuml-Helper/markdown-discovery/demo_linking.puml)
 ```
 
-![example-uml](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/gobravedave/C4-Plantuml-Helper/markdown-discovery/demo_linking.puml)
+![example-uml](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/gobravedave/C4-Plantuml-Helper/master/demo_linking.puml)
 
 If working in confluence is your thing then you will need to have the [plantuml](https://marketplace.atlassian.com/apps/1222993/flowchart-plantuml-diagrams-for-confluence?hosting=cloud&tab=overview) extension installed.
 
