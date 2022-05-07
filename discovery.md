@@ -86,13 +86,16 @@ Linking is possible by including [hypertext links](https://plantuml.com/link) on
 The [jonashackt/plantuml-markdown](https://github.com/jonashackt/plantuml-markdown/blob/master/README.md) repository contains details on how to Integrate the PlantUML render engine into a GitHub markdown.
 
 ```code
-![example-uml](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/jonashackt/plantuml-markdown/master/example-uml.iuml)
+![demo-linking](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/gobravedave/C4-Plantuml-Helper/markdown-discovery/demo_linking.puml)
 ```
 
-![example-uml](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/jonashackt/plantuml-markdown/master/example-uml.iuml)
+![example-uml](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/gobravedave/C4-Plantuml-Helper/markdown-discovery/demo_linking.puml)
+
+If working in confluence is our thing then you will need to have the [plantuml](https://marketplace.atlassian.com/apps/1222993/flowchart-plantuml-diagrams-for-confluence?hosting=cloud&tab=overview) extension installed.
+
+![plantuml confluence preview](confluence-plantuml.png) 
 
 PlantUML is not so good at big complex diagrams. It is possible to add layout hints to the diagram but at times the results are bewildering. Maybe this is a excellent case for keeping the diagrams simple. 
-
 
 ### [Diagram.net](https://www.diagrams.net/)
 
