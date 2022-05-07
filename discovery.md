@@ -81,9 +81,7 @@ The above script sourced from https://github.com/plantuml-stdlib/C4-PlantUML#rea
 
 There is a [generate plantml](https://github.com/marketplace/actions/generate-plantuml) make action which could automate the rendering.. but this looks like it would require the plantuml script to be a separate file and simply pulling in the generated image into the markdown. I will put this on my backlog.. but for now I will simply include the generated image files into the markdown.
 
-Linking is possbile by including [hypertext links](https://plantuml.com/link) on objects.. So it is possible to add but it is fragile and is not really testable within Visual Studio Code.
-
-PlantUML is not so good at big complex diagrams. It is possible to add layout hints to the diagram but at times the results are bewildering. Maybe this is a excellent case for keeping the diagrams simple. 
+Linking is possible by including [hypertext links](https://plantuml.com/link) on objects. So it is possible to add but it is fragile and is not really testable within Visual Studio Code.
 
 The [jonashackt/plantuml-markdown](https://github.com/jonashackt/plantuml-markdown/blob/master/README.md) repository contains details on how to Integrate the PlantUML render engine into a GitHub markdown.
 
@@ -92,6 +90,9 @@ The [jonashackt/plantuml-markdown](https://github.com/jonashackt/plantuml-markdo
 ```
 
 ![example-uml](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/jonashackt/plantuml-markdown/master/example-uml.iuml)
+
+PlantUML is not so good at big complex diagrams. It is possible to add layout hints to the diagram but at times the results are bewildering. Maybe this is a excellent case for keeping the diagrams simple. 
+
 
 ### [Diagram.net](https://www.diagrams.net/)
 
@@ -103,7 +104,7 @@ And with the help of the [C4-Draw.io plugin](https://tobiashochguertel.github.io
 
 ![drawio with layers](/drawio.gif) 
 
-Technically speaking this tool does not support diagram-as-code. The underlying **drawio.svg** file is text based, however it does not look like somthing you could see what is changed from one version to another using differencing tool.
+Technically speaking this tool does not support diagram-as-code. The underlying **drawio.svg** file is text based, however it does not look like something you could easily spot what has changed from one version to another using differencing tool.
 
 The exported svg, however does not appear to honour the links.
 

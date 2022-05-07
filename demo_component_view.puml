@@ -1,0 +1,31 @@
+@startuml demo_component_view
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!includeurl https://raw.githubusercontent.com/gobravedave/C4-Plantuml-Helper/master/C4_helper.iuml
+' !include ../C4-PlantUML-master/C4_Component.puml
+' !include ../C4-Plantuml-Helper/C4_helper.iuml
+
+Title C4 Model Helper Component View 
+%set_variable_value("$C4_LEVEL", "COMPONENT")
+'%set_variable_value("$INCLUDE_DESC", "Y")
+
+$container_boundary(git_c4_helper) 
+	Component(c4ctxr, "Context Registry ", "json", "list of registered contexts")
+	Component(c4conr, "Container Registry ", "json", "list of registered containers")
+	Component(c4comr, "Component Registry ", "json", "list of registered components")
+	Component(c4ctx, "Locate Context ", "script", "locates context by id and returns values")
+	Component(c4con, "Locate Container", "script", "locates container by id and returns values")
+	Component(c4com, "Locate Component", "script", "locates component by id and returns values")
+	Component(c4ctxl, "Context Legend ", "script", "creates a legend using the context registery")
+	Component(c4conl, "Container Legend ", "script", "creates a legend using the container registery")
+	Component(c4coml, "Component Legend ", "script", "creates a legend using the component registery")
+}
+
+Rel_Up(c4ctx, c4ctxr, "get by context id")
+Rel_Up(c4ctxl, c4ctx, "get all")
+Rel_Up(c4con, c4conr, "get by container id")
+Rel_Up(c4conl, c4con, "get all")
+Rel_Up(c4com, c4comr, "get by component id")
+Rel_Up(c4coml, c4com, "get all")
+Rel_Left(c4com, c4con, "get container by id")
+Rel_Left(c4con, c4ctx, "get context by id")
+@enduml
