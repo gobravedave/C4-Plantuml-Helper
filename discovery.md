@@ -12,7 +12,7 @@ The following
 * render in mark down 
 * render in github pages
 * render in confluence
-* add link to suport navigation 
+* add link to support navigation 
 * layers to support animation would be nice
 
 ## Tooling Reviewed
@@ -29,7 +29,7 @@ The following tools have been reviewed:
 | Need | PlantUML | DrawIO | Mermaid | Lucidchart| Structurizr | Gliffy | 
 | --- | --- | --- | --- | --- | --- |--- |
 | Easy To Use | Yes | No | Yes | Yes | No | No |
-| UML | Yes | Yes | Yes | Yes | Yes | Yes |
+| UML | Yes | Yes | Yes | Yes | No | Yes |
 | Free | Yes | Yes | Yes | No | No | No|
 | Diagrams as Code | Yes | No | Yes | No | Yes | No |
 | Visual Studio Code | Yes | Yes | Yes | No | Yes | No |
