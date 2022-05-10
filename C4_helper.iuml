@@ -36,7 +36,7 @@
 {"id": "vsc" ,"label": "Visual Studio Code", "tech": "exe", "desc": "Code Editor", "contextid": "c4_helper", "link": "https://code.visualstudio.com/docs"},
 {"id": "plantuml" ,"label": "PlantUML", "tech": "VSC Extension", "desc":"Creates UML (and other diagrams types) using plain text scripting language", "contextid": "c4_helper", "link": "https://plantuml.com/"},
 {"id": "github" ,"label": "GitHub", "tech": "open source", "desc":"Development Platform", "contextid": "c4_helper", "link": "https://github.com/"}, 
-{"id": "arc" ,"label": "Architecture Diagrams" ,"tech": "script" ,"desc": "A set of Diagrams use to capture the architeture of a solution" ,"contextid": "c4_helper" ,"link": "	https://gobravedave.atlassian.net/wiki/x/EoAD"}, 
+{"id": "arc" ,"label": "Architecture Diagrams" ,"tech": "script" ,"desc": "A set of Diagrams use to capture the architeture of a solution" ,"contextid": "c4_helper" ,"link": "https://gobravedave.atlassian.net/wiki/x/EoAD"}, 
 {"id": "c4_helper" ,"label": "C4 PlantUML Helper Macro" ,"tech": "macro" ,"desc": "helper macros for register C4 elements for resuse in producing C4 type Architecural Diagrams" ,"contextid": "c4_helper" ,"link": "https://github.com/gobravedave/C4-Plantuml-Helper/blob/master/README.adoc"} 
 ]
 }
