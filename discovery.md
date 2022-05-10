@@ -56,7 +56,7 @@ The following extension setting allows you to render the plantuml script when pr
 "plantuml.server": "https://www.plantuml.com/plantuml"
 ```
 
-Only use https://www.plantuml.com/plantuml if you are OK to share your diagrams. The alernative is to setup you own server which is beyond the scope of this article.
+Only use https://www.plantuml.com/plantuml if you are OK to share your diagrams. The alternative is to setup you own server which is beyond the scope of this article.
 
 C4 Modelling is supported via the inclusion of [plantuml-stdlib](https://github.com/plantuml-stdlib) into your script.
 
@@ -95,7 +95,7 @@ If working in confluence is your thing then you will need to have the [plantuml]
 
 ![plantuml confluence preview](confluence-plantuml.png) 
 
-PlantUML is not so good at big complex diagrams. It is possible to add layout hints to the diagram but at times the results are bewildering. Maybe this is a excellent case for keeping the diagrams simple. 
+PlantUML is not so good at big complex diagrams. It is possible to add layout hints to the diagram but at times the results are bewildering.
 
 ### [Diagram.net](https://www.diagrams.net/)
 
@@ -103,7 +103,7 @@ See [Visual Studio marketplace](https://marketplace.visualstudio.com/items?itemN
 
 A simple and easy interface to allow you to create and edit [multi layer](https://drawio-app.com/draw-io-training-exercise-7-create-a-diagram-with-layers-and-images/) SVG files and imbed them into your markdown document.
 
-And with the help of the [C4-Draw.io plugin](https://tobiashochguertel.github.io/c4-draw.io/) you can get a head start on creating navigatable C4 models in no time. 
+And with the help of the [C4-Draw.io plugin](https://tobiashochguertel.github.io/c4-draw.io/) you can get a head start on creating navigable C4 models in no time. 
 
 ![drawio with layers](/drawio.gif) 
 
@@ -142,9 +142,11 @@ link paper "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/753723
 link rock "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/655411/rock" "This is a tooltip for a link to rock"
 ```
 
-Confluence is good to go with the [Mermaind confluence plug-in]( https://marketplace.atlassian.com/apps/1214124/mermaid-plugin-for-confluence?tab=overview&hosting=server). Saying that, I have not given it a go (yet).
+Confluence is good to go with the [Mermaid confluence plug-in]( https://marketplace.atlassian.com/apps/1214124/mermaid-plugin-for-confluence?tab=overview&hosting=server). 
 
- Mermaid suports the creation of various types of diagrams. C4 Models is not one of them, however I assume you could probably roll your own via the [flowchart shapes](https://mermaid-js.github.io/mermaid/#/flowchart).
+![Mermaid Confluence Plugin](/mermaid-confluence.png) 
+
+ Mermaid supports the creation of various types of diagrams. C4 Models is not one of them, however I assume you could probably roll your own via the [flowchart shapes](https://mermaid-js.github.io/mermaid/#/flowchart).
 
 Or alternatively follow the lead shown by [Structurizr](https://structurizr.com/dsl) export as Mermaid capability. 
 
@@ -187,7 +189,7 @@ Pricing starts at $5 per month for cloud hosted workspaces.
 
 Models can be published to [confluence]( https://structurizr.com/help/atlassian-confluence) via HTML iframe macro or the [structurizr macro](https://marketplace.atlassian.com/vendors/1213399). Alternatively it is possible to export models in PlantUML, C4-PlantUML and Mermaid formats. 
 
-Diagrams as code can be suported via the 
+Diagrams as code can be supported via the 
 [C4 DSL Extension](https://marketplace.visualstudio.com/items?itemName=systemticks.c4-dsl-extension).
 
 The tool is well documented and sample [C4 DSL](https://gitlab.com/systemticks/c4-grammar/-/tree/master/workspace) is available. The learning curve from this tool is steeper than all the tools above. 
