@@ -217,4 +217,4 @@ But not all uses cases could be solved via layers.
 
 ![C4 Model using Gliffy Links](/gliffy_c4_demo.gif) 
 
-I have uploaded the 5 gliffy diagrams to this repo, just in case this suits your needs..
+I have uploaded the 5 gliffy diagrams to this repo, or via from the [goBraveDave Confluence site](https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/393252/Diagrams-As-Code+Publishing). 
