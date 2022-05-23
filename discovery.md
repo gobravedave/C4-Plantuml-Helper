@@ -201,10 +201,20 @@ Handy if you do all your authoring and collaboration in confluence. You can knoc
 
 No Visual Studio Code plug-in appears to be available. 
 
-Supports [C4 Modelling](https://www.gliffy.com/blog/c4-model) using basic shapes. Looks like you would need to create your own diagram to be used as a template. Navigation between C4 Layers can be accomplished via using diagram layers or external links.
+The gliffy UI manages diagram revisions by timestamp.. buit does not provide a view of what has changed.
 
-The gliffy UI manages diagram revisions.
+![Gliffy Versioning](/gliffy_version.png) 
 
-I assume I can export SVG from the gliffy and render in a markdown document and publish on GIT. But this tooling approach fails the diagram as code requirement.
+Gliffy can be used to do [C4 Modelling](https://www.gliffy.com/blog/c4-model) however it is very basic. Looks like you would need to create your own diagram to be used as a template. 
 
-I use gliffy at work.. but not at home. There is a 2 week free trial available after which it will cost $10 per month.
+Navigation between C4 Layers can be accomplished via using diagram layers or external links.
+
+Using Layers provides a more usable experience as you can go full screen and zoom in and out of the C4 stack with out opening up new broswer tabs.
+
+![C4 Model using Gliffy Layers](/gliffy_c4_layer_demo.gif) 
+
+But not all uses cases could be solved via layers. 
+
+![C4 Model using Gliffy Links](/gliffy_c4_demo.gif) 
+
+I have uploaded the 5 gliffy diagrams to this repo, just in case this suits your needs..
