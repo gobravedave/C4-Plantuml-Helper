@@ -213,8 +213,8 @@ Using Layers provides a more usable experience as you can go full screen and zoo
 
 ![C4 Model using Gliffy Layers](/gliffy_c4_layer_demo.gif) 
 
-But not all uses cases could be solved via layers. 
+But not all uses cases can be solved via layers. Below shows gliffy links to confluence pages.
 
 ![C4 Model using Gliffy Links](/gliffy_c4_demo.gif) 
 
-I have uploaded the 5 gliffy diagrams to this repo, or via from the [goBraveDave Confluence site](https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/393252/Diagrams-As-Code+Publishing). 
+I have uploaded the 5 gliffy diagrams to this repo, or you can access them via from the [goBraveDave Confluence site](https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/393252/Diagrams-As-Code+Publishing) for a head start (you are going to need it).
