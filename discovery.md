@@ -5,7 +5,6 @@ The following post is a collection of notes, links and learnings associated with
 The following 
 * easy to use
 * UML diagrams
-* relatively cheap (actually is it available for free)
 * text based to support diagrams as code concepts
 * visual studio code previewer
 * support for [C4 Modelling](https://c4model.com/) would be nice
@@ -30,7 +29,6 @@ The following tools have been reviewed:
 | --- | --- | --- | --- | --- | --- |--- |
 | Easy To Use | Yes | No | Yes | Yes | No | No |
 | UML | Yes | Yes | Yes | Yes | No | Yes |
-| Free | Yes | Yes | Yes | No | No | No|
 | Diagrams as Code | Yes | No | Yes | No | Yes | No |
 | Visual Studio Code | Yes | Yes | Yes | No | Yes | No |
 | C4 Models | Yes | Yes | Sort of | Yes | Yes | No |
@@ -185,7 +183,6 @@ This tooling is more than a diagraming tool. It effectivley becomes an asset and
 
 Structurizr focus is on C1 to C3.. ie Context-Container-Component. The `code` level diagrams however appears to be handed off to code based IDEs.
 
-Pricing starts at $5 per month for cloud hosted workspaces.
 
 Models can be published to [confluence]( https://structurizr.com/help/atlassian-confluence) via HTML iframe macro or the [structurizr macro](https://marketplace.atlassian.com/vendors/1213399). Alternatively it is possible to export models in PlantUML, C4-PlantUML and Mermaid formats. 
 
@@ -201,10 +198,20 @@ Handy if you do all your authoring and collaboration in confluence. You can knoc
 
 No Visual Studio Code plug-in appears to be available. 
 
-Supports [C4 Modelling](https://www.gliffy.com/blog/c4-model) using basic shapes. Looks like you would need to create your own diagram to be used as a template. Navigation between C4 Layers can be accomplished via using diagram layers or external links.
+The gliffy UI manages diagram revisions by timestamp.. buit does not provide a view of what has changed.
 
-The gliffy UI manages diagram revisions.
+![Gliffy Versioning](/gliffy_version.png) 
 
-I assume I can export SVG from the gliffy and render in a markdown document and publish on GIT. But this tooling approach fails the diagram as code requirement.
+Gliffy can be used to do [C4 Modelling](https://www.gliffy.com/blog/c4-model) however it is very basic. Looks like you would need to create your own diagram to be used as a template. 
 
-I use gliffy at work.. but not at home. There is a 2 week free trial available after which it will cost $10 per month.
+Navigation between C4 Layers can be accomplished via using diagram layers or external links.
+
+Using Layers provides a more usable experience as you can go full screen and zoom in and out of the C4 stack with out opening up new broswer tabs.
+
+![C4 Model using Gliffy Layers](/gliffy_c4_layer_demo.gif) 
+
+But not all uses cases can be solved via layers. Below shows gliffy links to confluence pages.
+
+![C4 Model using Gliffy Links](/gliffy_c4_demo.gif) 
+
+I have uploaded the 5 gliffy diagrams to this repo, or you can access them via from the [goBraveDave Confluence site](https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/393252/Diagrams-As-Code+Publishing) for a head start (you are going to need it).
