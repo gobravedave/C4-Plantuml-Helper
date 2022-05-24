@@ -5,7 +5,6 @@ The following post is a collection of notes, links and learnings associated with
 The following 
 * easy to use
 * UML diagrams
-* relatively cheap (actually is it available for free)
 * text based to support diagrams as code concepts
 * visual studio code previewer
 * support for [C4 Modelling](https://c4model.com/) would be nice
@@ -30,7 +29,6 @@ The following tools have been reviewed:
 | --- | --- | --- | --- | --- | --- |--- |
 | Easy To Use | Yes | No | Yes | Yes | No | No |
 | UML | Yes | Yes | Yes | Yes | No | Yes |
-| Free | Yes | Yes | Yes | No | No | No|
 | Diagrams as Code | Yes | No | Yes | No | Yes | No |
 | Visual Studio Code | Yes | Yes | Yes | No | Yes | No |
 | C4 Models | Yes | Yes | Sort of | Yes | Yes | No |
@@ -217,4 +215,4 @@ But not all uses cases can be solved via layers. Below shows gliffy links to con
 
 ![C4 Model using Gliffy Links](/gliffy_c4_demo.gif) 
 
-I have uploaded the 5 gliffy diagrams to this repo, or you can access them via from the [goBraveDave Confluence site](https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/393252/Diagrams-As-Code+Publishing) for a head start (you are going to need it).
+I have uploaded the 5 gliffy diagrams created to for this demo.. which could help give you a head start if Gliffy approach appeals (you are going to need it).
