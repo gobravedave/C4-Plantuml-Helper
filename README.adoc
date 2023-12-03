@@ -14,74 +14,72 @@ The issue then becomes:
 
 C4_Plantuml_Helper to the rescue.
 
-image::context_view.svg[Context]
+image::demo context view.svg[Context]
 
 == Container 
 .container diagram example
 [source, script]
 ----
-@startuml container_view
-'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
-!include ../C4-PlantUML-master/C4_Component.puml
-!include ../C4-Plantuml-Helper/C4_helper.iuml
-Title \nC4 Model Helper Container View\n 
-%set_variable_value("$C4_LEVEL", "CONTAINER")
-'%set_variable_value("$INCLUDE_DESC", "Y")
-
-$container_boundary(vsc)
-	$component(vsc_plant)
-	}
-}
-
-$container_boundary(plantuml)
-	Component(jar, "plantuml.jar", "java")		
-}
-$container_boundary(github)
-	$component(git_arc)
-	}
-	$component(git_c4)
-	}
-	$component(git_c4_helper)
-	}
-	$component(git_svg)
-	}
-}
-jar --> vsc_plant :references
-vsc_plant <-- git_arc : processes
-vsc_plant --> git_svg :renders
-git_c4 -U-> git_arc :includes
-git_c4_helper -U-> git_arc :includes
-
-@enduml
-----
-
-image::container_view.svg[Container]
-
-[source, script]
-----
-@startuml C4 Model Helper Container List
-Title C4 Model Helper Container List 
+@startuml demo container view
+!include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Container.puml
 !include C4_helper.iuml
+
+%set_variable_value("$INCLUDE_DESC", "Y")
+
+Title Sample Container View
+Person(arch,"Architecht")
+Person(eng,"Engineer")
+Container_Boundary(ms,"Modelling System") {
+  $container(vsc)
+  }
+  $container(c4)
+  }
+  $container(c4_helper)
+  }
+}
+
+ Container_Boundary(gut,"Github"){
+    $container(arc)
+    }
+    Container(json,"spec file","json","design parameters")
+  }
+
+Container(product,"Product","tech","built to spec")
+
+Rel_R(arch,vsc,"models specs")
+Rel_L(eng,arc, "build specs")
+Rel_R(eng,product,"ships")
+Rel(vsc,arc,"publish to")
+Rel_U(c4,vsc,"Extends")
+Rel_R(c4_helper,json,"uses")
+Rel_U(json,arc,"provide definitions")
+Rel(c4,c4_helper,"Extends")
+
 $container_list()
+'Lay_D(ms,c4_containers)
+ms ..[hidden]..c4_containers
+
+SHOW_LEGEND()
+
 @enduml
 ----
-image::container_list.svg[Container List]
+
+image::demo container view.svg[Container]
 
 == Component 
 .component diagram example
 In this example there is a mix of components defined using the helper macro and normal C4 coded components.
 [source, script]
 ----
-@startuml C4 Model Helper Component View
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Context.puml
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Component.puml
-!include C4_helper.iuml
+@startuml demo component view
+!includeurl https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Component.puml
+ !include C4_helper.iuml
+
 Title C4 Model Helper Component View 
-%set_variable_value("$C4_LEVEL", "COMPONENT")
+'%set_variable_value("$C4_LEVEL", "COMPONENT")
 '%set_variable_value("$INCLUDE_DESC", "Y")
 
-$component(git_c4_helper)
+$container_boundary(git_c4_helper) 
 	Component(c4ctxr, "Context Registry ", "json", "list of registered contexts")
 	Component(c4conr, "Container Registry ", "json", "list of registered containers")
 	Component(c4comr, "Component Registry ", "json", "list of registered components")
@@ -106,34 +104,18 @@ Rel_Left(c4con, c4ctx, "get context by id")
 
 image::component_view.svg[Component]
 
-.$component_list()
-creates a legend containing a list of registered componenets
-[source, script]
-----
-@startuml C4 Model Helper Component List
-Title C4 Model Helper Component List 
-!include C4_helper.iuml
-$component_list()
-@enduml
-----
 
-image::component_list.svg[Component List]
+== Usage Notes
 
-== Installation Notes
-The C4_helper.iuml is a PlantUML Preprocessor and requires the V2 of the https://plantuml.com/preprocessing[plantuml preprocessor] and at least release of 1.2020.07.
-
-An updated C4 Code Snippet is included which cater for the new helper routines introduced.
-Thje following variable are used
+An updated C4 Code Snippet is included which cater for the new helper routines introduced and sample json files.
+The following variable are used
 
 [options="header",cols="<.<2,<.<1, <.<4"]
 |===
 |Variable|Value|Behaviour
-| $INCLUDE_DESC| Y | Incldues description of object from respective registry. If the variable is not set or initialised to another value, descriptions are not shown.
+| $INCLUDE_DESC| Y | Includes description of object from respective registry. If the variable is not set or initialised to another value, descriptions are not shown.
 .3+|$C4_LEVEL|CONTEXT| Container objects will have the link as per the container registary
 |CONTAINER|Container objects will have a link based on the assocated context identifier. Component objects will contain a link based on teh component registry.
 |COMPONENT|Components will link back to the associated container. 
 |===
 
-== Future Considerations
-The scripts have been coded to support the externalisation of the Context, Container and Compoenent registries. 
-The json based regesistries are currrently imbedded within the helper script pending plantumls release of the *%loadJSON("context.json")* function.

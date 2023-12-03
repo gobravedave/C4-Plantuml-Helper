@@ -1,0 +1,10 @@
+{
+    "participants":[
+    {"id": "vsc_snippet" ,"label": "C4 PlantUML Snippet" ,"tech": "script" ,"desc": "VSC Code snippets to supporting C4 syntax" ,"containerid": "vsc" ,"link": "add link"},
+    {"id": "vsc_plant" ,"label": "PlantUML Extension" ,"tech": "ext" ,"desc": "Visual Studio Extension to support writingting PlantUML scripts" ,"containerid": "vsc" ,"link": "https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml"},
+    {"id": "git_c4" ,"label": "C4 PlantUML Stdlib" ,"tech": "script" ,"desc": "C4 Object Definitions and Styles " ,"containerid": "github" ,"link": "https://github.com/RicardoNiepel/C4-PlantUML"}, 
+    {"id": "git_arc" ,"label": "C4 PlantUML Diagram Script" ,"tech": "script" ,"desc": "C4 Diagram Script" ,"containerid": "github" ,"link": "https://github.com/gobravedave/C4-Plantuml-Helper/blob/master/demo.puml"}, 
+    {"id": "git_svg" ,"label": "C4 PlantUML Diagram" ,"tech": "svg" ,"desc": "Rendered C4 Diagram" ,"containerid": "github" ,"link": ""}, 
+    {"id": "git_c4_helper" ,"label": "C4 PlantUML Helper Macro" ,"tech": "macro" ,"desc": "helper macros for scripting C4 Diagrms using PlantUML" ,"containerid": "c4_helper" ,"link": "https://gobravedave.github.io/C4-Plantuml-Helper/component.html"}
+    ]
+}
