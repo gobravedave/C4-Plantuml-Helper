@@ -1,0 +1,42 @@
+@startuml demo container view
+!include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Container.puml
+!include C4_helper.iuml
+
+%set_variable_value("$INCLUDE_DESC", "Y")
+
+Title Sample Container View
+Person(arch,"Architecht")
+Person(eng,"Engineer")
+Container_Boundary(ms,"Modelling System") {
+  $container(vsc)
+  }
+  $container(c4)
+  }
+  $container(c4_helper)
+  }
+}
+
+ Container_Boundary(gut,"Github"){
+    $container(arc)
+    }
+    Container(json,"spec file","json","design parameters")
+  }
+
+Container(product,"Product","tech","built to spec")
+
+Rel_R(arch,vsc,"models specs")
+Rel_L(eng,arc, "build specs")
+Rel_R(eng,product,"ships")
+Rel(vsc,arc,"publish to")
+Rel_U(c4,vsc,"Extends")
+Rel_R(c4_helper,json,"uses")
+Rel_U(json,arc,"provide definitions")
+Rel(c4,c4_helper,"Extends")
+
+$container_list()
+'Lay_D(ms,c4_containers)
+ms ..[hidden]..c4_containers
+
+SHOW_LEGEND()
+
+@enduml
