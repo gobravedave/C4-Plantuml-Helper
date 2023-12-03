@@ -1,6 +1,6 @@
 {
     "participants" :[
-    {"id": "c4_helper" , "label": "C4 Helpper", "desc": "Plantuml Helper macros to simplify the creation of consistent and buildable models", "link": "https://gobravedave.atlassian.net/wiki/spaces/DISCOVERY/pages/229387/PlantUML+Helper+Context+View"},
+    {"id": "c4_helper" , "label": "C4 Helper", "desc": "Plantuml Helper macros to simplify the creation of consistent and buildable models", "link": "https://gobravedave.github.io/C4-Plantuml-Helper/container.html"},
     {"id": "ea_plantuml" , "label": "PlantUML for Enterprise Architect","desc": "Enterprise Architecht Scripts to enable scripts based modelling","link": "https://github.com/gobravedave/Enterprise-Architect/blob/master/README.adoc"},
     {"id": "productx" , "label": "Product X", "desc": "The next big product"}
     ]
