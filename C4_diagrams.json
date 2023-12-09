@@ -1,0 +1,96 @@
+{
+  "diagrams":[
+  {
+    "c4diagramType": "context",
+    "c4Id": "enterprise",
+    "title": "Enterprise Exmple",
+    "contains" :[
+          {
+          "c4objectID": "cust",
+          "c4objectType": "Person"
+          },
+          {
+          "c4objectID": "enterprise01",
+          "c4objectType": "Enterprise_Boundary",
+          "contains" :[
+            {
+            "c4objectID": "csa",
+            "c4objectType": "Person"
+            },
+            {
+            "c4objectType": "System",
+            "c4objectID": "ecommerce"
+            },
+            {
+            "c4objectType": "System",
+            "c4objectID": "fulfillment"
+            }
+          ]
+          },
+          {
+          "c4objectID": "taxamo",
+          "c4objectType": "System"
+          },
+          {
+          "c4objectID": "braintree",
+          "c4objectType": "System"
+          },
+          {
+          "c4objectID": "post",
+          "c4objectType": "System"
+          }
+    ],
+      "relationships" :[
+          {
+          "c4relationshipType": "Rel_R",
+          "c4relationshipFrom": "customer",
+          "c4relationshipTo": "csa",
+          "c4relationshipDesc": "Asks questions to",
+          "c4relationshipTech": "Telephone"      
+          },
+          {
+          "c4relationshipType": "Rel_R",
+          "c4relationshipFrom": "customer",
+          "c4relationshipTo": "ecommerce",
+          "c4relationshipDesc": "Places orders for widgets using"
+          },
+          {
+          "c4relationshipType": "Rel_R",
+          "c4relationshipFrom": "csa",
+          "c4relationshipTo": "ecommerce",
+          "c4relationshipDesc": "Looks up order information using"
+          },
+          {
+          "c4relationshipType": "Rel_R",
+          "c4relationshipFrom": "ecommerce",
+          "c4relationshipTo": "fulfillment",
+          "c4relationshipDesc": "Sends order information to"
+          },
+          {
+          "c4relationshipType": "Rel_D",
+          "c4relationshipFrom": "fulfillment",
+          "c4relationshipTo": "post",
+          "c4relationshipDesc": "Gets shipping charges from"
+          },
+          {
+          "c4relationshipType": "Rel_D",
+          "c4relationshipFrom": "ecommerce",
+          "c4relationshipTo": "taxamo",
+          "c4relationshipDesc": "Delegates credit card processing to"
+          },
+          {
+          "c4relationshipType": "Rel_L",
+          "c4relationshipFrom": "taxamo",
+          "c4relationshipTo": "braintree",
+          "c4relationshipDesc": "Uses for credit card processing"
+          },
+          {
+          "c4relationshipType": "Lay_D",
+          "c4relationshipFrom": "taxamo",
+          "c4relationshipTo": "braintree"
+          }
+      ]
+  }
+  ]
+
+}
