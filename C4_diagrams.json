@@ -50,7 +50,7 @@
             "c4relationshipDesc": "Places orders for widgets using"
             },
             {
-            "c4relationshipType": "Rel_R",
+            "c4relationshipType": "Rel",
             "c4relationshipFrom": "csa",
             "c4relationshipTo": "ecommerce",
             "c4relationshipDesc": "Looks up order information using"
@@ -78,8 +78,14 @@
             "c4relationshipFrom": "taxamo",
             "c4relationshipTo": "braintree",
             "c4relationshipDesc": "Uses for credit card processing"
-            }
-        ]
+            },
+            {
+              "c4relationshipType": "Lay_D",
+              "c4relationshipFrom": "customer",
+              "c4relationshipTo": "csa",
+              "c4relationshipDesc": ""
+              }
+          ]
     }
     ]
   }

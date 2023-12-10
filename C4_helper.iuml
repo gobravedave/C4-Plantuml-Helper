@@ -66,14 +66,30 @@ title $diagram.title - $C4_DIAGRAM_TYPE Diagram
 'note as n1
     !foreach $contain in $diagram.contains
         !if $C4_DIAGRAM_TYPE == "Context"
-            !if $contain.c4objectType == "Person" || $contain.c4objectType == "System"
-                !local $object = $get_c4_object($contain.c4objectID)
+            !local $object = $get_c4_object($contain.c4objectID)
+            !if $contain.c4objectType == "Person"
                 !if $INCLUDE_DESC == "Y"
-                !log $contain.c4objectType($contain.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
-$contain.c4objectType($contain.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
+                    !log Person($contain.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
+Person($contain.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
                 !else 
-                !log $contain.c4objectType($contain.c4objectID, "$object.c4objectName")
-$contain.c4objectType($contain.c4objectID, "$object.c4objectName")
+                    !log Person($contain.c4objectID, "$object.c4objectName")
+Person($contain.c4objectID, "$object.c4objectName")
+                !endif 
+            !elseif $contain.c4objectType == "Person_Ext"
+                !if $INCLUDE_DESC == "Y"
+                    !log Person_Ext($contain.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
+Person_Ext($contain.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
+                !else 
+                    !log Person_Ext($contain.c4objectID, "$object.c4objectName")
+Person_Ext($contain.c4objectID, "$object.c4objectName")
+                !endif 
+            !elseif $contain.c4objectType == "System"
+                !if $INCLUDE_DESC == "Y"
+                    !log System($contain.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
+System($contain.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
+                !else 
+                    !log System($contain.c4objectID, "$object.c4objectName")
+System($contain.c4objectID, "$object.c4objectName")
                 !endif 
             ' !elseif %strpos($element.c4objectType, "Boundary") > 0
             ' note bottom
@@ -88,9 +104,28 @@ $contain.c4objectType($contain.c4objectID, "$object.c4objectName")
 
     'output associated relationships 
     !foreach $relationship in $diagram.relationships
-            !log $relationship.c4relationshipType($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
-$relationship.c4relationshipType($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+            'need to resolve relationship type
+            !if $relationship.c4relationshipType == "Rel_R"
+Rel_R($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+            !elseif $relationship.c4relationshipType == "Rel_L"
+Rel_L($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+            !elseif $relationship.c4relationshipType == "Rel_U"
+Rel_U($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+            !elseif $relationship.c4relationshipType == "Rel_D"
+Rel_D($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+            !elseif $relationship.c4relationshipType == "Lay_L"
+Lay_L($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+            !elseif $relationship.c4relationshipType == "Lay_R"
+Lay_R($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+            !elseif $relationship.c4relationshipType == "Lay_U"
+Lay_U($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+            !elseif $relationship.c4relationshipType == "Lay_D"
+Lay_D($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+            !else
+Rel($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+            !endif
     !endfor
+
 SHOW_LEGEND()
 'end note
 !endprocedure
