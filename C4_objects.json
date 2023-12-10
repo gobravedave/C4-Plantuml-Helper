@@ -48,7 +48,37 @@
         "c4objectType": "System",
         "c4objectName": "Jersey Post",
         "c4objectDesc": "Calculates worldwide shipping costs for packages."
+        },
+        {
+          "c4objectID": "arch",
+          "c4objectType": "Person",
+          "c4objectName": "Software Architect",
+          "c4objectDesc": "A software architect is a software engineer responsible for high-level design choices related to overall system structure and behavior"
+        },
+        {
+          "c4objectID": "eng",
+          "c4objectType": "Person",
+          "c4objectName": "Software Engineer",
+          "c4objectDesc": "Designs and develops software solutions to meet the needs of a client"
+        },
+        {
+          "c4objectID": "github",
+          "c4objectType": "System",
+          "c4objectName": "GitHub",
+          "c4objectDesc": "a platform and cloud-based service for software development and version control, allowing developers to store and manage their code"
+        },
+        {
+          "c4objectID": "modsys",
+          "c4objectType": "System",
+          "c4objectName": "Software Modelling Platform",
+          "c4objectDesc": "Enables software design including interfaces, interactions with other software, and all the software methods. Software models are ways of expressing a software design. Usually some sort of abstract language or pictures are used to express the software design."
+        },
+        {
+          "c4objectID": "system",
+          "c4objectType": "System",
+          "c4objectName": "Software System",
+          "c4objectDesc": "Provides business value to the client"
         }
-      ]
+        ]
   }
 }

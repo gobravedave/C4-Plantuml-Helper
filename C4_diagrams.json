@@ -1,3 +1,4 @@
+
 {
   "c4DiagramRegistry": {
     "diagrams":[
@@ -86,6 +87,66 @@
               "c4relationshipDesc": ""
               }
           ]
+    },
+    {
+      "c4diagramType": "context",
+      "c4Id": "c4helper",
+      "title": "C4 Helper",
+      "contains" :[
+            {
+            "c4objectID": "arch",
+            "c4objectType": "Person"
+            },
+            {
+            "c4objectID": "modsys",
+            "c4objectType": "System"
+            },
+            {
+            "c4objectID": "github",
+            "c4objectType": "System"
+            },
+            {
+            "c4objectID": "eng",
+            "c4objectType": "Person"
+            },
+            {
+            "c4objectID": "system",
+            "c4objectType": "System"
+            }
+      ],
+        "relationships" :[
+            {
+            "c4relationshipType": "Rel_R",
+            "c4relationshipFrom": "arch",
+            "c4relationshipTo": "modsys",
+            "c4relationshipDesc": "model specs using",
+            "c4relationshipTech": ""      
+            },
+            {
+            "c4relationshipType": "Rel_R",
+            "c4relationshipFrom": "modsys",
+            "c4relationshipTo": "github",
+            "c4relationshipDesc": "push specs to"
+            },
+            {
+            "c4relationshipType": "Rel_L",
+            "c4relationshipFrom": "eng",
+            "c4relationshipTo": "modsys",
+            "c4relationshipDesc": "get build specs"
+            },
+            {
+            "c4relationshipType": "Rel_L",
+            "c4relationshipFrom": "eng",
+            "c4relationshipTo": "modsys",
+            "c4relationshipDesc": "push code"
+            },
+            {
+            "c4relationshipType": "Rel_R",
+            "c4relationshipFrom": "eng",
+            "c4relationshipTo": "system",
+            "c4relationshipDesc": "ships"
+            }
+      ]
     }
     ]
   }
