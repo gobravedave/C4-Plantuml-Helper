@@ -131,13 +131,13 @@
             {
             "c4relationshipType": "Rel_L",
             "c4relationshipFrom": "eng",
-            "c4relationshipTo": "modsys",
+            "c4relationshipTo": "github",
             "c4relationshipDesc": "get build specs"
             },
             {
             "c4relationshipType": "Rel_L",
             "c4relationshipFrom": "eng",
-            "c4relationshipTo": "modsys",
+            "c4relationshipTo": "github",
             "c4relationshipDesc": "push code"
             },
             {
