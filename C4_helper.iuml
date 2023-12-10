@@ -114,13 +114,13 @@ Rel_U($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relatio
             !elseif $relationship.c4relationshipType == "Rel_D"
 Rel_D($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
             !elseif $relationship.c4relationshipType == "Lay_L"
-Lay_L($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+Lay_L($relationship.c4relationshipFrom, $relationship.c4relationshipTo)
             !elseif $relationship.c4relationshipType == "Lay_R"
-Lay_R($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+Lay_R($relationship.c4relationshipFrom, $relationship.c4relationshipTo)
             !elseif $relationship.c4relationshipType == "Lay_U"
-Lay_U($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+Lay_U($relationship.c4relationshipFrom, $relationship.c4relationshipTo)
             !elseif $relationship.c4relationshipType == "Lay_D"
-Lay_D($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+Lay_D($relationship.c4relationshipFrom, $relationship.c4relationshipTo)
             !else
 Rel($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
             !endif
