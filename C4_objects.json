@@ -1,0 +1,54 @@
+{
+  "c4ObjectRegistry": {
+      "objects" :[
+        {
+        "c4objectID": "customer",
+        "c4objectType": "Person",
+        "c4objectName": "Customer",
+        "c4objectDesc": "A customer of Widgets Limited."
+        },
+        {
+        "c4objectID": "enterprise01",
+        "c4objectType": "Enterprise_Boundary",
+        "c4objectName": "Widgets Limited",
+        "c4objectDesc": "blah"
+        },
+        {
+        "c4objectID": "csa",
+        "c4objectType": "Person",
+        "c4objectName": "Customer Service Agent",
+        "c4objectDesc": "Deals with customer enquiries."
+        },
+        {
+        "c4objectType": "System",
+        "c4objectID": "ecommerce",
+        "c4objectName": "E-commerce System",
+        "c4objectDesc": "Allows customers to buy widgets online via the widgets.com website."
+        },
+        {
+        "c4objectType": "System",
+        "c4objectID": "fulfillment",
+        "c4objectName": "Fulfillment System",
+        "c4objectDesc": "Responsible for processing and shipping of customer orders."
+        },
+        {
+        "c4objectID": "taxamo",
+        "c4objectType": "System",
+        "c4objectName": "Taxamo",
+        "c4objectDesc": "Calculates local tax (for EU B2B customers) and acts as a front-end for Braintree Payments."
+        },
+        {
+        "c4objectID": "braintree",
+        "c4objectType": "System",
+        "c4objectName": "Braintree Payments",
+        "c4objectDesc": "Processes credit card payments on behalf of Widgets Limited."
+        },
+        {
+        "c4objectID": "post",
+        "c4objectType": "System",
+        "c4objectName": "Jersey Post",
+        "c4objectDesc": "Calculates worldwide shipping costs for packages."
+        }
+      ]
+  }
+}

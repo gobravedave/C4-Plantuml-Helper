@@ -1,5 +1,5 @@
 {
-  "c4registry": {
+  "c4DiagramRegistry": {
     "diagrams":[
     {
       "c4diagramType": "context",
@@ -7,26 +7,20 @@
       "title": "Enterprise Exmple",
       "contains" :[
             {
-            "c4objectID": "cust",
+            "c4objectID": "customer",
+            "c4objectType": "Person_Ext"
+            },
+            {
+            "c4objectID": "csa",
             "c4objectType": "Person"
             },
             {
-            "c4objectID": "enterprise01",
-            "c4objectType": "Enterprise_Boundary",
-            "contains" :[
-              {
-              "c4objectID": "csa",
-              "c4objectType": "Person"
-              },
-              {
-              "c4objectType": "System",
-              "c4objectID": "ecommerce"
-              },
-              {
-              "c4objectType": "System",
-              "c4objectID": "fulfillment"
-              }
-            ]
+            "c4objectID": "ecommerce",
+            "c4objectType": "System"
+            },
+            {
+            "c4objectID": "fulfillment",
+            "c4objectType": "System"
             },
             {
             "c4objectID": "taxamo",
@@ -50,7 +44,7 @@
             "c4relationshipTech": "Telephone"      
             },
             {
-            "c4relationshipType": "Rel_R",
+            "c4relationshipType": "Rel_D",
             "c4relationshipFrom": "customer",
             "c4relationshipTo": "ecommerce",
             "c4relationshipDesc": "Places orders for widgets using"
@@ -84,11 +78,6 @@
             "c4relationshipFrom": "taxamo",
             "c4relationshipTo": "braintree",
             "c4relationshipDesc": "Uses for credit card processing"
-            },
-            {
-            "c4relationshipType": "Lay_D",
-            "c4relationshipFrom": "taxamo",
-            "c4relationshipTo": "braintree"
             }
         ]
     }
