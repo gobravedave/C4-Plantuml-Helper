@@ -3,14 +3,15 @@
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 '!include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Container.puml
 '!include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Component.puml
-'!include https://raw.githubusercontent.com/gobravedave/C4-Plantuml-Helper/more/C4_helper.iuml
-!include C4_helper.iuml
+!include https://raw.githubusercontent.com/gobravedave/C4-Plantuml-Helper/more/C4_helper.iuml
+'!include C4_helper.iuml
 'Set Diagram settings
+'=====================================================================
 %set_variable_value("$C4_DIAGRAM_TYPE", "Context")
 '%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
 '%set_variable_value("$C4_DIAGRAM_TYPE", "Component")
 %set_variable_value("$INCLUDE_DESC", "Y")
-
+'======================================================================
 'Call procedure to build the diagram
 $c4_diagram(enterprise)
 
