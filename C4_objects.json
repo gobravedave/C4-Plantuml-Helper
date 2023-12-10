@@ -20,14 +20,14 @@
         "c4objectDesc": "Deals with customer enquiries."
         },
         {
-        "c4objectType": "System",
         "c4objectID": "ecommerce",
+        "c4objectType": "System",
         "c4objectName": "E-commerce System",
         "c4objectDesc": "Allows customers to buy widgets online via the widgets.com website."
         },
         {
-        "c4objectType": "System",
         "c4objectID": "fulfillment",
+        "c4objectType": "System",
         "c4objectName": "Fulfillment System",
         "c4objectDesc": "Responsible for processing and shipping of customer orders."
         },
