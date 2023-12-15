@@ -10,6 +10,8 @@ The issue then becomes:
 * how do you standardise on alias and label names used?
 * how do you pickup and maintain common descriptions?
 * how easy is it to add navigational links as the C4 maker had intended?
+* easily find, reuse, extend modelled objects
+* provide reports/dashboards of usage and dependancies
 * How do we maintain and integrate all these scripts so to produce a “Model” of the architecture.
 
 C4_Plantuml_Helper to the rescue.
