@@ -5,7 +5,7 @@
     {
       "c4diagramType": "context",
       "c4Id": "enterprise",
-      "title": "Enterprise Exmple",
+      "title": "Widget Enterprise Example",
       "contains" :[
             {
             "c4objectID": "customer",

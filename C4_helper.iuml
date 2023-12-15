@@ -2,7 +2,7 @@
 !function $get_c4_diagram($id)
 
 ' !log getting diagram $id
-' !log {{json $diagrams}}
+' !log $diagrams
 
     %set_variable_value($diagram_exist, %false())
     !foreach $diagram in $diagrams.c4DiagramRegistry.diagrams
@@ -44,13 +44,9 @@
 
 !unquoted procedure $c4_diagram($id)
 'load diagrams
-'!assert %not(%file_exists("C4_diagrams.json")) : Cannot locate C4_diagrams.json
-'!global $diagrams = %load_json("C4_diagrams.json")
-!global $diagrams = %load_json("https://raw.githubusercontent.com/gobravedave/C4-Plantuml-Helper/more/C4_diagrams.json")
+!global $diagrams = %load_json("C4_diagrams.json")
 'load objects
-'!assert %not(%file_exists("C4_objects.json")) : Cannot locate C4_objects.json
-'!global $objects = %load_json("C4_objects.json")
-!global $objects = %load_json("https://raw.githubusercontent.com/gobravedave/C4-Plantuml-Helper/more/C4_objects.json")
+!global $objects = %load_json("C4_objects.json")
 
 !$diagram = $get_c4_diagram($id)
 
@@ -63,7 +59,6 @@ title $diagram.title - $C4_DIAGRAM_TYPE Diagram
     'Container View.. System Boundary, Container
     'Componenet View.. Container Boundary and Components
 
-'note as n1
     !foreach $contain in $diagram.contains
         !if $C4_DIAGRAM_TYPE == "Context"
             !local $object = $get_c4_object($contain.c4objectID)
@@ -94,7 +89,6 @@ System($contain.c4objectID, "$object.c4objectName")
             ' !elseif %strpos($element.c4objectType, "Boundary") > 0
             ' note bottom
             ' $element.c4objectType to be added
-            ' end note
             !endif
         !endif
 
@@ -206,7 +200,6 @@ SHOW_LEGEND()
 !endif
 !endprocedure
 
-' !procedure $c4_component($id)
 !unquoted procedure $c4_component($id)
 !$component = %load_json("component.json")
 
