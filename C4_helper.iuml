@@ -1,13 +1,14 @@
 @startuml
 !function $get_c4_diagram($id)
 
-' !log getting diagram $id
-' !log $diagrams
+!log get_c4_diagram-> $id
 
     %set_variable_value($diagram_exist, %false())
     !foreach $diagram in $diagrams.c4DiagramRegistry.diagrams
         !if $diagram.c4Id == $id
             %set_variable_value($diagram_exist, %true())
+            !log got a hit
+            !log $diagram
             !return $diagram
         !endif
     !endfor
@@ -20,29 +21,30 @@
 !endfunction
 
 !function $get_c4_object($id)
-' !log checking for $id
+!log get_c4_object: $id
 %set_variable_value($object_exist, %false())
 !foreach $object in $objects.c4ObjectRegistry.objects
-    ' !log is it $object.c4objectID?
+    !log $object.c4objectID equal to $id?
     !if $object.c4objectID == $id
         %set_variable_value($object_exist, %true())
-        ' !log got a hit
-        ' !log {{json $object}}
+        !log got a hit
+        !log $object
         !return $object
-    ' !else
-    '     !log nah.. $object.c4objectID not it
+    !else
+        !log nah.. $object.c4objectID not it
     !endif
 !endfor
 
 !if $object_exist == %false()
-    ' !log return as error
-    $object = {"c4objectID":"error","c4objectType":"error","c4objectName":"error","c4objectDesc":"error"}}}
+    $object == {"objects":[{"c4objectID":"error","c4objectType":"error","c4objectName":"error","c4objectDesc":"error"}]}
+    !log $object
     !return $object
 !endif
 
 !endfunction
 
 !unquoted procedure $c4_diagram($id)
+!log c4_diagram: $id
 'load diagrams
 !global $diagrams = %load_json("C4_diagrams.json")
 'load objects
@@ -51,49 +53,13 @@
 !$diagram = $get_c4_diagram($id)
 
 title $diagram.title - $C4_DIAGRAM_TYPE Diagram
-
-
     'output associated diagram objects (diagram dependant)
-
-    'Context view.. People, System, Enterprise_Boundary
-    'Container View.. System Boundary, Container
-    'Componenet View.. Container Boundary and Components
+    '   Context view.. Person, Person_Ext, System, Enterprise_Boundary
+    '   Container View.. System Boundary, Container
+    '   Componenet View.. Container Boundary and Components
 
     !foreach $contain in $diagram.contains
-        !if $C4_DIAGRAM_TYPE == "Context"
-            !local $object = $get_c4_object($contain.c4objectID)
-            !if $contain.c4objectType == "Person"
-                !if $INCLUDE_DESC == "Y"
-                    !log Person($contain.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
-Person($contain.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
-                !else 
-                    !log Person($contain.c4objectID, "$object.c4objectName")
-Person($contain.c4objectID, "$object.c4objectName")
-                !endif 
-            !elseif $contain.c4objectType == "Person_Ext"
-                !if $INCLUDE_DESC == "Y"
-                    !log Person_Ext($contain.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
-Person_Ext($contain.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
-                !else 
-                    !log Person_Ext($contain.c4objectID, "$object.c4objectName")
-Person_Ext($contain.c4objectID, "$object.c4objectName")
-                !endif 
-            !elseif $contain.c4objectType == "System"
-                !if $INCLUDE_DESC == "Y"
-                    !log System($contain.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
-System($contain.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
-                !else 
-                    !log System($contain.c4objectID, "$object.c4objectName")
-System($contain.c4objectID, "$object.c4objectName")
-                !endif 
-            ' !elseif %strpos($element.c4objectType, "Boundary") > 0
-            ' note bottom
-            ' $element.c4objectType to be added
-            !endif
-        !endif
-
-        'if object has contains..  add recursion logic to push/pop levels
-        'get_c4_object
+        $writeout_c4_object($contain)
     !endfor
 
     'output associated relationships 
@@ -121,12 +87,65 @@ Rel($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relations
     !endfor
 
 SHOW_LEGEND()
-'end note
+
 !endprocedure
 
+
+!unquoted procedure $writeout_c4_object($id)
+!log writeout_c4_object: $id
+!if $C4_DIAGRAM_TYPE == "Context"
+    !$object = $get_c4_object($id)
+    !if $object.c4objectType == "Person"
+        !if $INCLUDE_DESC == "Y"
+            !log Person($object.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
+Person($object.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
+        !else 
+            !log Person($object.c4objectID, "$object.c4objectName")
+Person($object.c4objectID, "$object.c4objectName")
+        !endif 
+    !elseif $object.c4objectType == "Person_Ext"
+        !if $INCLUDE_DESC == "Y"
+            !log Person_Ext($object.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
+Person_Ext($object.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
+        !else 
+            !log Person_Ext($object.c4objectID, "$object.c4objectName")
+Person_Ext($object.c4objectID, "$object.c4objectName")
+        !endif 
+    !elseif $object.c4objectType == "System"
+        !if $INCLUDE_DESC == "Y"
+            !log System($object.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
+System($object.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
+        !else 
+            !log System($object.c4objectID, "$object.c4objectName")
+System($object.c4objectID, "$object.c4objectName")
+        !endif
+    !elseif $object.c4objectType == "System_Ext"
+        !if $INCLUDE_DESC == "Y"
+            !log System_Ext($object.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
+System_Ext($object.c4objectID, "$object.c4objectName", "$object.c4objectDesc")
+        !else 
+            !log System($object.c4objectID, "$object.c4objectName")
+System_Ext($object.c4objectID, "$object.c4objectName")
+        !endif
+    !elseif $object.c4objectType == "Enterprise_Boundary"
+'        !log $diagram_object.c4objectType has %size($C4DiagramObject.contains) in it
+'        !if %size($C4DiagramObject.contains) > 0
+!log object: $object
+Enterprise_Boundary($object.c4objectID, "$object.c4objectName") {
+            !foreach $contain in $object.contains
+                !log add $contain to $object.c4objectID
+                $writeout_c4_object($contain)
+            !endfor
+}                    
+'        !endif 
+    !endif
+!endif
+
+!endprocedure
+
+'v1 code below.. refactor based on updates json structure
 !unquoted procedure $c4_context($id)
 !$context = %load_json("context.json")
-
 
 !if $id == "#list#"
     skinparam NoteBackgroundColor #white

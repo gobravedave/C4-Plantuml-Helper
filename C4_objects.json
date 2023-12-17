@@ -3,7 +3,7 @@
       "objects" :[
         {
         "c4objectID": "customer",
-        "c4objectType": "Person",
+        "c4objectType": "Person_Ext",
         "c4objectName": "Customer",
         "c4objectDesc": "A customer of Widgets Limited."
         },
@@ -11,8 +11,8 @@
         "c4objectID": "enterprise01",
         "c4objectType": "Enterprise_Boundary",
         "c4objectName": "Widgets Limited",
-        "c4objectDesc": "blah"
-        },
+        "contains" :["csa","ecommerce","fulfillment"]
+      },
         {
         "c4objectID": "csa",
         "c4objectType": "Person",
