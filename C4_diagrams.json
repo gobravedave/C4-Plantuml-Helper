@@ -2,7 +2,6 @@
   "c4DiagramRegistry": {
     "diagrams":[
     {
-      "c4diagramType": "context",
       "c4Id": "enterprise",
       "title": "Widget Enterprise Example",
       "contains" :["customer","enterprise01","taxamo","braintree","post"],
@@ -59,7 +58,6 @@
       ]
     },
     {
-      "c4diagramType": "context",
       "c4Id": "c4helper",
       "title": "C4 Helper",
       "contains" :["arch","modsys","github","eng","system"],
