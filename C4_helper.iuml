@@ -14,8 +14,9 @@
     !endfor
 
     !if $diagram_exist == %false()
-        'return eror reponse if json file not found
-        !return {"diagrams":[{"c4Id": "error","title": "Can't find in C4_diagrams.json"}]}
+        'return eror response if json file not found
+        !log $id not found
+        !return $id not found
     !endif
     
 !endfunction
@@ -36,7 +37,7 @@
 !endfor
 
 !if $object_exist == %false()
-    $object == {"objects":[{"c4objectID":"error","c4objectType":"error","c4objectName":"error","c4objectDesc":"error"}]}
+    $object = {"objects":[{"c4objectID":"error","c4objectType":"error","c4objectName":"error","c4objectDesc":"error"}]}
     !log $object
     !return $object
 !endif
@@ -52,7 +53,11 @@
 
 !$diagram = $get_c4_diagram($id)
 
-title $diagram.title - $C4_DIAGRAM_TYPE Diagram
+!if $diagram_exist == %true()
+    title $diagram.title - $C4_DIAGRAM_TYPE Diagram
+!else 
+    title $id diagram not found in C4_Diagrams.json
+!endif
     'output associated diagram objects (diagram dependant)
     '   Context view.. Person, Person_Ext, System, Enterprise_Boundary
     '   Container View.. System Boundary, Container
