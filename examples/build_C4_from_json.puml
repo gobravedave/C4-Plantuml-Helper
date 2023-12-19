@@ -23,6 +23,8 @@ AddRelTag("V1.1", $textColor="black", $lineColor="gold")
 System(csaa,"CSA Assist","Customer Service Desktop used to record queries and recommend solution approach",$tags="v1.1") 
 Rel_L(csa,csaa,"looks up",$tags="v1.1")
 'show V1.1 in legend
+
+'hide braintree
 SHOW_LEGEND()
 
 @enduml
