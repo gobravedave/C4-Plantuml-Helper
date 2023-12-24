@@ -30,7 +30,7 @@
         "c4objectType": "Enterprise_Boundary",
         "c4objectName": "Widgets Limited",
         "contains" :["csa","ecommerce","fulfillment"]
-      },
+        },
         {
         "c4objectID": "csa",
         "c4objectType": "Person",
@@ -173,11 +173,13 @@
         "c4objectTech": "HTML, CCS, JScript",
         "c4objectName": "Presentation Layer",
         "c4objectDesc": "This user-facing layer includes the website, layout, user interface, personal account portal, and any other part of the system end users can reach.",
+        "contains" :[],
+        "components" :["catalog","cart","checkout"],
         "relationships" :[
           {
-          "c4relationshipType": "Rel",
+          "c4relationshipType": "Rel_R",
           "c4relationshipTo": "apptier",
-          "c4relationshipDesc": "call to execute"
+          "c4relationshipDesc": "invokes business logic"
           }
           ]
         },
@@ -187,16 +189,18 @@
         "c4objectTech": "HTML, CCS, JScript",
         "c4objectName": "Application Layer",
         "c4objectDesc": "An application layer usually handles the business logic and all the internal processes, including product catalog management, shopping carts, payment processing systems, and order tools that make the system work.",
+        "contains" :[],
+        "components" :["product","order","payment","dispatch"],
         "relationships" :[
           {
-          "c4relationshipType": "Rel_L",
+          "c4relationshipType": "Rel_R",
           "c4relationshipTo": "datatier",
           "c4relationshipDesc": "reads from/writes to"
           },
           {
           "c4relationshipType": "Rel",
           "c4relationshipTo": "fulfillment",
-          "c4relationshipDesc": "Sends order information to"
+          "c4relationshipDesc": "Sends order details to"
           },
           {
           "c4relationshipType": "Rel_D",
@@ -212,7 +216,115 @@
         "c4objectName": "Data Layer",
         "c4objectDesc": "data related to the ecommerce platform is stored. It includes product information, customer data, order history, and many other details the system may need. ",
         "relationships" :[]
-        }
+        },
+        {
+        "c4objectID": "catalog",
+        "c4objectType": "Component",
+        "c4objectTech": "html/css/jscript",
+        "c4objectName": "Product Catalog",
+        "c4objectDesc": "Make it easy for a customer to find widgets",
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_D",
+          "c4relationshipTo": "product",
+          "c4relationshipDesc": "Call the Product service"
+          }                  
+          ]
+        },
+        {
+        "c4objectID": "cart",
+        "c4objectType": "Component",
+        "c4objectTech": "html/css/jscript",
+        "c4objectName": "Shopping Cart",
+        "c4objectDesc": "Customer selects products and quatity they which to purchase",
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_D",
+          "c4relationshipTo": "order",
+          "c4relationshipDesc": "Order service checks product availability and provides prices"
+          }                  
+          ]
+        },
+        {
+        "c4objectID": "checkout",
+        "c4objectType": "Component",
+        "c4objectTech": "html/css/jscript",
+        "c4objectName": "Checkout",
+        "c4objectDesc": "Dispaly and confirm the order and arange payment",
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_D",
+          "c4relationshipTo": "order",
+          "c4relationshipDesc": "Finalise order and arange payment"
+          },
+          {
+          "c4relationshipType": "Rel_D",
+          "c4relationshipTo": "payment",
+          "c4relationshipDesc": "issue payment request"
+          }                                      
+          ]
+        },
+        {
+        "c4objectID": "product",
+        "c4objectType": "Component",
+        "c4objectTech": "api",
+        "c4objectName": "Product Service",
+        "c4objectDesc": "Provides Product services",
+        "relationships" :[
+          {
+            "c4relationshipType": "Rel_D",
+            "c4relationshipTo": "datatier",
+            "c4relationshipDesc": "Read/Write Products"
+          }                    
         ]
-  }
+        },
+        {
+        "c4objectID": "order",
+        "c4objectType": "Component",
+        "c4objectTech": "api",
+        "c4objectName": "Order Service",
+        "c4objectDesc": "Provides Order services",
+        "relationships" :[
+          {
+            "c4relationshipType": "Rel_D",
+            "c4relationshipTo": "datatier",
+            "c4relationshipDesc": "Read/Write Orders"
+          }                    
+        ]
+        },
+        {
+          "c4objectID": "payment",
+          "c4objectType": "Component",
+          "c4objectTech": "api",
+          "c4objectName": "Payment Service",
+          "c4objectDesc": "Create Payment Request",
+          "relationships" :[
+            {
+              "c4relationshipType": "Rel_D",
+              "c4relationshipTo": "datatier",
+              "c4relationshipDesc": "Write Payment Details"
+            },                    
+            {
+              "c4relationshipType": "Rel_R",
+              "c4relationshipTo": "dispatch",
+              "c4relationshipDesc": "Payment has been authorised"
+            }                    
+            ]
+          },
+          {
+            "c4objectID": "dispatch",
+            "c4objectType": "Component",
+            "c4objectTech": "api",
+            "c4objectName": "Payment Service",
+            "c4objectDesc": "Create Dispatch Request",
+            "relationships" :[
+              {
+                "c4relationshipType": "Rel_D",
+                "c4relationshipTo": "datatier",
+                "c4relationshipDesc": "Write Details Details"
+              }                    
+            ]
+            }
+          ]
+    }
 }

@@ -1,48 +1,36 @@
 @startuml
 !function $get_c4_diagram($id)
 
-!log get_c4_diagram-> $id
-
 %set_variable_value($diagram_exist, %false())
 !foreach $diagram in $diagrams.c4DiagramRegistry.diagrams
     !if $diagram.c4Id == $id
         %set_variable_value($diagram_exist, %true())
-        ' !log got a hit
-        ' !log $diagram
         !return $diagram
     !endif
 !endfor
 
 !if $diagram_exist == %false()
-    'return eror response if json file not found
-    ' !log diagram $id not found
     !return ""
 !endif
     
 !endfunction
 
 !function $get_c4_object($id)
-'!log get_c4_object: $id
 %set_variable_value($object_exist, %false())
 !foreach $object in $objects.c4ObjectRegistry.objects
-    ' !log $object.c4objectID equal to $id?
     !if $object.c4objectID == $id
         %set_variable_value($object_exist, %true())
-        ' !log got a hit
-        ' !log $object
         !return $object
     !endif
 !endfor
 
 !if $object_exist == %false()
-    ' !log object $id not found
     !return ""
 !endif
 
 !endfunction
 
 !unquoted procedure $c4_diagram($id)
-' !log c4_diagram: $id
 !global $diagrams = %load_json("C4_diagrams.json")
 !global $objects = %load_json("C4_objects.json")
 !global $diagramObjects = "~"
@@ -58,7 +46,7 @@
     $writeout_c4_object($contain)
 !endfor
 
-!log here are all the objects on the diagram: %get_variable_value($diagramObjects)
+'!log here are all the objects on the diagram: %get_variable_value($diagramObjects)
 !$list = %splitstr(%get_variable_value($diagramObjects), "~")
 !foreach $item in $list
     $writeout_c4_relationships($item)
@@ -73,83 +61,120 @@ SHOW_LEGEND()
 '   Context view.. Person, Person_Ext, System, System_Ext, Enterprise_Boundary
 '   Container View.. System Boundary, Container
 '   Componenet View.. Container Boundary and Components
-!log writeout_c4_object: $id
 
 !$object = $get_c4_object($id)
-!if $C4_DIAGRAM_TYPE == "Context"
-    !if %not (%json_key_exists($object, "c4objectName"))
+
+!if %not (%json_key_exists($object, "c4objectName"))
+    !if $C4_DIAGRAM_TYPE == "Context"
 System($id, "$id")
-    !elseif $object.c4objectType == "Person"
+    !elseif $C4_DIAGRAM_TYPE == "Container"
+Container($id, "$id")
+    !else
+Component($id, "$id")
+    !endif
+!endif
+
+!if $object.c4objectType == "Person"
+    !if $C4_DIAGRAM_TYPE == "Context"
         !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
 Person($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
-    !elseif $object.c4objectType == "Person_Ext"
+    !endif
+!endif
+
+!if $object.c4objectType == "Person_Ext"
+    !if $C4_DIAGRAM_TYPE == "Context"
         !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
 Person_Ext($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
-    !elseif $object.c4objectType == "System"
+    !endif
+!endif
+
+!if $object.c4objectType == "System"
+    !if $C4_DIAGRAM_TYPE == "Context"
         !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
 System($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
-    !elseif $object.c4objectType == "System_Ext"
-        !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
-System_Ext($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
-    !elseif $object.c4objectType == "Enterprise_Boundary"
-Enterprise_Boundary($object.c4objectID, "$object.c4objectName") {
-        !foreach $contain in $object.contains
-            !log add $contain to $object.c4objectID
-            $writeout_c4_object($contain)
-        !endfor
-}                    
-    !endif
-!elseif $C4_DIAGRAM_TYPE == "Container"
-    !if %not (%json_key_exists($object, "c4objectName"))
-Container($id, "$id")
-    !elseif $object.c4objectType == "Person"
-'hide $object.c4objectID
-'        !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
-'Person($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
-    !elseif $object.c4objectType == "Person_Ext"
-'        !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
-'Person_Ext($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
-    !elseif $object.c4objectType == "Enterprise_Boundary"
-Enterprise_Boundary($object.c4objectID, "$object.c4objectName",$c4h_descr($object)) {
-        !foreach $contain in $object.contains
-'            !log add $contain 
-            $writeout_c4_object($contain)
-        !endfor
-}
-    !elseif $object.c4objectType == "System" || $object.c4objectType == "System_Ext"
-        !if %size($object.contains) > 0
-            !log add system boundary
+    !elseif %size($object.contains) > 0
 System_Boundary($object.c4objectID, "$object.c4objectName",$c4h_descr($object)) {
             !foreach $contain in $object.contains
-'                !log add $contain to system
                 $writeout_c4_object($contain)
             !endfor
 }
-            !log end of system boundary
-        !else
-            ' !log add container $object.c4objectID
-        !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
-Container($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object))
-        !endif      
-    !elseif $object.c4objectType == "Container"
-            ' !log add container $object.c4objectID
-        !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
-Container($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object))
-    !elseif $object.c4objectType == "ContainerDb"
-            ' !log add container $object.c4objectID
-        !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
-ContainerDb($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object))
     !endif
-!elseif $C4_DIAGRAM_TYPE == "Component"
 !endif
+
+!if $object.c4objectType == "System_Ext"
+    !if $C4_DIAGRAM_TYPE == "Context"
+        !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
+System_Ext($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
+    !elseif %size($object.contains) > 0
+System_Boundary($object.c4objectID, "$object.c4objectName",$c4h_descr($object)) {
+            !foreach $contain in $object.contains
+                $writeout_c4_object($contain)
+            !endfor
+}
+    !endif
+!endif
+
+!if $object.c4objectType == "Enterprise_Boundary"
+Enterprise_Boundary($object.c4objectID, "$object.c4objectName") {
+    !foreach $contain in $object.contains
+        $writeout_c4_object($contain)
+    !endfor
+}                    
+!endif
+
+!if $object.c4objectType == "Container" || $object.c4objectType == "ContainerDb"
+    !if %size($object.contains) > 0  
+Container_Boundary($object.c4objectID, "$object.c4objectName",$c4h_descr($object)) {
+        !foreach $contain in $object.contains
+            $writeout_c4_object($contain)
+        !endfor
+}
+    !else
+        !if $C4_DIAGRAM_TYPE == "Container"
+            !if $object.c4objectType == "Container"
+                !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
+Container($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object))
+            !elseif $object.c4objectType == "ContainerDb"
+                !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
+ContainerDb($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object))
+            !endif
+        !elseif $C4_DIAGRAM_TYPE == "Component"
+            !if  %size($object.components) > 0
+Container_Boundary($object.c4objectID, "$object.c4objectName",$c4h_descr($object)) {
+                !foreach $component in $object.components
+                    $writeout_c4_object($component)
+                !endfor
+}
+            !else
+                !if $object.c4objectType == "Container"
+                    !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
+Container($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object))
+                !elseif $object.c4objectType == "ContainerDb"
+                    !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
+ContainerDb($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object))
+                !endif            
+            !endif
+        !endif
+    !endif
+!elseif  $object.c4objectType == "Component"
+    !if $C4_DIAGRAM_TYPE == "Component"
+        !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
+Component($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object))
+    !endif 
+!elseif  $object.c4objectType == "ComponentDb"
+    !if $C4_DIAGRAM_TYPE == "Component"
+        !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
+ComponentDb($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object))
+    !endif
+!endif
+
 !endprocedure
 
 !unquoted procedure $writeout_c4_relationships($id)
-!log writeout_c4_relationships($id)
 !$object = $get_c4_object($id)
 
 !foreach $relationship in $object.relationships
-    !if  %strpos(%get_variable_value($diagramObjects),$relationship.c4relationshipTo) > 0
+    !if %strpos(%get_variable_value($diagramObjects),$id) > 0 && %strpos(%get_variable_value($diagramObjects),$relationship.c4relationshipTo) > 0 
         !if $relationship.c4relationshipType == "Rel_R"
 Rel_R($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
         !elseif $relationship.c4relationshipType == "Rel_L"
