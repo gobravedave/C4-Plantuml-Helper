@@ -186,7 +186,7 @@
         {
         "c4objectID": "apptier",
         "c4objectType": "Container",
-        "c4objectTech": "HTML, CCS, JScript",
+        "c4objectTech": "golang",
         "c4objectName": "Application Layer",
         "c4objectDesc": "An application layer usually handles the business logic and all the internal processes, including product catalog management, shopping carts, payment processing systems, and order tools that make the system work.",
         "contains" :[],
@@ -315,7 +315,7 @@
             "c4objectID": "dispatch",
             "c4objectType": "Component",
             "c4objectTech": "api",
-            "c4objectName": "Payment Service",
+            "c4objectName": "Dispatch Service",
             "c4objectDesc": "Create Dispatch Request",
             "relationships" :[
               {
