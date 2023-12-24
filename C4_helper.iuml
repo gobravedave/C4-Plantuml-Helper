@@ -7,49 +7,47 @@
 !foreach $diagram in $diagrams.c4DiagramRegistry.diagrams
     !if $diagram.c4Id == $id
         %set_variable_value($diagram_exist, %true())
-        !log got a hit
-        !log $diagram
+        ' !log got a hit
+        ' !log $diagram
         !return $diagram
     !endif
 !endfor
 
 !if $diagram_exist == %false()
     'return eror response if json file not found
-    !log diagram $id not found
+    ' !log diagram $id not found
     !return ""
 !endif
     
 !endfunction
 
 !function $get_c4_object($id)
-!log get_c4_object: $id
+'!log get_c4_object: $id
 %set_variable_value($object_exist, %false())
 !foreach $object in $objects.c4ObjectRegistry.objects
-    !log $object.c4objectID equal to $id?
+    ' !log $object.c4objectID equal to $id?
     !if $object.c4objectID == $id
         %set_variable_value($object_exist, %true())
-        !log got a hit
-        !log $object
+        ' !log got a hit
+        ' !log $object
         !return $object
     !endif
 !endfor
 
 !if $object_exist == %false()
-    !log object $id not found
+    ' !log object $id not found
     !return ""
 !endif
 
 !endfunction
 
 !unquoted procedure $c4_diagram($id)
-!log c4_diagram: $id
-'load diagrams
+' !log c4_diagram: $id
 !global $diagrams = %load_json("C4_diagrams.json")
-'load objects
 !global $objects = %load_json("C4_objects.json")
+!global $diagramObjects = "~"
 
 !$diagram = $get_c4_diagram($id)
-
 !if  %json_key_exists($diagram, "title")
     title $diagram.title - $C4_DIAGRAM_TYPE Diagram
 !else 
@@ -60,28 +58,11 @@
     $writeout_c4_object($contain)
 !endfor
 
-    'output associated relationships 
-    !foreach $relationship in $diagram.relationships
-            !if $relationship.c4relationshipType == "Rel_R"
-Rel_R($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
-            !elseif $relationship.c4relationshipType == "Rel_L"
-Rel_L($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
-            !elseif $relationship.c4relationshipType == "Rel_U"
-Rel_U($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
-            !elseif $relationship.c4relationshipType == "Rel_D"
-Rel_D($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
-            !elseif $relationship.c4relationshipType == "Lay_L"
-Lay_L($relationship.c4relationshipFrom, $relationship.c4relationshipTo)
-            !elseif $relationship.c4relationshipType == "Lay_R"
-Lay_R($relationship.c4relationshipFrom, $relationship.c4relationshipTo)
-            !elseif $relationship.c4relationshipType == "Lay_U"
-Lay_U($relationship.c4relationshipFrom, $relationship.c4relationshipTo)
-            !elseif $relationship.c4relationshipType == "Lay_D"
-Lay_D($relationship.c4relationshipFrom, $relationship.c4relationshipTo)
-            !else
-Rel($relationship.c4relationshipFrom, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
-            !endif
-    !endfor
+!log here are all the objects on the diagram: %get_variable_value($diagramObjects)
+!$list = %splitstr(%get_variable_value($diagramObjects), "~")
+!foreach $item in $list
+    $writeout_c4_relationships($item)
+!endfor
 
 SHOW_LEGEND()
 
@@ -93,44 +74,115 @@ SHOW_LEGEND()
 '   Container View.. System Boundary, Container
 '   Componenet View.. Container Boundary and Components
 !log writeout_c4_object: $id
+
 !$object = $get_c4_object($id)
 !if $C4_DIAGRAM_TYPE == "Context"
     !if %not (%json_key_exists($object, "c4objectName"))
 System($id, "$id")
     !elseif $object.c4objectType == "Person"
-'            !log Person($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
+        !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
 Person($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
     !elseif $object.c4objectType == "Person_Ext"
-'            !log Person_Ext($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
+        !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
 Person_Ext($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
     !elseif $object.c4objectType == "System"
-'            !log System($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
+        !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
 System($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
     !elseif $object.c4objectType == "System_Ext"
-'            !log System_Ext($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
+        !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
 System_Ext($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
     !elseif $object.c4objectType == "Enterprise_Boundary"
-'!log object: $object
 Enterprise_Boundary($object.c4objectID, "$object.c4objectName") {
-            !foreach $contain in $object.contains
-                !log add $contain to $object.c4objectID
-                $writeout_c4_object($contain)
-            !endfor
+        !foreach $contain in $object.contains
+            !log add $contain to $object.c4objectID
+            $writeout_c4_object($contain)
+        !endfor
 }                    
     !endif
 !elseif $C4_DIAGRAM_TYPE == "Container"
-        !if $object.c4objectType == "Person" || "Person_Ext" || "Enterprise_Boundary"
-            !log do not show Persons or Enterprise Boundary
-        !elseif 
-        !if $object.c4objectType == "System" || "System_Ext"
-            !if %size($object.contains) > 0
-                !log shows as a system boundery with %size($object.contains) containers
-            !endif      
-        !endif
-
+    !if %not (%json_key_exists($object, "c4objectName"))
+Container($id, "$id")
+    !elseif $object.c4objectType == "Person"
+'hide $object.c4objectID
+'        !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
+'Person($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
+    !elseif $object.c4objectType == "Person_Ext"
+'        !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
+'Person_Ext($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
+    !elseif $object.c4objectType == "Enterprise_Boundary"
+Enterprise_Boundary($object.c4objectID, "$object.c4objectName",$c4h_descr($object)) {
+        !foreach $contain in $object.contains
+'            !log add $contain 
+            $writeout_c4_object($contain)
+        !endfor
+}
+    !elseif $object.c4objectType == "System" || $object.c4objectType == "System_Ext"
+        !if %size($object.contains) > 0
+            !log add system boundary
+System_Boundary($object.c4objectID, "$object.c4objectName",$c4h_descr($object)) {
+            !foreach $contain in $object.contains
+'                !log add $contain to system
+                $writeout_c4_object($contain)
+            !endfor
+}
+            !log end of system boundary
+        !else
+            ' !log add container $object.c4objectID
+        !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
+Container($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object))
+        !endif      
+    !elseif $object.c4objectType == "Container"
+            ' !log add container $object.c4objectID
+        !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
+Container($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object))
+    !elseif $object.c4objectType == "ContainerDb"
+            ' !log add container $object.c4objectID
+        !$result = $add_id_list(%get_variable_value($diagramObjects), $id)
+ContainerDb($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object))
+    !endif
 !elseif $C4_DIAGRAM_TYPE == "Component"
 !endif
 !endprocedure
+
+!unquoted procedure $writeout_c4_relationships($id)
+!log writeout_c4_relationships($id)
+!$object = $get_c4_object($id)
+
+!foreach $relationship in $object.relationships
+    !if  %strpos(%get_variable_value($diagramObjects),$relationship.c4relationshipTo) > 0
+        !if $relationship.c4relationshipType == "Rel_R"
+Rel_R($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+        !elseif $relationship.c4relationshipType == "Rel_L"
+Rel_L($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+        !elseif $relationship.c4relationshipType == "Rel_U"
+Rel_U($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+        !elseif $relationship.c4relationshipType == "Rel_D"
+Rel_D($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+        !elseif $relationship.c4relationshipType == "Lay_L"
+Lay_L($object.c4objectID, $relationship.c4relationshipTo)
+        !elseif $relationship.c4relationshipType == "Lay_R"
+Lay_R($object.c4objectID, $relationship.c4relationshipTo)
+        !elseif $relationship.c4relationshipType == "Lay_U"
+Lay_U($object.c4objectID, $relationship.c4relationshipTo)
+        !elseif $relationship.c4relationshipType == "Lay_D"
+Lay_D($object.c4objectID, $relationship.c4relationshipTo)
+        !else
+Rel($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+        !endif
+    !endif
+!endfor
+
+!endprocedure
+
+!unquoted function $add_id_list($idlist, $id)
+!if %strpos($idlist, $id) > 0
+    !return %false()
+!else 
+    %set_variable_value($diagramObjects, ($idlist + "~"+$id+"~"))
+    !return  %true()
+!endif
+
+!endfunction
 
 !function $c4h_descr($object)
 !if $INCLUDE_DESC == "Y"
@@ -141,11 +193,11 @@ Enterprise_Boundary($object.c4objectID, "$object.c4objectName") {
 !endfunction
 
 !function $c4h_techn($object)
-!if $INCLUDE_DESC == "Y"
-    !return  "$techn=" $object.c4objectType
-!else 
-    !return ""
-!endif
+    !if %json_key_exists($object, "c4objectTech")
+        !return  "$techn=" $object.c4objectTech
+    !else 
+        !return  "$techn=" $object.c4objectType
+    !endif
 !endfunction
 
 'v1 code below.. refactor based on updates json structure

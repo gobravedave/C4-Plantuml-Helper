@@ -5,7 +5,25 @@
         "c4objectID": "customer",
         "c4objectType": "Person_Ext",
         "c4objectName": "Customer",
-        "c4objectDesc": "A customer of Widgets Limited."
+        "c4objectDesc": "A customer of Widgets Limited.",
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_R",
+          "c4relationshipTo": "csa",
+          "c4relationshipDesc": "Asks questions to",
+          "c4relationshipTech": "Telephone"      
+          },
+          {
+          "c4relationshipType": "Rel_D",
+          "c4relationshipTo": "ecommerce",
+          "c4relationshipDesc": "Places orders for widgets using"
+          },
+          {
+          "c4relationshipType": "Lay_D",
+          "c4relationshipTo": "csa",
+          "c4relationshipDesc": ""
+          }        
+          ]
         },
         {
         "c4objectID": "enterprise01",
@@ -17,67 +35,183 @@
         "c4objectID": "csa",
         "c4objectType": "Person",
         "c4objectName": "Customer Service Agent",
-        "c4objectDesc": "Deals with customer enquiries."
+        "c4objectDesc": "Deals with customer enquiries.",
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel",
+          "c4relationshipTo": "ecommerce",
+          "c4relationshipDesc": "Looks up order information using"
+          }
+          ]
         },
         {
         "c4objectID": "ecommerce",
         "c4objectType": "System",
         "c4objectName": "E-commerce System",
-        "c4objectDesc": "Allows customers to buy widgets online via the widgets.com website."
+        "c4objectDesc": "Allows customers to buy widgets online via the widgets.com website.",
+        "contains" :["presentation","apptier","datatier"],
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_R",
+          "c4relationshipTo": "fulfillment",
+          "c4relationshipDesc": "Sends order information to"
+          },
+          {
+          "c4relationshipType": "Rel_D",
+          "c4relationshipTo": "taxamo",
+          "c4relationshipDesc": "Delegates credit card processing to"
+          }          
+          ]
         },
         {
         "c4objectID": "fulfillment",
         "c4objectType": "System",
         "c4objectName": "Fulfillment System",
-        "c4objectDesc": "Responsible for processing and shipping of customer orders."
+        "c4objectDesc": "Responsible for processing and shipping of customer orders.",
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_D",
+          "c4relationshipTo": "post",
+          "c4relationshipDesc": "Gets shipping charges from"
+          }
+          ]
         },
         {
         "c4objectID": "taxamo",
         "c4objectType": "System",
         "c4objectName": "Taxamo",
-        "c4objectDesc": "Calculates local tax (for EU B2B customers) and acts as a front-end for Braintree Payments."
+        "c4objectDesc": "Calculates local tax (for EU B2B customers) and acts as a front-end for Braintree Payments.",
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_L",
+          "c4relationshipTo": "braintree",
+          "c4relationshipDesc": "Uses for credit card processing"
+          }
+          ]
         },
         {
         "c4objectID": "braintree",
         "c4objectType": "System",
         "c4objectName": "Braintree Payments",
-        "c4objectDesc": "Processes credit card payments on behalf of Widgets Limited."
+        "c4objectDesc": "Processes credit card payments on behalf of Widgets Limited.",
+        "relationships" :[]
         },
         {
         "c4objectID": "post",
         "c4objectType": "System",
         "c4objectName": "Jersey Post",
-        "c4objectDesc": "Calculates worldwide shipping costs for packages."
+        "c4objectDesc": "Calculates worldwide shipping costs for packages.",
+        "relationships" :[]
         },
         {
-          "c4objectID": "arch",
-          "c4objectType": "Person",
-          "c4objectName": "Software Architect",
-          "c4objectDesc": "A software architect is a software engineer responsible for high-level design choices related to overall system structure and behavior"
+        "c4objectID": "arch",
+        "c4objectType": "Person",
+        "c4objectName": "Software Architect",
+        "c4objectDesc": "A software architect is a software engineer responsible for high-level design choices related to overall system structure and behavior",
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_R",
+          "c4relationshipTo": "modsys",
+          "c4relationshipDesc": "model specs using",
+          "c4relationshipTech": ""      
+          }
+          ]
         },
         {
-          "c4objectID": "eng",
-          "c4objectType": "Person",
-          "c4objectName": "Software Engineer",
-          "c4objectDesc": "Designs and develops software solutions to meet the needs of a client"
+        "c4objectID": "eng",
+        "c4objectType": "Person",
+        "c4objectName": "Software Engineer",
+        "c4objectDesc": "Designs and develops software solutions to meet the needs of a client",
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_L",
+          "c4relationshipTo": "github",
+          "c4relationshipDesc": "get build specs"
+          },
+          {
+          "c4relationshipType": "Rel_L",
+          "c4relationshipTo": "github",
+          "c4relationshipDesc": "push code"
+          },
+          {
+          "c4relationshipType": "Rel_R",
+          "c4relationshipTo": "system",
+          "c4relationshipDesc": "ships"
+          }          
+          ]
         },
         {
-          "c4objectID": "github",
-          "c4objectType": "System",
-          "c4objectName": "GitHub",
-          "c4objectDesc": "a platform and cloud-based service for software development and version control, allowing developers to store and manage their code"
+        "c4objectID": "github",
+        "c4objectType": "System",
+        "c4objectName": "GitHub",
+        "c4objectDesc": "a platform and cloud-based service for software development and version control, allowing developers to store and manage their code",
+        "relationships" :[]
         },
         {
-          "c4objectID": "modsys",
-          "c4objectType": "System",
-          "c4objectName": "Software Modelling Platform",
-          "c4objectDesc": "Enables software design including interfaces, interactions with other software, and all the software methods. Software models are ways of expressing a software design. Usually some sort of abstract language or pictures are used to express the software design."
+        "c4objectID": "modsys",
+        "c4objectType": "System",
+        "c4objectName": "Software Modelling Platform",
+        "c4objectDesc": "Enables software design including interfaces, interactions with other software, and all the software methods. Software models are ways of expressing a software design. Usually some sort of abstract language or pictures are used to express the software design.",
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_R",
+          "c4relationshipTo": "github",
+          "c4relationshipDesc": "push specs to"
+          }
+          ]
         },
         {
-          "c4objectID": "system",
-          "c4objectType": "System",
-          "c4objectName": "Software System",
-          "c4objectDesc": "Provides business value to the client"
+        "c4objectID": "system",
+        "c4objectType": "System",
+        "c4objectName": "Software System",
+        "c4objectDesc": "Provides business value to the client",
+        "relationships" :[]
+        },
+        {
+        "c4objectID": "presentation",
+        "c4objectType": "Container",
+        "c4objectTech": "HTML, CCS, JScript",
+        "c4objectName": "Presentation Layer",
+        "c4objectDesc": "This user-facing layer includes the website, layout, user interface, personal account portal, and any other part of the system end users can reach.",
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel",
+          "c4relationshipTo": "apptier",
+          "c4relationshipDesc": "call to execute"
+          }
+          ]
+        },
+        {
+        "c4objectID": "apptier",
+        "c4objectType": "Container",
+        "c4objectTech": "HTML, CCS, JScript",
+        "c4objectName": "Application Layer",
+        "c4objectDesc": "An application layer usually handles the business logic and all the internal processes, including product catalog management, shopping carts, payment processing systems, and order tools that make the system work.",
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_L",
+          "c4relationshipTo": "datatier",
+          "c4relationshipDesc": "reads from/writes to"
+          },
+          {
+          "c4relationshipType": "Rel",
+          "c4relationshipTo": "fulfillment",
+          "c4relationshipDesc": "Sends order information to"
+          },
+          {
+          "c4relationshipType": "Rel_D",
+          "c4relationshipTo": "taxamo",
+          "c4relationshipDesc": "Delegates credit card processing to"
+          }                  
+          ]
+        },
+        {
+        "c4objectID": "datatier",
+        "c4objectType": "ContainerDb",
+        "c4objectTech": "Spanner",
+        "c4objectName": "Data Layer",
+        "c4objectDesc": "data related to the ecommerce platform is stored. It includes product information, customer data, order history, and many other details the system may need. ",
+        "relationships" :[]
         }
         ]
   }

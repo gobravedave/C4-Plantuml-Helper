@@ -4,96 +4,12 @@
     {
       "c4Id": "enterprise",
       "title": "Widget Enterprise Example",
-      "contains" :["customer","enterprise01","taxamo","braintree","post"],
-      "relationships" :[
-        {
-        "c4relationshipType": "Rel_R",
-        "c4relationshipFrom": "customer",
-        "c4relationshipTo": "csa",
-        "c4relationshipDesc": "Asks questions to",
-        "c4relationshipTech": "Telephone"      
-        },
-        {
-        "c4relationshipType": "Rel_D",
-        "c4relationshipFrom": "customer",
-        "c4relationshipTo": "ecommerce",
-        "c4relationshipDesc": "Places orders for widgets using"
-        },
-        {
-        "c4relationshipType": "Rel",
-        "c4relationshipFrom": "csa",
-        "c4relationshipTo": "ecommerce",
-        "c4relationshipDesc": "Looks up order information using"
-        },
-        {
-        "c4relationshipType": "Rel_R",
-        "c4relationshipFrom": "ecommerce",
-        "c4relationshipTo": "fulfillment",
-        "c4relationshipDesc": "Sends order information to"
-        },
-        {
-        "c4relationshipType": "Rel_D",
-        "c4relationshipFrom": "fulfillment",
-        "c4relationshipTo": "post",
-        "c4relationshipDesc": "Gets shipping charges from"
-        },
-        {
-        "c4relationshipType": "Rel_D",
-        "c4relationshipFrom": "ecommerce",
-        "c4relationshipTo": "taxamo",
-        "c4relationshipDesc": "Delegates credit card processing to"
-        },
-        {
-        "c4relationshipType": "Rel_L",
-        "c4relationshipFrom": "taxamo",
-        "c4relationshipTo": "braintree",
-        "c4relationshipDesc": "Uses for credit card processing"
-        },
-        {
-          "c4relationshipType": "Lay_D",
-          "c4relationshipFrom": "customer",
-          "c4relationshipTo": "csa",
-          "c4relationshipDesc": ""
-        }
-      ]
+      "contains" :["customer","enterprise01","taxamo","braintree","post"]
     },
     {
       "c4Id": "c4helper",
       "title": "C4 Helper",
-      "contains" :["arch","modsys","github","eng","system"],
-      "relationships" :[
-        {
-        "c4relationshipType": "Rel_R",
-        "c4relationshipFrom": "arch",
-        "c4relationshipTo": "modsys",
-        "c4relationshipDesc": "model specs using",
-        "c4relationshipTech": ""      
-        },
-        {
-        "c4relationshipType": "Rel_R",
-        "c4relationshipFrom": "modsys",
-        "c4relationshipTo": "github",
-        "c4relationshipDesc": "push specs to"
-        },
-        {
-        "c4relationshipType": "Rel_L",
-        "c4relationshipFrom": "eng",
-        "c4relationshipTo": "github",
-        "c4relationshipDesc": "get build specs"
-        },
-        {
-        "c4relationshipType": "Rel_L",
-        "c4relationshipFrom": "eng",
-        "c4relationshipTo": "github",
-        "c4relationshipDesc": "push code"
-        },
-        {
-        "c4relationshipType": "Rel_R",
-        "c4relationshipFrom": "eng",
-        "c4relationshipTo": "system",
-        "c4relationshipDesc": "ships"
-        }
-      ]
+      "contains" :["arch","modsys","github","eng","system"]
     }
     ]
   }
