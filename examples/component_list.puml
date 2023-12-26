@@ -1,6 +1,0 @@
-@startuml component_list
-!includeurl https://raw.githubusercontent.com/gobravedave/C4-Plantuml-Helper/master/C4_helper.iuml
-Title C4 Model Helper Component List 
-!include C4_helper.iuml
-$component_list()
-@enduml
