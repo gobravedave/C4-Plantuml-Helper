@@ -1,0 +1,99 @@
+@startuml enterprise context view
+
+!include ../C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Context")
+'%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
+'%set_variable_value("$C4_DIAGRAM_TYPE", "Component")
+%set_variable_value("$INCLUDE_DESC", "Y")
+'======================================================================
+'Call procedure to build the diagram
+$c4_diagram(enterprise)
+SHOW_TABLE()
+taxamo .[hidden]. c4h_table
+taxamo .[hidden]. c4h_table
+
+@enduml
+
+@startuml enterprise context view with highlights
+
+!include ../C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Context")
+'%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
+'%set_variable_value("$C4_DIAGRAM_TYPE", "Component")
+%set_variable_value("$INCLUDE_DESC", "Y")
+'======================================================================
+'Call procedure to build the diagram
+$c4_diagram(enterprise)
+
+hide braintree
+'v1.1 introduces
+AddElementTag("v1.1", $fontColor="black", $bgColor="gold")
+AddRelTag("V1.1", $textColor="black", $lineColor="gold")
+System(csaa,"CSA Assist","Customer Service Desktop used to record queries and recommend solution approach",$tags="v1.1") 
+Rel_L(csa,csaa,"looks up",$tags="v1.1")
+'show V1.1 in legend
+SHOW_LEGEND()
+
+@enduml
+
+@startuml enterprise container view
+
+!include ../C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Container.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
+%set_variable_value("$INCLUDE_DESC", "Y")
+'======================================================================
+'Call procedure to build the diagram
+$c4_diagram(enterprise)
+
+SHOW_LEGEND()
+
+@enduml
+
+@startuml enterprise component view
+!include ../C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Component.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Component")
+%set_variable_value("$INCLUDE_DESC", "Y")
+'======================================================================
+'Call procedure to build the diagram
+$c4_diagram(enterprise)
+SHOW_TABLE()
+SHOW_LEGEND()
+
+datatier.[hidden].c4h_table
+datatier.[hidden].c4h_table
+
+@enduml
+
+@startuml adr-001 Decision
+
+!include ../C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
+%set_variable_value("$INCLUDE_DESC", "N")
+'======================================================================
+
+skinparam rectangle {
+    roundCorner<<Decison>> 25
+}
+
+rectangle "Choose a Cloud Provider from" <<Decison>> as d1
+package options {
+    $c4_diagram(adr-001)
+}
+d1-options
+@enduml
+

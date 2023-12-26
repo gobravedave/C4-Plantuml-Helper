@@ -4,12 +4,25 @@
     {
       "c4Id": "enterprise",
       "title": "Widget Enterprise Example",
+      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
       "contains" :["customer","enterprise01","taxamo","braintree","post"]
     },
     {
       "c4Id": "c4helper",
       "title": "C4 Helper",
       "contains" :["arch","modsys","github","eng","system"]
+    },
+    {
+      "c4Id": "adr-001",
+      "title": "GCP as Cloud Provider Decision",
+      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+      "contains" :["gcp","aws","azure"]
+    },
+    {
+      "c4Id": "adr-002",
+      "title": "Braintree to provide online payment services",
+      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+      "contains" :["paddle","amazonpay","paypal"]
     }
     ]
   }

@@ -49,7 +49,9 @@
         "c4objectType": "System",
         "c4objectName": "E-commerce System",
         "c4objectDesc": "Allows customers to buy widgets online via the widgets.com website.",
+        "appearsIn" : ["enterprise","adr-001","adr-002"],
         "contains" :["presentation","apptier","datatier"],
+        "components" :[],
         "relationships" :[
           {
           "c4relationshipType": "Rel_R",
@@ -94,6 +96,7 @@
         "c4objectType": "System",
         "c4objectName": "Braintree Payments",
         "c4objectDesc": "Processes credit card payments on behalf of Widgets Limited.",
+        "appearsIn" : ["enterprise","adr-002"],
         "relationships" :[]
         },
         {
@@ -215,6 +218,8 @@
         "c4objectTech": "Spanner",
         "c4objectName": "Data Layer",
         "c4objectDesc": "data related to the ecommerce platform is stored. It includes product information, customer data, order history, and many other details the system may need. ",
+        "contains" :[],
+        "components" :[],
         "relationships" :[]
         },
         {
@@ -298,6 +303,7 @@
           "c4objectTech": "api",
           "c4objectName": "Payment Service",
           "c4objectDesc": "Create Payment Request",
+          "appearsIn" : ["adr-002"],
           "relationships" :[
             {
               "c4relationshipType": "Rel_D",

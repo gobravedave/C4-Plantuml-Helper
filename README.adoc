@@ -16,6 +16,8 @@ The issue then becomes:
 
 C4_Plantuml_Helper to the rescue.
 
+== Context 
+
 image::demo context view.svg[Context]
 
 == Container 
@@ -115,9 +117,11 @@ The following variable are used
 [options="header",cols="<.<2,<.<1, <.<4"]
 |===
 |Variable|Value|Behaviour
-| $INCLUDE_DESC| Y | Includes description of object from respective registry. If the variable is not set or initialised to another value, descriptions are not shown.
+| $c4_diagram| diagram identifer eg. enterprise | Displays C4 Diagram
 .3+|$C4_LEVEL|CONTEXT| Container objects will have the link as per the container registary
 |CONTAINER|Container objects will have a link based on the assocated context identifier. Component objects will contain a link based on teh component registry.
 |COMPONENT|Components will link back to the associated container. 
+| $INCLUDE_DESC| Y | Includes description of object from respective registry. If the variable is not set or initialised to another value, descriptions are not shown.
+| SHOW_TABLE() | | Displays C4 elements for the designated diagram which includes a list of diagrams this element also appears in. |
 |===
 
