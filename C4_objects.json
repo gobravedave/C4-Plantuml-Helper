@@ -1,6 +1,6 @@
 {
   "c4ObjectRegistry": {
-      "objects" :[
+    "objects" :[
         {
         "c4objectID": "customer",
         "c4objectType": "Person_Ext",
@@ -49,7 +49,7 @@
         "c4objectType": "System",
         "c4objectName": "E-commerce System",
         "c4objectDesc": "Allows customers to buy widgets online via the widgets.com website.",
-        "appearsIn" : ["enterprise","adr-001","adr-002"],
+        "appearsIn" : ["enterprise","adr_001","adr_002"],
         "contains" :["presentation","apptier","datatier"],
         "components" :[],
         "relationships" :[
@@ -96,7 +96,7 @@
         "c4objectType": "System",
         "c4objectName": "Braintree Payments",
         "c4objectDesc": "Processes credit card payments on behalf of Widgets Limited.",
-        "appearsIn" : ["enterprise","adr-002"],
+        "appearsIn" : ["enterprise","adr_002"],
         "relationships" :[]
         },
         {
@@ -298,39 +298,161 @@
         ]
         },
         {
-          "c4objectID": "payment",
+        "c4objectID": "payment",
+        "c4objectType": "Component",
+        "c4objectTech": "api",
+        "c4objectName": "Payment Service",
+        "c4objectDesc": "Create Payment Request",
+        "appearsIn" : ["adr_002"],
+        "relationships" :[
+          {
+            "c4relationshipType": "Rel_D",
+            "c4relationshipTo": "datatier",
+            "c4relationshipDesc": "Write Payment Details"
+          },                    
+          {
+            "c4relationshipType": "Rel_R",
+            "c4relationshipTo": "dispatch",
+            "c4relationshipDesc": "Payment has been authorised"
+          }                    
+          ]
+        },
+        {
+          "c4objectID": "dispatch",
           "c4objectType": "Component",
           "c4objectTech": "api",
-          "c4objectName": "Payment Service",
-          "c4objectDesc": "Create Payment Request",
-          "appearsIn" : ["adr-002"],
+          "c4objectName": "Dispatch Service",
+          "c4objectDesc": "Create Dispatch Request",
           "relationships" :[
             {
               "c4relationshipType": "Rel_D",
               "c4relationshipTo": "datatier",
-              "c4relationshipDesc": "Write Payment Details"
-            },                    
-            {
-              "c4relationshipType": "Rel_R",
-              "c4relationshipTo": "dispatch",
-              "c4relationshipDesc": "Payment has been authorised"
+              "c4relationshipDesc": "Write Details Details"
             }                    
-            ]
-          },
-          {
-            "c4objectID": "dispatch",
-            "c4objectType": "Component",
-            "c4objectTech": "api",
-            "c4objectName": "Dispatch Service",
-            "c4objectDesc": "Create Dispatch Request",
-            "relationships" :[
-              {
-                "c4relationshipType": "Rel_D",
-                "c4relationshipTo": "datatier",
-                "c4relationshipDesc": "Write Details Details"
-              }                    
-            ]
-            }
           ]
-    }
+        },        
+        {
+        "c4objectID": "bian_01",
+        "c4objectType": "Container",
+        "c4objectName": "Business Management",
+        "c4objectTech": "Grouping",
+        "c4objectDesc": "The collection of business activities that direct and oversee the corporate relations, enterprise policies, business plans and strategies. Also the management and operation of the business divisions and business units of the overall organization",
+        "appearsIn" : ["bian_overview","bian_business_management"],
+        "contains" :[]
+        },
+        {
+        "c4objectID": "bian_02",
+        "c4objectType": "Container",
+        "c4objectName": "Finance & Risk Management",
+        "c4objectTech": "Grouping",
+        "c4objectDesc": "The collection of activities needed to manage the broad range of financial and operational risks and performance controls of the organization and to handle internal audit and the relationships with external industry, legal and regulatory authorities",
+        "appearsIn" : ["bian_overview","bian_finance_and_risk_management"],
+        "contains" :[]
+        },
+        {
+        "c4objectID": "bian_03",
+        "c4objectType": "Container",
+        "c4objectName": "Resource Management",
+        "c4objectTech": "Grouping",
+        "c4objectDesc": "The collection of business activities that manage and oversee the deployment, development and operation of the organizational resources covering buildings and facilities, equipment and human resources ",
+        "appearsIn" : ["bian_overview","bian_resource_management"],
+        "contains" :[]
+        },
+        {
+        "c4objectID": "bian_04",
+        "c4objectType": "Container",
+        "c4objectName": "Business Development",
+        "c4objectTech": "Grouping",
+        "appearsIn" : ["bian_overview","bian_business_development"],
+        "c4objectDesc": "The collection of business activities that leverage the bank's knowledge and knowhow, define and refine models and analytical views that inform and influence business activity, develop and enhance products and services, drive marketing and sales activities and support the bank's brand/presence.",
+        "contains" :[]
+        },
+        {
+        "c4objectID": "bian_05",
+        "c4objectType": "Container",
+        "c4objectName": "Operations",
+        "c4objectTech": "Grouping",
+        "c4objectDesc": "The collection of the bank's 'back-office' cross-product delivery operational functions and services",
+        "appearsIn" : ["bian_overview","bian_operations"],
+        "contains" :[]
+        },
+        {
+        "c4objectID": "bian_06",
+        "c4objectType": "Container",
+        "c4objectName": "Products",
+        "c4objectTech": "Grouping",
+        "c4objectDesc": "The collection of product specific fulfillment activities covering all product set-up, servicing and production issue resolution. The business area is partitioned to support different product groupings that any bank might elect to deliver",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "appearsIn" : ["bian_overview","bian_products"],
+        "contains" :["bian_loan_and_deposits","bian_cards"]
+        },
+        {
+        "c4objectID": "bian_loan_and_deposits",
+        "c4objectType": "Container",
+        "c4objectName": "Loans and Deposits",
+        "c4objectTech": "Grouping",
+        "c4objectDesc": "Handle the initial set-up and all subsequent customer servicing/fulfillment  requests and scheduled product processing tasks for loans and deposits",
+        "contains" :["bian_mortgage_loan","bian_savings_account","bian_term_deposit"]
+        },  
+        {
+        "c4objectID": "bian_mortgage_loan",
+        "c4objectType": "Container",
+        "c4objectName": "Mortgage Loan",
+        "c4objectTech": "Capability",
+        "c4objectDesc": "The service domain handles the fulfillment of a loan product intended for the purchase of a property. Title to the property is usually administered as collateral for the mortgage loan. Note several different financial arrangements can be supported (interest only, variable rate, repayment). Furthermore the administration of the collateral is delegated to the Collateral Administration Service Domain and overseen by this Service Domain",
+        "contains" :[]
+        },  
+        {
+        "c4objectID": "bian_savings_account",
+        "c4objectType": "Container",
+        "c4objectName": "Savings Account",
+        "c4objectTech": "Capability",
+        "c4objectDesc": "The savings account product may share many features with a standard bank current account (e.g. standing orders, direct debits, payments and deposit services) with some constraints/limitations. There can be restrictions on the amount and frequency of withdrawals with an associated fee/penalty structure to offset higher interest benefits. Sweep mechanisms linked to other products (current account) can also be supported.",
+        "contains" :[]
+        },  
+        {
+        "c4objectID": "bian_cards",
+        "c4objectType": "Container",
+        "c4objectName": "Cards",
+        "c4objectTech": "Grouping",
+        "c4objectDesc": "Handle the initial card product set-up and servicing requests (card authorization and capture). Handle the card network interactions, billing and merchant agreements, liaison and production support activities",
+        "contains" :["bian_credit_card"]
+        },  
+        {
+        "c4objectID": "bian_credit_card",
+        "c4objectType": "Container",
+        "c4objectName": "Credit Card",
+        "c4objectTech": "Capability",
+        "c4objectDesc": "This service domain handles both credit and charge card fulfillment. Debit cards do not come under this Service Domain.",
+        "contains" :[]
+        },  
+        {
+        "c4objectID": "bian_term_deposit",
+        "c4objectType": "Container",
+        "c4objectName": "Term Deposit",
+        "c4objectTech": "Capability",
+        "c4objectDesc": "A Term Deposit is an interest bearing account into which a customer can place a fixed amount of funds for a fixed amount of time. The Service Domain handles the opening, servicing and maturity processing of a Term Deposit. Early closing of a Term Deposit may be allowed by the bank, but in that case penalty interest rates and charges may be applied.",
+        "contains" :[]
+        },  
+        {
+        "c4objectID": "bian_07",
+        "c4objectType": "Container",
+        "c4objectName": "Customers",
+        "c4objectTech": "Grouping",
+        "c4objectDesc": "The collection of activities that maintain, manage and leverage customer relationships, providing cross-product perspectives, matching products and services to customers and providing targeted analtics and decision support to enhance the bank's delivery performance, 'share of wallet' and overall customer experience",
+        "appearsIn" : ["bian_overview","bian_customers"],
+        "contains" :[]
+        },
+        {
+        "c4objectID": "bian_08",
+        "c4objectType": "Container",
+        "c4objectName": "Channels",
+        "c4objectTech": "Grouping",
+        "c4objectDesc": "The collection of activities that handle the customer interaction for the distribution and servicing of products and services through all channles/media. Also supporting the exchange of information transaction exchanges with other financial institutions and markets.",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "appearsIn" : ["bian_overview","bian_channels"],
+        "contains" :[]
+        } 
+    ]
+  }
 }

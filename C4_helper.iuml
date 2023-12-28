@@ -33,9 +33,9 @@
 !unquoted procedure $c4_diagram($id)
 !global $diagrams = %load_json("C4_diagrams.json")
 !global $objects = %load_json("C4_objects.json")
-'the global variable diagramObjects contains a list of all linkable objects and is used to suppress relationships 
+'the global variable relableObjects contains a list of all linkable objects and is used to suppress relationships 
 'not relevant to this view. 
-!global $diagramObjects = "~" 
+!global $relableObjects = "~" 
 'the  global variable allShownObjects contains a list of all objects that appear on the diagram to be used in the 
 'show_details_table relevant to this view.. 
 !global $allShownObjects = "~"
@@ -49,16 +49,18 @@
     title $id diagram not found in C4_Diagrams.json
 !endif
 
+'note as debug 
 !foreach $contain in $diagram.contains
     $writeout_c4_object($contain)
 !endfor
 
-'!log here are all the objects on the diagram: $diagramObjects
-!$list = %splitstr($diagramObjects, "~")
+'!log here are all the objects on the diagram: $relableObjects
+!$list = %splitstr($relableObjects, "~")
 !foreach $item in $list
     $writeout_c4_relationships($item)
 !endfor
 
+'end note
 !endprocedure
 
 !unquoted procedure $writeout_c4_object($id)
@@ -119,27 +121,30 @@ Enterprise_Boundary($object.c4objectID, "$object.c4objectName") {
         $writeout_c4_object($contain)
     !endfor
 }                    
-!elseif $C4_DIAGRAM_TYPE == "Container" && ($object.c4objectType == "Container" || $object.c4objectType == "ContainerDb")
-    !if %size($object.contains) > 0  
+!elseif $C4_DIAGRAM_TYPE == "Container" && ($object.c4objectType == "Container" || $object.c4objectType == "ContainerDb") 
+    ' !log container $object.c4objectID contains  %size($object.contains) entries
+    !if %size($object.contains) > 0  && $DRILL_DOWN == "Y"
         !$result = $add_id_list($id, "Container_Boundary")
-Container_Boundary($object.c4objectID, "$object.c4objectName",$c4h_descr($object)) {
+        ' !log add container_boundary $object.c4objectID
+Container_Boundary($object.c4objectID, "$object.c4objectName") {
         !foreach $contain in $object.contains
             $writeout_c4_object($contain)
         !endfor
 }
     !else
         !if $object.c4objectType == "Container"
+            ' !log add container($object.c4objectID "$object.c4objectName", $c4h_techn($object), $c4h_descr($object), $link="$c4h_link($object)"
             !$result = $add_id_list($id,$object.c4objectType)
-Container($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object))
+Container($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object), $link="$c4h_link($object)")
         !elseif $object.c4objectType == "ContainerDb"
             !$result = $add_id_list($id,$object.c4objectType)
-ContainerDb($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object))
+ContainerDb($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object), $link="$c4h_link($object)")
         !endif
     !endif
 !elseif $C4_DIAGRAM_TYPE == "Component" && ($object.c4objectType == "Container" || $object.c4objectType == "ContainerDb")
     !if  %size($object.components) > 0
         !$result = $add_id_list($id, "Container_Boundary")
-Container_Boundary($object.c4objectID, "$object.c4objectName",$c4h_descr($object)) {
+Container_Boundary($object.c4objectID, "$object.c4objectName") {
         !foreach $component in $object.components
             $writeout_c4_object($component)
         !endfor
@@ -147,10 +152,10 @@ Container_Boundary($object.c4objectID, "$object.c4objectName",$c4h_descr($object
     !else
         !if $object.c4objectType == "Container"
             !$result = $add_id_list($id,$object.c4objectType)
-Container($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object))
+Container($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object), $link="$c4h_link($object)")
         !elseif $object.c4objectType == "ContainerDb"
             !$result = $add_id_list($id,$object.c4objectType)
-ContainerDb($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object))
+ContainerDb($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object), $link="$c4h_link($object)")
         !endif            
     !endif
 !elseif  $object.c4objectType == "Component"
@@ -171,16 +176,8 @@ ComponentDb($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4
 '!log writeout_c4_relationships($id)
 !$object = $get_c4_object($id)
 !foreach $relationship in $object.relationships
-    !if %strpos($diagramObjects,$id) > 0 && %strpos($diagramObjects,$relationship.c4relationshipTo) > 0 
-        !if $relationship.c4relationshipType == "Rel_R"
-Rel_R($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
-        !elseif $relationship.c4relationshipType == "Rel_L"
-Rel_L($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
-        !elseif $relationship.c4relationshipType == "Rel_U"
-Rel_U($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
-        !elseif $relationship.c4relationshipType == "Rel_D"
-Rel_D($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
-        !elseif $relationship.c4relationshipType == "Lay_L"
+    !if %strpos($allShownObjects,$id) > 0 && %strpos($allShownObjects,$relationship.c4relationshipTo) > 0 
+        !if $relationship.c4relationshipType == "Lay_L"
 Lay_L($object.c4objectID, $relationship.c4relationshipTo)
         !elseif $relationship.c4relationshipType == "Lay_R"
 Lay_R($object.c4objectID, $relationship.c4relationshipTo)
@@ -188,8 +185,18 @@ Lay_R($object.c4objectID, $relationship.c4relationshipTo)
 Lay_U($object.c4objectID, $relationship.c4relationshipTo)
         !elseif $relationship.c4relationshipType == "Lay_D"
 Lay_D($object.c4objectID, $relationship.c4relationshipTo)
-        !else
+        !elseif %strpos($relableObjects,$id) > 0 && %strpos($relableObjects,$relationship.c4relationshipTo) > 0 
+            !if $relationship.c4relationshipType == "Rel_R"
+Rel_R($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+            !elseif $relationship.c4relationshipType == "Rel_L"
+Rel_L($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+            !elseif $relationship.c4relationshipType == "Rel_U"
+Rel_U($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+            !elseif $relationship.c4relationshipType == "Rel_D"
+Rel_D($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+            !else
 Rel($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+            !endif
         !endif
     !endif
 !endfor
@@ -199,7 +206,7 @@ Rel($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relation
 !unquoted function $add_id_list($id, $objType)
 
 !if %not(%strpos($objType,"Boundary") > 0)
-    !$diagramObjects = $diagramObjects + "~"+$id+"~"
+    !$relableObjects = $relableObjects + "~"+$id+"~"
 !endif
 
 !$allShownObjects = $allShownObjects + "~"+$id+"~"
@@ -215,6 +222,18 @@ Rel($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relation
 !endif
 !endfunction
 
+!function $c4h_link($object)
+'!log c4h_link($object)
+!if %json_key_exists($object, "link")
+'    !log return $object.link
+    !return $object.link
+!else 
+'    !log no link
+    !return ""
+!endif
+!endfunction
+
+
 !function $c4h_techn($object)
     !if %json_key_exists($object, "c4objectTech")
         !return  "$techn=" $object.c4objectTech
@@ -224,7 +243,6 @@ Rel($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relation
 !endfunction
 
 !function $wrap_text($text)
-'!log wrap_text $text
 !$wrapped_text=""
 !$line_length = 30
 !$line=""
@@ -238,20 +256,16 @@ Rel($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relation
     !endif
 !endfor
 !$wrapped_text=$wrapped_text+$line
-'!log return: $wrapped_text
 !return  $wrapped_text
 
 !endfunction
 
 !function $appearsIn($obj)
-'!log appearsIn($obj.c4objectID) appears in $obj.appearsIn
 !$appearsIn_list = ""
 !if %size($obj.appearsIn) > 0
     !foreach $id in $obj.appearsIn
         'look up diagram
-'        !log get_c4_diagram($id)
         !$diagram = $get_c4_diagram($id)
-'        !log  $diagram
         !if  %json_key_exists($diagram, "c4Id")
             !if $currentDiagramID == $diagram.c4Id
 '                !log skip
@@ -266,7 +280,6 @@ Rel($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relation
         !endif
     !endfor
 !endif
-'!log return: $appearsIn_list
 !return  $appearsIn_list
 
 !endfunction
@@ -277,7 +290,6 @@ Rel($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relation
 'get object from json
 'also appears in name/link
 
-'!log display details for $allShownObjects
 !$list = %splitstr($allShownObjects, "~")
 
 skinparam NoteBackgroundColor #white

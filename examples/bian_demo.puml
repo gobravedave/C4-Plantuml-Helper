@@ -1,0 +1,62 @@
+@startuml BIAN Overview
+
+!include ../C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
+%set_variable_value("$DRILL_DOWN", "N")
+%set_variable_value("$INCLUDE_DESC", "Y")
+'======================================================================
+Boundary(bian,"BIAN Services") {
+    $c4_diagram(bian_overview)
+
+}
+
+' SHOW_TABLE()
+' Lay_D(bian_06,c4h_table)
+' Lay_D(bian_06,c4h_table)
+
+@enduml
+
+@startuml BIAN Overview
+
+!include ../C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
+%set_variable_value("$DRILL_DOWN", "Y")
+%set_variable_value("$INCLUDE_DESC", "N")
+'======================================================================
+'Boundary(bian,"BIAN Services") {
+    $c4_diagram(bian_overview)
+
+'}
+
+SHOW_TABLE()
+Lay_D(bian_06,c4h_table)
+Lay_D(bian_06,c4h_table)
+
+@enduml
+
+@startuml BIAN Products
+
+!include ../C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
+%set_variable_value("$DRILL_DOWN", "Y")
+%set_variable_value("$INCLUDE_DESC", "N")
+'======================================================================
+
+$c4_diagram(bian_products)
+Lay_R(bian_mortgage_loan, bian_savings_account)
+Lay_R(bian_savings_account, bian_term_deposit)
+SHOW_TABLE()
+SHOW_LEGEND()
+Lay_D(bian_06,c4h_table)
+Lay_D(bian_06,c4h_table)
+
+@enduml

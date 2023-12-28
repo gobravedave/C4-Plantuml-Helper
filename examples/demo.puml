@@ -14,6 +14,7 @@ $c4_diagram(enterprise)
 SHOW_TABLE()
 taxamo .[hidden]. c4h_table
 taxamo .[hidden]. c4h_table
+SHOW_LEGEND()
 
 @enduml
 
@@ -74,26 +75,31 @@ SHOW_LEGEND()
 datatier.[hidden].c4h_table
 datatier.[hidden].c4h_table
 
+' label mindmap [
+' {{mindmap
+' * cloud provider?
+' **[#lightgreen] gcp
+' *** implications
+' **** training
+' **** ffff
+' **[#lightgrey] amazon
+' **[#lightgrey] azure
+' }}
+' ]
+' c4h_table -[hidden]- mindmap
+
 @enduml
 
-@startuml adr-001 Decision
+@startuml BIAN Overview
 
 !include ../C4_helper.iuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 'Set Diagram settings
 '=====================================================================
 %set_variable_value("$C4_DIAGRAM_TYPE", "Container")
-%set_variable_value("$INCLUDE_DESC", "N")
+%set_variable_value("$INCLUDE_DESC", "Y")
 '======================================================================
 
-skinparam rectangle {
-    roundCorner<<Decison>> 25
-}
+$c4_diagram(bian-overview)
 
-rectangle "Choose a Cloud Provider from" <<Decison>> as d1
-package options {
-    $c4_diagram(adr-001)
-}
-d1-options
 @enduml
-
