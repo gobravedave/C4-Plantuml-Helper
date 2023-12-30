@@ -1,0 +1,101 @@
+@startuml widget context view
+
+!include ../C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+'!theme C4_superhero from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Context")
+%set_variable_value("$INCLUDE_DESC", "Y")
+'======================================================================
+'Call procedure to build the diagram
+C4_DIAGRAM(widget)
+SHOW_LEGEND()
+
+@enduml
+
+@startuml widget context change view
+
+!include ../C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Context")
+%set_variable_value("$INCLUDE_DESC", "N")
+%set_variable_value("$INCLUDE_ASSETS", "N")
+
+'======================================================================
+'Call procedure to build the diagram
+C4_DIAGRAM(widget)
+
+hide braintree
+'v1.1 introduces
+AddElementTag("v1.1", $fontColor="black", $bgColor="gold")
+AddRelTag("V1.1", $textColor="black", $lineColor="gold")
+System(csaa,"CSA Assist","Customer Service Desktop used to record queries and recommend solution approach",$tags="v1.1") 
+Rel_L(csa,csaa,"looks up",$tags="v1.1")
+'show V1.1 in legend
+SHOW_LEGEND()
+SHOW_OBJECT_TABLE()
+
+taxamo .[hidden]. c4h_object_table
+taxamo .[hidden]. c4h_object_table
+
+@enduml
+
+@startuml widget container view
+
+!include ../C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Container.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
+%set_variable_value("$INCLUDE_DESC", "Y")
+'======================================================================
+'Call procedure to build the diagram
+C4_DIAGRAM(widget)
+
+SHOW_LEGEND()
+
+@enduml
+
+@startuml widget component view
+!include ../C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Component.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Component")
+%set_variable_value("$INCLUDE_DESC", "Y")
+'======================================================================
+'Call procedure to build the diagram
+C4_DIAGRAM(widget)
+SHOW_OBJECT_TABLE()
+SHOW_LEGEND()
+
+datatier.[hidden].c4h_object_table
+datatier.[hidden].c4h_object_table
+
+@enduml
+
+@startuml widget component view with assets
+!include ../C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Component.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Component")
+%set_variable_value("$INCLUDE_DESC", "N")
+%set_variable_value("$INCLUDE_ASSETS", "Y")
+'======================================================================
+'Call procedure to build the diagram
+C4_DIAGRAM(widget)
+SHOW_OBJECT_TABLE()
+SHOW_REL_TABLE()
+SHOW_ASSET_TABLE()
+SHOW_LEGEND()
+
+datatier.[hidden].c4h_object_table
+datatier.[hidden].c4h_object_table
+c4h_object_table.[hidden].c4h_relationship_table
+c4h_relationship_table.[hidden].c4h_asset_table
+
+@enduml

@@ -9,113 +9,258 @@ The issue then becomes:
 
 * how do you standardise on alias and label names used?
 * how do you pickup and maintain common descriptions?
+* what are the strategies to keep diagrams clean but still balance the need for precision and detail
 * how easy is it to add navigational links as the C4 maker had intended?
-* How do we maintain and integrate all these scripts so to produce a “Model” of the architecture.
+* is the standard C4 legend useful across a wider audience? Will folks know what a system or container is? 
+* easily find, reuse, extend modelled objects
+* provide reports/dashboards of usage and dependancies
+* How do we maintain and integrate all these scripts inorder to produce a “Model” of the architecture.
 
 C4_Plantuml_Helper to the rescue.
 
-image::demo context view.svg[Context]
+== Context 
+
+The following context view leverages off the  link:https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/samples/C4_Context%20Diagram%20Sample%20-%20enterprise.puml[Sample Enterprise Context] script provided in the link:https://github.com/plantuml-stdlib/C4-PlantUML[C4-Plantuml on Github].
+
+image::widget context view.svg[Context]
+
+[source, script]
+----
+@startuml enterprise context view
+
+!include ../C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Context")
+%set_variable_value("$INCLUDE_DESC", "Y")
+'======================================================================
+'Call procedure to build the diagram
+C4_DIAGRAM(widget)
+
+@enduml
+----
+
+The *C4_DIAGRAM* plantuml pre-processor macro is used to generate a *Context* diagram and to include descriptions which are sourced from the link:https://github.com/gobravedave/C4-Plantuml-Helper/blob/master/C4_diagrams.json[C4_diagrams.json] and link:https://github.com/gobravedave/C4-Plantuml-Helper/blob/master/C4_objects.json[C4_objects.json] files.
+
+Importantly, the system description and relationship labels are sourced from the json file, rather than via the puml script.
+
+A few tweeks to the script, and instead of rendering a description within the system objects, it is possible to output then to a table which includes links to other diagrams that this system may appear in. 
+
+[source, script]
+----
+@startuml enterprise context view with highlights
+
+!include C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Context")
+%set_variable_value("$INCLUDE_DESC", "N")
+'======================================================================
+'Call procedure to build the diagram
+C4_DIAGRAM(widget)
+
+hide braintree
+'v1.1 introduces
+AddElementTag("v1.1", $fontColor="black", $bgColor="gold")
+AddRelTag("V1.1", $textColor="black", $lineColor="gold")
+System(csaa,"CSA Assist","Customer Service Desktop used to record queries and recommend solution approach",$tags="v1.1") 
+Rel_L(csa,csaa,"looks up",$tags="v1.1")
+'show V1.1 in legend
+SHOW_LEGEND()
+SHOW_OBJECT_TABLE()
+taxamo .[hidden]. c4h_object_table
+taxamo .[hidden]. c4h_object_table
+' SHOW_LEGEND()
+
+@enduml
+----
+
+image::widget context change view.svg[Context changes]
+
+The above example also demonstrates how a diagram object can be hidden, or a new one can be added without having to update the underlying json files. 
+
 
 == Container 
+
+Add the container include and update the following variables.. 
+
 .container diagram example
 [source, script]
 ----
-@startuml demo container view
 !include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Container.puml
-!include C4_helper.iuml
 
+%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
 %set_variable_value("$INCLUDE_DESC", "Y")
-
-Title Sample Container View
-Person(arch,"Architecht")
-Person(eng,"Engineer")
-Container_Boundary(ms,"Modelling System") {
-  $container(vsc)
-  }
-  $container(c4)
-  }
-  $container(c4_helper)
-  }
-}
-
- Container_Boundary(gut,"Github"){
-    $container(arc)
-    }
-    Container(json,"spec file","json","design parameters")
-  }
-
-Container(product,"Product","tech","built to spec")
-
-Rel_R(arch,vsc,"models specs")
-Rel_L(eng,arc, "build specs")
-Rel_R(eng,product,"ships")
-Rel(vsc,arc,"publish to")
-Rel_U(c4,vsc,"Extends")
-Rel_R(c4_helper,json,"uses")
-Rel_U(json,arc,"provide definitions")
-Rel(c4,c4_helper,"Extends")
-
-$container_list()
-'Lay_D(ms,c4_containers)
-ms ..[hidden]..c4_containers
-
-SHOW_LEGEND()
-
-@enduml
 ----
 
-image::demo container view.svg[Container]
+renders the following.. 
+
+image::widget container view.svg[Container]
+
+Also see the <<BIAN Usage>> below for more advanced examples of Container Views.
 
 == Component 
+
+And here is the component view with an optional Information Asset details included. 
+
 .component diagram example
-In this example there is a mix of components defined using the helper macro and normal C4 coded components.
 [source, script]
 ----
-@startuml demo component view
-!includeurl https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Component.puml
- !include C4_helper.iuml
+@startuml enterprise component view
+!include C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Component.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Component")
+%set_variable_value("$INCLUDE_DESC", "N")
+%set_variable_value("$INCLUDE_ASSETS", "Y")
+'======================================================================
+'Call procedure to build the diagram
+C4_DIAGRAM(widget)
+SHOW_OBJECT_TABLE()
+SHOW_REL_TABLE()
+SHOW_ASSET_TABLE()
+SHOW_LEGEND()
 
-Title C4 Model Helper Component View 
-'%set_variable_value("$C4_LEVEL", "COMPONENT")
-'%set_variable_value("$INCLUDE_DESC", "Y")
+datatier.[hidden].c4h_object_table
+datatier.[hidden].c4h_object_table
+c4h_object_table.[hidden].c4h_relationship_table
+c4h_relationship_table.[hidden].c4h_asset_table
 
-$container_boundary(git_c4_helper) 
-	Component(c4ctxr, "Context Registry ", "json", "list of registered contexts")
-	Component(c4conr, "Container Registry ", "json", "list of registered containers")
-	Component(c4comr, "Component Registry ", "json", "list of registered components")
-	Component(c4ctx, "Locate Context ", "script", "locates context by id and returns values")
-	Component(c4con, "Locate Container", "script", "locates container by id and returns values")
-	Component(c4com, "Locate Component", "script", "locates component by id and returns values")
-	Component(c4ctxl, "Context Legend ", "script", "creates a legend using the context registery")
-	Component(c4conl, "Container Legend ", "script", "creates a legend using the container registery")
-	Component(c4coml, "Component Legend ", "script", "creates a legend using the component registery")
-}
-
-Rel_Up(c4ctx, c4ctxr, "get by context id")
-Rel_Up(c4ctxl, c4ctx, "get all")
-Rel_Up(c4con, c4conr, "get by container id")
-Rel_Up(c4conl, c4con, "get all")
-Rel_Up(c4com, c4comr, "get by component id")
-Rel_Up(c4coml, c4com, "get all")
-Rel_Left(c4com, c4con, "get container by id")
-Rel_Left(c4con, c4ctx, "get context by id")
 @enduml
 ----
 
-image::component_view.svg[Component]
+image::widget component view with assets.svg[Component]
 
+== BIAN Usage
+
+The following example demonstrates how nesting containers can be uses as a classification scheme and enabling tracability of a Software Architecture back to a Business Architecture.
+
+The following examples leverage of link:https://bian.org/servicelandscape-11-0-0/[Service Model] provided by the link:https://www.bian.org/[
+Banking Industry Architecture Network]
+
+=== Broad and Shallow View
+By defult the *$c4_diagram* macro will process containers recursivley. To prevent this, the *$DRILL_DOWN* macro variable has been introduced to enable a specifc container to be presented without any of it's children.
+
+.BIAN Container diagram example
+[source, script]
+----
+@startuml BIAN Overview
+
+!include C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
+%set_variable_value("$DRILL_DOWN", "N")
+%set_variable_value("$INCLUDE_DESC", "Y")
+'======================================================================
+Boundary(bian,"BIAN Services") {
+    $c4_diagram(bian_overview)
+}
+
+@enduml
+----
+
+image::BIAN Overview.svg[BIAN Overview]
+
+Alternatively, using the SHOW_TABLE() macro, it is possible to start laying down how these concepts are relaized through out the Architecture.
+
+.BIAN Container diagram with table example
+[source, script]
+----
+@startuml BIAN Overview with table
+
+!include C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
+%set_variable_value("$DRILL_DOWN", "N")
+%set_variable_value("$INCLUDE_DESC", "N")
+'======================================================================
+Boundary(bian,"BIAN Services") {
+    $c4_diagram(bian_overview)
+}
+
+Lay_R(bian_01,bian_02)
+Lay_R(bian_02,bian_03)
+Lay_D(bian_01,bian_04)
+Lay_D(bian_02,bian_05)
+Lay_D(bian_03,bian_06)
+Lay_D(bian_04,bian_07)
+Lay_D(bian_05,bian_08)
+
+SHOW_OBJECT_TABLE()
+Lay_D(bian_08,c4h_object_table)
+Lay_D(bian_08,c4h_object_table)
+
+@enduml
+----
+
+which renders
+
+image::BIAN Overview with table.svg[BIAN Overview with table]
+
+=== narrow/deep
+
+.BIAN Product Container diagram with table example
+[source, script]
+----
+@startuml BIAN Products
+
+!include C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
+%set_variable_value("$DRILL_DOWN", "Y")
+%set_variable_value("$INCLUDE_DESC", "N")
+'======================================================================
+
+C4_DIAGRAM(bian_products)
+Lay_R(bian_mortgage_loan, bian_savings_account)
+Lay_R(bian_savings_account, bian_term_deposit)
+SHOW_TABLE()
+SHOW_LEGEND()
+Lay_D(bian_mortgage_loan,c4h_object_table)
+Lay_D(bian_savings_account,c4h_object_table)
+
+@enduml
+----
+
+image::BIAN Products.svg[BIAN Products]
 
 == Usage Notes
 
-An updated C4 Code Snippet is included which cater for the new helper routines introduced and sample json files.
-The following variable are used
+=== Macro Variables
+
+The following macro variables are used
 
 [options="header",cols="<.<2,<.<1, <.<4"]
 |===
 |Variable|Value|Behaviour
-| $INCLUDE_DESC| Y | Includes description of object from respective registry. If the variable is not set or initialised to another value, descriptions are not shown.
+| C4_DIAGRAM| diagram identifer eg. enterprise | Displays C4 Diagram
 .3+|$C4_LEVEL|CONTEXT| Container objects will have the link as per the container registary
 |CONTAINER|Container objects will have a link based on the assocated context identifier. Component objects will contain a link based on teh component registry.
 |COMPONENT|Components will link back to the associated container. 
+| $INCLUDE_DESC| Y | Includes description of object from respective registry. If the variable is not set or initialised to another value, descriptions are not shown.
+| $DRILL_DOWN| Y | Used to control container recursion.
+| SHOW_OBJECT_TABLE | | Displays C4 objects for the designated diagram which includes a list of diagrams this element also appears in. 
+| SHOW_REL_TABLE | | Displays C4 relationships for the designated diagram. 
+| SHOW_ASSET_TABLE | | Displays information assets referenced within the diagram. |
 |===
 
+=== C4_diagrams.json
+
+NOTE: add code snippet and description
+
+=== C4_objects.json
+
+NOTE: add code snippet and description
+
+=== C4_assets.json
+
+NOTE: comming soone

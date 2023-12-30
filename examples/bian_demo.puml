@@ -1,0 +1,64 @@
+@startuml BIAN Overview
+
+!include ../C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
+%set_variable_value("$DRILL_DOWN", "N")
+%set_variable_value("$INCLUDE_DESC", "Y")
+'======================================================================
+Boundary(bian,"BIAN Services") {
+    C4_DIAGRAM(bian_overview)
+}
+
+@enduml
+
+@startuml BIAN Overview with table
+
+!include ../C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
+%set_variable_value("$DRILL_DOWN", "N")
+%set_variable_value("$INCLUDE_DESC", "N")
+'======================================================================
+Boundary(bian,"BIAN Services") {
+    C4_DIAGRAM(bian_overview)
+}
+
+Lay_R(bian_01,bian_02)
+Lay_R(bian_02,bian_03)
+Lay_D(bian_01,bian_04)
+Lay_D(bian_02,bian_05)
+Lay_D(bian_03,bian_06)
+Lay_D(bian_04,bian_07)
+Lay_D(bian_05,bian_08)
+
+SHOW_OBJECT_TABLE()
+Lay_D(bian_08,c4h_object_table)
+Lay_D(bian_08,c4h_object_table)
+
+@enduml
+
+@startuml BIAN Products
+
+!include ../C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
+%set_variable_value("$DRILL_DOWN", "Y")
+%set_variable_value("$INCLUDE_DESC", "N")
+'======================================================================
+
+C4_DIAGRAM(bian_products)
+Lay_R(bian_mortgage_loan, bian_savings_account)
+Lay_R(bian_savings_account, bian_term_deposit)
+SHOW_OBJECT_TABLE()
+SHOW_LEGEND()
+Lay_D(bian_mortgage_loan,c4h_object_table)
+Lay_D(bian_savings_account,c4h_object_table)
+
+@enduml

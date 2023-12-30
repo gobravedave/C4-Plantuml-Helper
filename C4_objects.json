@@ -1,0 +1,490 @@
+{
+  "c4ObjectRegistry": {
+    "objects" :[
+        {
+        "c4objectID": "customer",
+        "c4objectType": "Person_Ext",
+        "c4objectName": "Customer",
+        "c4objectDesc": "A customer of Widgets Limited.",
+        
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_R",
+          "c4relationshipTo": "csa",
+          "c4relationshipName": "Asks questions to",
+          "c4relationshipTech": "Telephone"      
+          },
+          {
+          "c4relationshipType": "Rel_D",
+          "c4relationshipTo": "ecommerce",
+          "c4relationshipName": "Places orders for widgets using"
+          },
+          {
+          "c4relationshipType": "Lay_D",
+          "c4relationshipTo": "csa",
+          "c4relationshipName": ""
+          }        
+          ]
+        },
+        {
+        "c4objectID": "widget01",
+        "c4objectType": "Enterprise_Boundary",
+        "c4objectName": "Widgets Limited",
+        "contains" :["csa","ecommerce","fulfillment"]
+        },
+        {
+        "c4objectID": "csa",
+        "c4objectType": "Person",
+        "c4objectName": "Customer Service Agent",
+        "c4objectDesc": "Deals with customer enquiries.",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel",
+          "c4relationshipTo": "ecommerce",
+          "c4relationshipName": "Looks up order information using"
+          }
+          ]
+        },
+        {
+        "c4objectID": "ecommerce",
+        "c4objectType": "System",
+        "c4objectName": "E-commerce System",
+        "c4objectDesc": "Allows customers to buy widgets online via the widgets.com website.",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget#component-view",
+        "assets" : [],
+        "appearsIn" : ["enterprise","adr_001","adr_002"],
+        "contains" :["presentation","apptier","datatier"],
+        "components" :[],
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_R",
+          "c4relationshipTo": "fulfillment",
+          "c4relationshipName": "Sends order information to"
+          },
+          {
+          "c4relationshipType": "Rel_D",
+          "c4relationshipTo": "taxamo",
+          "c4relationshipName": "Delegates credit card processing to"
+          }          
+          ]
+        },
+        {
+        "c4objectID": "fulfillment",
+        "c4objectType": "System",
+        "c4objectName": "Fulfillment System",
+        "c4objectDesc": "Responsible for processing and shipping of customer orders.",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "assets" : ["IA_002","IA_003"],
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_D",
+          "c4relationshipTo": "post",
+          "c4relationshipName": "Gets shipping charges from"
+          }
+          ]
+        },
+        {
+        "c4objectID": "taxamo",
+        "c4objectType": "System",
+        "c4objectName": "Taxamo",
+        "c4objectDesc": "Calculates local tax (for EU B2B customers) and acts as a front-end for Braintree Payments.",
+        "assets" : ["IA_001","IA_004"],
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_L",
+          "c4relationshipTo": "braintree",
+          "c4relationshipName": "Uses for credit card processing"
+          }
+          ]
+        },
+        {
+        "c4objectID": "braintree",
+        "c4objectType": "System",
+        "c4objectName": "Braintree Payments",
+        "c4objectDesc": "Processes credit card payments on behalf of Widgets Limited.",
+        "appearsIn" : ["enterprise","adr_002"],
+        "assets" : ["IA_004","IA_005"],
+        "relationships" :[]
+        },
+        {
+        "c4objectID": "post",
+        "c4objectType": "System",
+        "c4objectName": "Jersey Post",
+        "c4objectDesc": "Calculates worldwide shipping costs for packages.",
+        "assets" : ["IA_001","IA_003"],
+        "relationships" :[]
+        },
+        {
+        "c4objectID": "arch",
+        "c4objectType": "Person",
+        "c4objectName": "Software Architect",
+        "c4objectDesc": "A software architect is a software engineer responsible for high-level design choices related to overall system structure and behavior",
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_R",
+          "c4relationshipTo": "modsys",
+          "c4relationshipName": "model specs using",
+          "c4relationshipTech": ""      
+          }
+          ]
+        },
+        {
+        "c4objectID": "eng",
+        "c4objectType": "Person",
+        "c4objectName": "Software Engineer",
+        "c4objectDesc": "Designs and develops software solutions to meet the needs of a client",
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_L",
+          "c4relationshipTo": "github",
+          "c4relationshipName": "get build specs"
+          },
+          {
+          "c4relationshipType": "Rel_L",
+          "c4relationshipTo": "github",
+          "c4relationshipName": "push code"
+          },
+          {
+          "c4relationshipType": "Rel_R",
+          "c4relationshipTo": "system",
+          "c4relationshipName": "ships"
+          }          
+          ]
+        },
+        {
+        "c4objectID": "github",
+        "c4objectType": "System",
+        "c4objectName": "GitHub",
+        "c4objectDesc": "a platform and cloud-based service for software development and version control, allowing developers to store and manage their code",
+        "relationships" :[]
+        },
+        {
+        "c4objectID": "modsys",
+        "c4objectType": "System",
+        "c4objectName": "Software Modelling Platform",
+        "c4objectDesc": "Enables software design including interfaces, interactions with other software, and all the software methods. Software models are ways of expressing a software design. Usually some sort of abstract language or pictures are used to express the software design.",
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_R",
+          "c4relationshipTo": "github",
+          "c4relationshipName": "push specs to"
+          }
+          ]
+        },
+        {
+        "c4objectID": "system",
+        "c4objectType": "System",
+        "c4objectName": "Software System",
+        "c4objectDesc": "Provides business value to the client",
+        "relationships" :[]
+        },
+        {
+        "c4objectID": "presentation",
+        "c4objectType": "Container",
+        "c4objectTech": "HTML, CCS, JScript",
+        "c4objectName": "Presentation Layer",
+        "c4objectDesc": "This user-facing layer includes the website, layout, user interface, personal account portal, and any other part of the system end users can reach.",
+        "contains" :[],
+        "components" :["catalog","cart","checkout"],
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_R",
+          "c4relationshipTo": "apptier",
+          "c4relationshipName": "invokes business logic"
+          }
+          ]
+        },
+        {
+        "c4objectID": "apptier",
+        "c4objectType": "Container",
+        "c4objectTech": "golang",
+        "c4objectName": "Application Layer",
+        "c4objectDesc": "An application layer usually handles the business logic and all the internal processes, including product catalog management, shopping carts, payment processing systems, and order tools that make the system work.",
+        "contains" :[],
+        "components" :["product","order","payment","dispatch"],
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_R",
+          "c4relationshipTo": "datatier",
+          "c4relationshipName": "reads from/writes to"
+        },
+          {
+          "c4relationshipType": "Rel",
+          "c4relationshipTo": "fulfillment",
+          "c4relationshipName": "Sends order details to"
+          },
+          {
+          "c4relationshipType": "Rel_D",
+          "c4relationshipTo": "taxamo",
+          "c4relationshipName": "Delegates credit card processing to"
+          }                  
+          ]
+        },
+        {
+        "c4objectID": "datatier",
+        "c4objectType": "ContainerDb",
+        "c4objectTech": "Spanner",
+        "c4objectName": "Data Layer",
+        "c4objectDesc": "data related to the ecommerce platform is stored. It includes product information, customer data, order history, and many other details the system may need. ",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "contains" :[],
+        "components" :[],
+        "relationships" :[]
+        },
+        {
+        "c4objectID": "catalog",
+        "c4objectType": "Component",
+        "c4objectTech": "html/css/jscript",
+        "c4objectName": "Product Catalog",
+        "c4objectDesc": "Make it easy for a customer to find widgets",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_D",
+          "c4relationshipTo": "product",
+          "c4relationshipName": "Call the Product service",
+          "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+          "assets" : ["IA_001"]
+        }                  
+          ]
+        },
+        {
+        "c4objectID": "cart",
+        "c4objectType": "Component",
+        "c4objectTech": "html/css/jscript",
+        "c4objectName": "Shopping Cart",
+        "c4objectDesc": "Customer selects products and quatity they which to purchase",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "assets" : ["IA_003"],
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_D",
+          "c4relationshipTo": "order",
+          "c4relationshipName": "Order service checks product availability and provides prices",
+          "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+          "assets" : ["IA_003"]
+        }                  
+          ]
+        },
+        {
+        "c4objectID": "checkout",
+        "c4objectType": "Component",
+        "c4objectTech": "html/css/jscript",
+        "c4objectName": "Checkout",
+        "c4objectDesc": "Display and confirm the order and arange payment",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "assets" : ["IA_003"],
+        "relationships" :[
+          {
+          "c4relationshipType": "Rel_D",
+          "c4relationshipTo": "order",
+          "c4relationshipName": "Finalise order and arange payment",
+          "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples"
+          },
+          {
+          "c4relationshipType": "Rel_D",
+          "c4relationshipTo": "payment",
+          "c4relationshipName": "issue payment request",
+          "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+          "assets" : ["IA_004","IA_005"]
+          }                                      
+          ]
+        },
+        {
+        "c4objectID": "product",
+        "c4objectType": "Component",
+        "c4objectTech": "api",
+        "c4objectName": "Product Service",
+        "c4objectDesc": "Provides Product services",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "assets" : ["IA_001","IA_005"],
+        "relationships" :[
+          {
+            "c4relationshipType": "Rel_D",
+            "c4relationshipTo": "datatier",
+            "c4relationshipName": "Read/Write Products",
+            "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples"
+          }                    
+        ]
+        },
+        {
+        "c4objectID": "order",
+        "c4objectType": "Component",
+        "c4objectTech": "api",
+        "c4objectName": "Order Service",
+        "c4objectDesc": "Provides Order services",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "relationships" :[
+          {
+            "c4relationshipType": "Rel_D",
+            "c4relationshipTo": "datatier",
+            "c4relationshipName": "Read/Write Orders",
+            "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples"
+          }                    
+        ]
+        },
+        {
+        "c4objectID": "payment",
+        "c4objectType": "Component",
+        "c4objectTech": "api",
+        "c4objectName": "Payment Service",
+        "c4objectDesc": "Create Payment Request",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "appearsIn" : ["adr_002"],
+        "relationships" :[
+          {
+            "c4relationshipType": "Rel_D",
+            "c4relationshipTo": "datatier",
+            "c4relationshipName": "Write Payment Details",
+            "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples"
+          },                    
+          {
+            "c4relationshipType": "Rel_R",
+            "c4relationshipTo": "dispatch",
+            "c4relationshipName": "Payment has been authorised",
+            "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples"
+          }                    
+          ]
+        },
+        {
+          "c4objectID": "dispatch",
+          "c4objectType": "Component",
+          "c4objectTech": "api",
+          "c4objectName": "Dispatch Service",
+          "c4objectDesc": "Create Dispatch Request",
+          "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+          "relationships" :[
+            {
+              "c4relationshipType": "Rel_D",
+              "c4relationshipTo": "datatier",
+              "c4relationshipName": "Write Dispatch Details",
+              "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples"
+            }                    
+          ]
+        },        
+        {
+        "c4objectID": "bian_01",
+        "c4objectType": "Container",
+        "c4objectName": "Business Management",
+        "c4objectTech": "Grouping",
+        "c4objectDesc": "The collection of business activities that direct and oversee the corporate relations, enterprise policies, business plans and strategies. Also the management and operation of the business divisions and business units of the overall organization",
+        "appearsIn" : ["bian_overview","bian_business_management"],
+        "contains" :[]
+        },
+        {
+        "c4objectID": "bian_02",
+        "c4objectType": "Container",
+        "c4objectName": "Finance & Risk Management",
+        "c4objectTech": "Grouping",
+        "c4objectDesc": "The collection of activities needed to manage the broad range of financial and operational risks and performance controls of the organization and to handle internal audit and the relationships with external industry, legal and regulatory authorities",
+        "appearsIn" : ["bian_overview","bian_finance_and_risk_management"],
+        "contains" :[]
+        },
+        {
+        "c4objectID": "bian_03",
+        "c4objectType": "Container",
+        "c4objectName": "Resource Management",
+        "c4objectTech": "Grouping",
+        "c4objectDesc": "The collection of business activities that manage and oversee the deployment, development and operation of the organizational resources covering buildings and facilities, equipment and human resources ",
+        "appearsIn" : ["bian_overview","bian_resource_management"],
+        "contains" :[]
+        },
+        {
+        "c4objectID": "bian_04",
+        "c4objectType": "Container",
+        "c4objectName": "Business Development",
+        "c4objectTech": "Grouping",
+        "appearsIn" : ["bian_overview","bian_business_development"],
+        "c4objectDesc": "The collection of business activities that leverage the bank's knowledge and knowhow, define and refine models and analytical views that inform and influence business activity, develop and enhance products and services, drive marketing and sales activities and support the bank's brand/presence.",
+        "contains" :[]
+        },
+        {
+        "c4objectID": "bian_05",
+        "c4objectType": "Container",
+        "c4objectName": "Operations",
+        "c4objectTech": "Grouping",
+        "c4objectDesc": "The collection of the bank's 'back-office' cross-product delivery operational functions and services",
+        "appearsIn" : ["bian_overview","bian_operations"],
+        "contains" :[]
+        },
+        {
+        "c4objectID": "bian_06",
+        "c4objectType": "Container",
+        "c4objectName": "Products",
+        "c4objectTech": "Grouping",
+        "c4objectDesc": "The collection of product specific fulfillment activities covering all product set-up, servicing and production issue resolution. The business area is partitioned to support different product groupings that any bank might elect to deliver",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "appearsIn" : ["bian_overview","bian_products"],
+        "contains" :["bian_loan_and_deposits","bian_cards"]
+        },
+        {
+        "c4objectID": "bian_loan_and_deposits",
+        "c4objectType": "Container",
+        "c4objectName": "Loans and Deposits",
+        "c4objectTech": "Grouping",
+        "c4objectDesc": "Handle the initial set-up and all subsequent customer servicing/fulfillment  requests and scheduled product processing tasks for loans and deposits",
+        "contains" :["bian_mortgage_loan","bian_savings_account","bian_term_deposit"]
+        },  
+        {
+        "c4objectID": "bian_mortgage_loan",
+        "c4objectType": "Container",
+        "c4objectName": "Mortgage Loan",
+        "c4objectTech": "Capability",
+        "c4objectDesc": "The service domain handles the fulfillment of a loan product intended for the purchase of a property. Title to the property is usually administered as collateral for the mortgage loan. Note several different financial arrangements can be supported (interest only, variable rate, repayment). Furthermore the administration of the collateral is delegated to the Collateral Administration Service Domain and overseen by this Service Domain",
+        "contains" :[]
+        },  
+        {
+        "c4objectID": "bian_savings_account",
+        "c4objectType": "Container",
+        "c4objectName": "Savings Account",
+        "c4objectTech": "Capability",
+        "c4objectDesc": "The savings account product may share many features with a standard bank current account (e.g. standing orders, direct debits, payments and deposit services) with some constraints/limitations. There can be restrictions on the amount and frequency of withdrawals with an associated fee/penalty structure to offset higher interest benefits. Sweep mechanisms linked to other products (current account) can also be supported.",
+        "contains" :[]
+        },  
+        {
+        "c4objectID": "bian_cards",
+        "c4objectType": "Container",
+        "c4objectName": "Cards",
+        "c4objectTech": "Grouping",
+        "c4objectDesc": "Handle the initial card product set-up and servicing requests (card authorization and capture). Handle the card network interactions, billing and merchant agreements, liaison and production support activities",
+        "contains" :["bian_credit_card"]
+        },  
+        {
+        "c4objectID": "bian_credit_card",
+        "c4objectType": "Container",
+        "c4objectName": "Credit Card",
+        "c4objectTech": "Capability",
+        "c4objectDesc": "This service domain handles both credit and charge card fulfillment. Debit cards do not come under this Service Domain.",
+        "contains" :[]
+        },  
+        {
+        "c4objectID": "bian_term_deposit",
+        "c4objectType": "Container",
+        "c4objectName": "Term Deposit",
+        "c4objectTech": "Capability",
+        "c4objectDesc": "A Term Deposit is an interest bearing account into which a customer can place a fixed amount of funds for a fixed amount of time. The Service Domain handles the opening, servicing and maturity processing of a Term Deposit. Early closing of a Term Deposit may be allowed by the bank, but in that case penalty interest rates and charges may be applied.",
+        "contains" :[]
+        },  
+        {
+        "c4objectID": "bian_07",
+        "c4objectType": "Container",
+        "c4objectName": "Customers",
+        "c4objectTech": "Grouping",
+        "c4objectDesc": "The collection of activities that maintain, manage and leverage customer relationships, providing cross-product perspectives, matching products and services to customers and providing targeted analtics and decision support to enhance the bank's delivery performance, 'share of wallet' and overall customer experience",
+        "appearsIn" : ["bian_overview","bian_customers"],
+        "contains" :[]
+        },
+        {
+        "c4objectID": "bian_08",
+        "c4objectType": "Container",
+        "c4objectName": "Channels",
+        "c4objectTech": "Grouping",
+        "c4objectDesc": "The collection of activities that handle the customer interaction for the distribution and servicing of products and services through all channles/media. Also supporting the exchange of information transaction exchanges with other financial institutions and markets.",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "appearsIn" : ["bian_overview","bian_channels"],
+        "contains" :[]
+        } 
+    ]
+  }
+}
