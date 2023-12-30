@@ -20,23 +20,25 @@ The intent it to prove completeness of the metamodel and associated persepctives
 
 ![Widget Enterprise Context Diagram](/docs/widget%20context%20view.svg "Widget Enterprise Context View")
 
-The focus of this change is the introduction of the **CSA Assistant** to help Customer Service Agent to resolve quickly and consistently any issues the customer may have. The CSA Assist will encourage the use of Generative Artificial Inteligence and a specific Large Language Model (LLM) to meet the specific neds of Widget Enterprises.
+The focus of this change is the introduction of the **CSA Assistant** to help Customer Service Agent to resolve quickly and consistently any issues the customer may have. The CSA Assist will encourage the use of Generative Artificial Inteligence and a specific Large Language Model (LLM) to meet the specific needs of Widget Enterprises.
 
 ![Widget Enterprise Context Change Diagram](/docs/widget%20context%20change%20view.svg "Widget Enterprise Context View")
 
 ## Container View
 
-### CSA Assist
+### CSA Assist Container View
 
 SaaS or build
 
-### E-Commerce System
+### E-Commerce Container View
 
 ![Widget Enterprise Context Diagram](/docs/widget%20container%20view.svg "Widget Enterprise Container View")
 
-### Fullfillment System
+### Fullfillment Container View
 
 ## Component View
+
+### E-Commerce Component View
 
 ![Widget Enterprise Component Diagram](/docs/widget%20component%20view%20with%20assets.svg "Widget Enterprise Component View")
 

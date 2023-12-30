@@ -5,7 +5,7 @@
       "c4AssetID": "IA_001",
       "name": "Product",
       "description": "Product details",
-      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget#data-view",
       "confidential": "Public",
       "integrity": "Controlled",
       "availability": "99.999%"
@@ -14,7 +14,7 @@
       "c4AssetID": "IA_002",
       "name": "Customer",
       "description": "Customer details including name, billing address, email address & phone numbers",
-      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget#data-view",
       "confidential": "Confidential",
       "integrity": "Trusted",
       "availability": "99.999%"
@@ -23,7 +23,7 @@
       "c4AssetID": "IA_003",
       "name": "Order",
       "description": "Order Details",
-      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget#data-view",
       "confidential": "Confidential",
       "integrity": "Trusted",
       "availability": "99.999%"
@@ -32,7 +32,7 @@
       "c4AssetID": "IA_004",
       "name": "Payment Instruction",
       "description": "Payment Details",
-      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget#data-view",
       "confidential": "Confidential",
       "integrity": "Trusted",
       "availability": "99.999%"
@@ -41,7 +41,7 @@
       "c4AssetID": "IA_005",
       "name": "Credit Card",
       "description": "Credit Card Details",
-      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget#data-view",
       "confidential": "Confidential",
       "integrity": "Restricted",
       "availability": "99.999%"

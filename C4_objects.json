@@ -51,7 +51,7 @@
         "c4objectType": "System",
         "c4objectName": "E-commerce System",
         "c4objectDesc": "Allows customers to buy widgets online via the widgets.com website.",
-        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget#component-view",
         "assets" : [],
         "appearsIn" : ["enterprise","adr_001","adr_002"],
         "contains" :["presentation","apptier","datatier"],
