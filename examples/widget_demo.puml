@@ -1,36 +1,32 @@
-@startuml enterprise context view
+@startuml widget context view
 
 !include ../C4_helper.iuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+'!theme C4_superhero from https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/themes
 'Set Diagram settings
 '=====================================================================
 %set_variable_value("$C4_DIAGRAM_TYPE", "Context")
-'%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
-'%set_variable_value("$C4_DIAGRAM_TYPE", "Component")
 %set_variable_value("$INCLUDE_DESC", "Y")
 '======================================================================
 'Call procedure to build the diagram
-$c4_diagram(enterprise)
-SHOW_TABLE()
-taxamo .[hidden]. c4h_table
-taxamo .[hidden]. c4h_table
+C4_DIAGRAM(widget)
 SHOW_LEGEND()
 
 @enduml
 
-@startuml enterprise context view with highlights
+@startuml widget context change view
 
 !include ../C4_helper.iuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 'Set Diagram settings
 '=====================================================================
 %set_variable_value("$C4_DIAGRAM_TYPE", "Context")
-'%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
-'%set_variable_value("$C4_DIAGRAM_TYPE", "Component")
-%set_variable_value("$INCLUDE_DESC", "Y")
+%set_variable_value("$INCLUDE_DESC", "N")
+%set_variable_value("$INCLUDE_ASSETS", "N")
+
 '======================================================================
 'Call procedure to build the diagram
-$c4_diagram(enterprise)
+C4_DIAGRAM(widget)
 
 hide braintree
 'v1.1 introduces
@@ -40,10 +36,14 @@ System(csaa,"CSA Assist","Customer Service Desktop used to record queries and re
 Rel_L(csa,csaa,"looks up",$tags="v1.1")
 'show V1.1 in legend
 SHOW_LEGEND()
+SHOW_OBJECT_TABLE()
+
+taxamo .[hidden]. c4h_object_table
+taxamo .[hidden]. c4h_object_table
 
 @enduml
 
-@startuml enterprise container view
+@startuml widget container view
 
 !include ../C4_helper.iuml
 !include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Container.puml
@@ -53,13 +53,13 @@ SHOW_LEGEND()
 %set_variable_value("$INCLUDE_DESC", "Y")
 '======================================================================
 'Call procedure to build the diagram
-$c4_diagram(enterprise)
+C4_DIAGRAM(widget)
 
 SHOW_LEGEND()
 
 @enduml
 
-@startuml enterprise component view
+@startuml widget component view
 !include ../C4_helper.iuml
 !include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Component.puml
 'Set Diagram settings
@@ -68,38 +68,34 @@ SHOW_LEGEND()
 %set_variable_value("$INCLUDE_DESC", "Y")
 '======================================================================
 'Call procedure to build the diagram
-$c4_diagram(enterprise)
-SHOW_TABLE()
+C4_DIAGRAM(widget)
+SHOW_OBJECT_TABLE()
 SHOW_LEGEND()
 
-datatier.[hidden].c4h_table
-datatier.[hidden].c4h_table
-
-' label mindmap [
-' {{mindmap
-' * cloud provider?
-' **[#lightgreen] gcp
-' *** implications
-' **** training
-' **** ffff
-' **[#lightgrey] amazon
-' **[#lightgrey] azure
-' }}
-' ]
-' c4h_table -[hidden]- mindmap
+datatier.[hidden].c4h_object_table
+datatier.[hidden].c4h_object_table
 
 @enduml
 
-@startuml BIAN Overview
-
+@startuml widget component view with assets
 !include ../C4_helper.iuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Component.puml
 'Set Diagram settings
 '=====================================================================
-%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
-%set_variable_value("$INCLUDE_DESC", "Y")
+%set_variable_value("$C4_DIAGRAM_TYPE", "Component")
+%set_variable_value("$INCLUDE_DESC", "N")
+%set_variable_value("$INCLUDE_ASSETS", "Y")
 '======================================================================
+'Call procedure to build the diagram
+C4_DIAGRAM(widget)
+SHOW_OBJECT_TABLE()
+SHOW_REL_TABLE()
+SHOW_ASSET_TABLE()
+SHOW_LEGEND()
 
-$c4_diagram(bian-overview)
+datatier.[hidden].c4h_object_table
+datatier.[hidden].c4h_object_table
+c4h_object_table.[hidden].c4h_relationship_table
+c4h_relationship_table.[hidden].c4h_asset_table
 
 @enduml

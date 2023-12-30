@@ -22,7 +22,7 @@ C4_Plantuml_Helper to the rescue.
 
 The following context view leverages off the  link:https://github.com/plantuml-stdlib/C4-PlantUML/blob/master/samples/C4_Context%20Diagram%20Sample%20-%20enterprise.puml[Sample Enterprise Context] script provided in the link:https://github.com/plantuml-stdlib/C4-PlantUML[C4-Plantuml on Github].
 
-image::enterprise context view.svg[Context]
+image::widget context view.svg[Context]
 
 [source, script]
 ----
@@ -36,12 +36,12 @@ image::enterprise context view.svg[Context]
 %set_variable_value("$INCLUDE_DESC", "Y")
 '======================================================================
 'Call procedure to build the diagram
-$c4_diagram(enterprise)
+C4_DIAGRAM(widget)
 
 @enduml
 ----
 
-The *$c4_diagram* plantuml preprocessor macro is used to generate a *Context* diagram and to include descriptions which are sourced from the link:https://github.com/gobravedave/C4-Plantuml-Helper/blob/master/C4_diagrams.json[C4_diagrams.json] and link:https://github.com/gobravedave/C4-Plantuml-Helper/blob/master/C4_objects.json[C4_objects.json] files.
+The *C4_DIAGRAM* plantuml pre-processor macro is used to generate a *Context* diagram and to include descriptions which are sourced from the link:https://github.com/gobravedave/C4-Plantuml-Helper/blob/master/C4_diagrams.json[C4_diagrams.json] and link:https://github.com/gobravedave/C4-Plantuml-Helper/blob/master/C4_objects.json[C4_objects.json] files.
 
 Importantly, the system description and relationship labels are sourced from the json file, rather than via the puml script.
 
@@ -59,7 +59,7 @@ A few tweeks to the script, and instead of rendering a description within the sy
 %set_variable_value("$INCLUDE_DESC", "N")
 '======================================================================
 'Call procedure to build the diagram
-$c4_diagram(enterprise)
+C4_DIAGRAM(widget)
 
 hide braintree
 'v1.1 introduces
@@ -69,19 +69,18 @@ System(csaa,"CSA Assist","Customer Service Desktop used to record queries and re
 Rel_L(csa,csaa,"looks up",$tags="v1.1")
 'show V1.1 in legend
 SHOW_LEGEND()
-SHOW_TABLE()
-taxamo .[hidden]. c4h_table
-taxamo .[hidden]. c4h_table
+SHOW_OBJECT_TABLE()
+taxamo .[hidden]. c4h_object_table
+taxamo .[hidden]. c4h_object_table
 ' SHOW_LEGEND()
 
 @enduml
 ----
 
-image::enterprise context view with highlights.svg[Context with Extras]
+image::widget context change view.svg[Context changes]
 
-The above example also demonstrates how a diagram object can be hidden, or a new one can be added without having to update the undelying json files. 
+The above example also demonstrates how a diagram object can be hidden, or a new one can be added without having to update the underlying json files. 
 
-NOTE: add CRUD view..
 
 == Container 
 
@@ -98,13 +97,13 @@ Add the container include and update the following variables..
 
 renders the following.. 
 
-image::enterprise container view.svg[Container]
+image::widget container view.svg[Container]
 
 Also see the <<BIAN Usage>> below for more advanced examples of Container Views.
 
 == Component 
 
-And here is the component view..
+And here is the component view with an optional Information Asset details included. 
 
 .component diagram example
 [source, script]
@@ -115,20 +114,25 @@ And here is the component view..
 'Set Diagram settings
 '=====================================================================
 %set_variable_value("$C4_DIAGRAM_TYPE", "Component")
-%set_variable_value("$INCLUDE_DESC", "Y")
+%set_variable_value("$INCLUDE_DESC", "N")
+%set_variable_value("$INCLUDE_ASSETS", "Y")
 '======================================================================
 'Call procedure to build the diagram
-$c4_diagram(enterprise)
-SHOW_TABLE()
+C4_DIAGRAM(widget)
+SHOW_OBJECT_TABLE()
+SHOW_REL_TABLE()
+SHOW_ASSET_TABLE()
 SHOW_LEGEND()
 
-datatier.[hidden].c4h_table
-datatier.[hidden].c4h_table
+datatier.[hidden].c4h_object_table
+datatier.[hidden].c4h_object_table
+c4h_object_table.[hidden].c4h_relationship_table
+c4h_relationship_table.[hidden].c4h_asset_table
 
 @enduml
 ----
 
-image::enterprise component view.svg[Component]
+image::widget component view with assets.svg[Component]
 
 == BIAN Usage
 
@@ -189,9 +193,9 @@ Lay_D(bian_03,bian_06)
 Lay_D(bian_04,bian_07)
 Lay_D(bian_05,bian_08)
 
-SHOW_TABLE()
-Lay_D(bian_08,c4h_table)
-Lay_D(bian_08,c4h_table)
+SHOW_OBJECT_TABLE()
+Lay_D(bian_08,c4h_object_table)
+Lay_D(bian_08,c4h_object_table)
 
 @enduml
 ----
@@ -216,13 +220,13 @@ image::BIAN Overview with table.svg[BIAN Overview with table]
 %set_variable_value("$INCLUDE_DESC", "N")
 '======================================================================
 
-$c4_diagram(bian_products)
+C4_DIAGRAM(bian_products)
 Lay_R(bian_mortgage_loan, bian_savings_account)
 Lay_R(bian_savings_account, bian_term_deposit)
 SHOW_TABLE()
 SHOW_LEGEND()
-Lay_D(bian_mortgage_loan,c4h_table)
-Lay_D(bian_savings_account,c4h_table)
+Lay_D(bian_mortgage_loan,c4h_object_table)
+Lay_D(bian_savings_account,c4h_object_table)
 
 @enduml
 ----
@@ -238,13 +242,15 @@ The following macro variables are used
 [options="header",cols="<.<2,<.<1, <.<4"]
 |===
 |Variable|Value|Behaviour
-| $c4_diagram| diagram identifer eg. enterprise | Displays C4 Diagram
+| C4_DIAGRAM| diagram identifer eg. enterprise | Displays C4 Diagram
 .3+|$C4_LEVEL|CONTEXT| Container objects will have the link as per the container registary
 |CONTAINER|Container objects will have a link based on the assocated context identifier. Component objects will contain a link based on teh component registry.
 |COMPONENT|Components will link back to the associated container. 
 | $INCLUDE_DESC| Y | Includes description of object from respective registry. If the variable is not set or initialised to another value, descriptions are not shown.
 | $DRILL_DOWN| Y | Used to control container recursion.
-| SHOW_TABLE | | Displays C4 elements for the designated diagram which includes a list of diagrams this element also appears in. |
+| SHOW_OBJECT_TABLE | | Displays C4 objects for the designated diagram which includes a list of diagrams this element also appears in. 
+| SHOW_REL_TABLE | | Displays C4 relationships for the designated diagram. 
+| SHOW_ASSET_TABLE | | Displays information assets referenced within the diagram. |
 |===
 
 === C4_diagrams.json
@@ -255,6 +261,6 @@ NOTE: add code snippet and description
 
 NOTE: add code snippet and description
 
-=== C4_information_assets.json
+=== C4_assets.json
 
 NOTE: comming soone

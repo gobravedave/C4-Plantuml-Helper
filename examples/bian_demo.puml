@@ -9,8 +9,7 @@
 %set_variable_value("$INCLUDE_DESC", "Y")
 '======================================================================
 Boundary(bian,"BIAN Services") {
-    $c4_diagram(bian_overview)
-
+    C4_DIAGRAM(bian_overview)
 }
 
 @enduml
@@ -26,7 +25,7 @@ Boundary(bian,"BIAN Services") {
 %set_variable_value("$INCLUDE_DESC", "N")
 '======================================================================
 Boundary(bian,"BIAN Services") {
-    $c4_diagram(bian_overview)
+    C4_DIAGRAM(bian_overview)
 }
 
 Lay_R(bian_01,bian_02)
@@ -37,9 +36,9 @@ Lay_D(bian_03,bian_06)
 Lay_D(bian_04,bian_07)
 Lay_D(bian_05,bian_08)
 
-SHOW_TABLE()
-Lay_D(bian_08,c4h_table)
-Lay_D(bian_08,c4h_table)
+SHOW_OBJECT_TABLE()
+Lay_D(bian_08,c4h_object_table)
+Lay_D(bian_08,c4h_object_table)
 
 @enduml
 
@@ -54,12 +53,12 @@ Lay_D(bian_08,c4h_table)
 %set_variable_value("$INCLUDE_DESC", "N")
 '======================================================================
 
-$c4_diagram(bian_products)
+C4_DIAGRAM(bian_products)
 Lay_R(bian_mortgage_loan, bian_savings_account)
 Lay_R(bian_savings_account, bian_term_deposit)
-SHOW_TABLE()
+SHOW_OBJECT_TABLE()
 SHOW_LEGEND()
-Lay_D(bian_mortgage_loan,c4h_table)
-Lay_D(bian_savings_account,c4h_table)
+Lay_D(bian_mortgage_loan,c4h_object_table)
+Lay_D(bian_savings_account,c4h_object_table)
 
 @enduml

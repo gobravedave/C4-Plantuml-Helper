@@ -30,15 +30,33 @@
 
 !endfunction
 
-!unquoted procedure $c4_diagram($id)
+!function $get_c4_asset($id)
+%set_variable_value($asset_exist, %false())
+!foreach $asset in $assets.c4AssetRegistry.assets
+    !if $asset.c4AssetID == $id
+        %set_variable_value($asset_exist, %true())
+        !return $asset
+    !endif
+!endfor
+
+!if $asset_exist == %false()
+    !return ""
+!endif
+
+!endfunction
+
+!unquoted procedure C4_DIAGRAM($id)
 !global $diagrams = %load_json("C4_diagrams.json")
 !global $objects = %load_json("C4_objects.json")
+!global $assets = %load_json("C4_assets.json")
 'the global variable relableObjects contains a list of all linkable objects and is used to suppress relationships 
 'not relevant to this view. 
 !global $relableObjects = "~" 
-'the  global variable allShownObjects contains a list of all objects that appear on the diagram to be used in the 
-'show_details_table relevant to this view.. 
-!global $allShownObjects = "~"
+'the  global variable ShownObjects contains a list of all objects that appear on the diagram to be used in the 
+'show_objects_table relevant to this view.. 
+!global $ShownObjects = "~"
+!global $ShownRelationships = "~"
+!global $ShownAssets = "~"
 !global $currentDiagramID = ""
 
 !$diagram = $get_c4_diagram($id)
@@ -81,20 +99,17 @@ Component($id, "$id")
     !endif
 !endif
 
-!if $object.c4objectType == "Person"
-    !if $C4_DIAGRAM_TYPE == "Context"
+!if $C4_DIAGRAM_TYPE == "Context" && $object.c4objectType == "Person"
         !$result = $add_id_list($id,$object.c4objectType)
-Person($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
-    !endif
-!elseif $object.c4objectType == "Person_Ext"
-    !if $C4_DIAGRAM_TYPE == "Context"
+Person($object.c4objectID, "$object.c4objectName", $c4h_descr($object), $link="$c4h_link($object)")
+!elseif $C4_DIAGRAM_TYPE == "Context" && $object.c4objectType == "Person_Ext"
         !$result = $add_id_list($id,$object.c4objectType)
-Person_Ext($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
-    !endif
+Person_Ext($object.c4objectID, "$object.c4objectName", $c4h_descr($object), $link="$c4h_link($object)")
 !elseif $object.c4objectType == "System"
     !if $C4_DIAGRAM_TYPE == "Context"
         !$result = $add_id_list($id,$object.c4objectType)
-System($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
+        !$result = $update_shown_assets($object)
+System($object.c4objectID, "$object.c4objectName", $c4h_descr($object), $link="$c4h_link($object)")
     !elseif %size($object.contains) > 0
         !$result = $add_id_list($id, "System_Boundary")
 System_Boundary($object.c4objectID, "$object.c4objectName",$c4h_descr($object)) {
@@ -106,7 +121,8 @@ System_Boundary($object.c4objectID, "$object.c4objectName",$c4h_descr($object)) 
 !elseif $object.c4objectType == "System_Ext"
     !if $C4_DIAGRAM_TYPE == "Context"
         !$result = $add_id_list($id,$object.c4objectType)
-System_Ext($object.c4objectID, "$object.c4objectName", $c4h_descr($object))
+        !$result = $update_shown_assets($object)
+System_Ext($object.c4objectID, "$object.c4objectName", $c4h_descr($object), $link="$c4h_link($object)")
     !elseif %size($object.contains) > 0
         !$result = $add_id_list($id, "System_Boundary")
 System_Boundary($object.c4objectID, "$object.c4objectName",$c4h_descr($object)) {
@@ -158,25 +174,24 @@ Container($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_
 ContainerDb($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object), $link="$c4h_link($object)")
         !endif            
     !endif
-!elseif  $object.c4objectType == "Component"
-    !if $C4_DIAGRAM_TYPE == "Component"
+!elseif  $C4_DIAGRAM_TYPE == "Component" && $object.c4objectType == "Component"
         !$result = $add_id_list($id,$object.c4objectType)
-Component($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object))
-    !endif 
-!elseif  $object.c4objectType == "ComponentDb"
-    !if $C4_DIAGRAM_TYPE == "Component"
+        !$result = $update_shown_assets($object)
+Component($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object), $link="$c4h_link($object)")
+!elseif  $C4_DIAGRAM_TYPE == "Component" && $object.c4objectType == "ComponentDb"
         !$result = $add_id_list($id,$object.c4objectType)
-ComponentDb($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object))
-    !endif
+        !$result = $update_shown_assets($object)
+ComponentDb($object.c4objectID, "$object.c4objectName", $c4h_techn($object), $c4h_descr($object), $link="$c4h_link($object)")
 !endif
 
 !endprocedure
 
 !unquoted procedure $writeout_c4_relationships($id)
 '!log writeout_c4_relationships($id)
+'add logic to output the SHOW_REL_TABLE
 !$object = $get_c4_object($id)
 !foreach $relationship in $object.relationships
-    !if %strpos($allShownObjects,$id) > 0 && %strpos($allShownObjects,$relationship.c4relationshipTo) > 0 
+    !if %strpos($ShownObjects,$id) > 0 && %strpos($ShownObjects,$relationship.c4relationshipTo) > 0 
         !if $relationship.c4relationshipType == "Lay_L"
 Lay_L($object.c4objectID, $relationship.c4relationshipTo)
         !elseif $relationship.c4relationshipType == "Lay_R"
@@ -186,16 +201,18 @@ Lay_U($object.c4objectID, $relationship.c4relationshipTo)
         !elseif $relationship.c4relationshipType == "Lay_D"
 Lay_D($object.c4objectID, $relationship.c4relationshipTo)
         !elseif %strpos($relableObjects,$id) > 0 && %strpos($relableObjects,$relationship.c4relationshipTo) > 0 
+            !$ShownRelationships = $ShownRelationships + $relationshipRow($object.c4objectID,$relationship)    
+            !$result = $update_shown_assets($relationship)
             !if $relationship.c4relationshipType == "Rel_R"
-Rel_R($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+Rel_R($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipName", $link="$c4h_link($object)")
             !elseif $relationship.c4relationshipType == "Rel_L"
-Rel_L($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+Rel_L($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipName", $link="$c4h_link($object)")
             !elseif $relationship.c4relationshipType == "Rel_U"
-Rel_U($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+Rel_U($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipName", $link="$c4h_link($object)")
             !elseif $relationship.c4relationshipType == "Rel_D"
-Rel_D($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+Rel_D($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipName", $link="$c4h_link($object)")
             !else
-Rel($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipDesc")
+Rel($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relationshipName", $link="$c4h_link($object)")
             !endif
         !endif
     !endif
@@ -209,12 +226,38 @@ Rel($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relation
     !$relableObjects = $relableObjects + "~"+$id+"~"
 !endif
 
-!$allShownObjects = $allShownObjects + "~"+$id+"~"
+!$ShownObjects = $ShownObjects + "~"+$id+"~"
 !return  %true()
 
 !endfunction
 
+!unquoted function $update_shown_assets($obj)
+
+'check each asset on $obj
+!foreach $asset in $obj.assets
+    !if %not(%strpos($ShownAssets,$asset) > 0)
+        !$ShownAssets = $ShownAssets + "~"+$asset+"~"
+    !endif
+!endfor 
+!return  %true()
+
+!endfunction
+
+
+!function $c4h_object_name($id)
+
+!$object = $get_c4_object($id)
+    !if %json_key_exists($object, "link")
+    !return "[["+ $object.link + " " + $object.c4objectName +"]]"
+!else
+    !return $object.c4objectName
+!endif
+
+!endfunction
+
+
 !function $c4h_descr($object)
+'add logic based on INCLUDE_ASSETS flag
 !if $INCLUDE_DESC == "Y"
     !return  "$descr=" $object.c4objectDesc
 !else 
@@ -244,7 +287,7 @@ Rel($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relation
 
 !function $wrap_text($text)
 !$wrapped_text=""
-!$line_length = 30
+!$line_length = 60
 !$line=""
 !$words = %splitstr($text, " ")
 
@@ -272,40 +315,173 @@ Rel($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relation
             !else
                 !if  %json_key_exists($diagram, "link") && %strlen($diagram.link) > 0
                     'create link
-                    !$appearsIn_list = $appearsIn_list + "* [[" + $diagram.link + " " + $diagram.title + "]]\n"   
+                    !$appearsIn_list = $appearsIn_list + "[[" + $diagram.link + " " + $diagram.title + "]]\n "   
                 !else
-                    !$appearsIn_list = $appearsIn_list + "* " + $diagram.title
+                    !$appearsIn_list = $appearsIn_list + $diagram.title + "\n "
                 !endif
             !endif
         !endif
     !endfor
 !endif
+
+!$appearsIn_list= %substr($appearsIn_list,0,%strlen($appearsIn_list)-1)
+
 !return  $appearsIn_list
 
 !endfunction
 
+!function $c4h_asset_name($asset_list)
+' !log c4h_asset_name($asset_list)
+!$assetNames=""
+!$assetIDs = %splitstr($asset_list, ",")
+!foreach $assetID in $assetIDs
+    !if %not($assetID == "n/a")
+        !$asset = $get_c4_asset($assetID)
+        !if %json_key_exists($asset, "link")
+            !$assetNames= $assetNames + "[["+ $asset.link + " " + $asset.name +"]]\n " 
+        !else
+            !$assetNames= $assetNames + $asset.name + "\n "
+        !endif
+    !endif
+!endfor
 
-!unquoted procedure SHOW_TABLE()
+!$assetNames= %substr($assetNames,0,%strlen($assetNames)-1)
+
+!return $assetNames
+
+!endfunction
+
+!function $relationshipRow($str, $json)
+
+!$result = $str~$json.c4relationshipTo~$json.c4relationshipName~
+
+!if %json_key_exists($json, "c4relationshipDesc")
+    !$concat = $result+$json.c4relationshipDesc~
+!else
+    !$result = $result+"n/a~"
+!endif
+!if %json_key_exists($json, "c4relationshipTech")
+    !$concat = $result+$json.c4relationshipTech~
+!else
+    !$result = $result+"n/a~"
+!endif
+!$assetList=""
+!if %json_key_exists($json, "assets")
+    !foreach $asset in $json.assets
+        !$assetList = $assetList + $asset + ","        
+    !endfor
+    !$assetList= %substr($assetList,0,%strlen($assetList)-1)
+    !$result = $result + $assetList + "~"
+!else
+    !$result = $result+"n/a~"
+!endif
+!if %json_key_exists($json, "link")
+    !$result = $result + $json.link + "~"
+!else
+    !$result = $result+"n/a~"
+!endif
+!$result = $result+"|"
+
+!return $result
+
+!endfunction
+
+!unquoted procedure SHOW_OBJECT_TABLE()
 'get list of object on the diagram including the boundaries
 'get object from json
+'assets
 'also appears in name/link
 
-!$list = %splitstr($allShownObjects, "~")
-
+!$list = %splitstr($ShownObjects, "~")
 skinparam NoteBackgroundColor #white
 skinparam NoteTextAlignment left
-note as c4h_table
-<#lightblue>|= ID |= Type |= Name |= Description |= Also Appears In |
+note as c4h_object_table
+!if $INCLUDE_ASSETS == "Y"
+<#lightblue>|= Name |= Description |= Also Appears In |= Assets |
+!else
+<#lightblue>|= Name |= Description |= Also Appears In |
+!endif
 !foreach $item in $list
     !$object = $get_c4_object($item)
     !if %json_key_exists($object, "c4objectName")
-| $object.c4objectID | $object.c4objectType | $object.c4objectName | $wrap_text($object.c4objectDesc) | $appearsIn($object) |
+        !if $INCLUDE_ASSETS == "Y"
+        !$relAssets=""
+        !foreach $asset in $object.assets
+            !$relAssets = $relAssets + $asset + ","
+        !endfor
+        !$relAssets= %substr($relAssets,0,%strlen($relAssets)-1)
+| $c4h_object_name($object.c4objectID) | $wrap_text($object.c4objectDesc) | $appearsIn($object) | $c4h_asset_name($relAssets) |
+        !else
+| $c4h_object_name($object.c4objectID) | $wrap_text($object.c4objectDesc) | $appearsIn($object) |
+        !endif
     !endif 
 !endfor
 end note
 
+!endprocedure
+
+!unquoted procedure SHOW_REL_TABLE()
+!$list = %splitstr($ShownRelationships, "|")
+skinparam NoteBackgroundColor #white
+skinparam NoteTextAlignment left
+note as c4h_relationship_table
+!if $INCLUDE_ASSETS == "Y"
+<#lightblue>|= From |= To |= Name |= Description |= Technology |= Assets |
+!else
+<#lightblue>|= From |= To |= Name |= Description |= Technology |
+!endif
+!foreach $item in $list
+    !$parms = %splitstr($item, "~")
+    !$int = 1
+    !foreach $parm in $parms
+        !if $int==1
+            !$relFrom = $parm
+        !elseif $int==2
+            !$relTo = $parm
+        !elseif $int==3
+            !$relName = $parm
+        !elseif $int==4
+            !$relDesc = $parm
+        !elseif $int==5
+            !$relTech = $parm
+        !elseif $int==6
+            !$relAssets = $parm
+        !elseif $int==7
+            !$relLink = $parm
+        !endif
+        !$int = $int + 1
+!endfor
+!if %not($relLink=="n/a")
+    !$relName = "[["+$relLink + " " + $relName+"]]"
+!endif
+!if $INCLUDE_ASSETS == "Y"
+| $c4h_object_name($relFrom) | $c4h_object_name($relTo) | $relName | $wrap_text($relDesc)  | $relTech | $c4h_asset_name($relAssets) |
+!else
+| $c4h_object_name($relFrom) | $c4h_object_name($relTo) | $relName | $wrap_text($relDesc)  | $relTech |
+!endif 
+!endfor
+end note
+'add asset to shownAssets
 
 !endprocedure
+
+!unquoted procedure SHOW_ASSET_TABLE()
+'!log "SHOW_ASSET_TABLE" $ShownAssets
+!$list = %splitstr($ShownAssets, "~")
+skinparam NoteBackgroundColor #white
+skinparam NoteTextAlignment left
+note as c4h_asset_table
+<#lightblue>|= Name |= Description |= Confidentiality |= Integrity |= Availability |
+!foreach $assetID in $list
+    !$asset = $get_c4_asset($assetID)
+    !if %json_key_exists($asset, "c4AssetID")
+| $c4h_asset_name($assetID) | $wrap_text($asset.description) | $asset.confidential | $asset.integrity | $asset.availability |
+    !endif 
+!endfor
+end note
+
+!endprocedure
+
 
 'v1 code below.. refactor based on updates json structure
 !unquoted procedure $c4_context($id)
