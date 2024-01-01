@@ -142,7 +142,7 @@ The following examples leverage of link:https://bian.org/servicelandscape-11-0-0
 Banking Industry Architecture Network]
 
 === Broad and Shallow View
-By defult the *$c4_diagram* macro will process containers recursivley. To prevent this, the *$DRILL_DOWN* macro variable has been introduced to enable a specifc container to be presented without any of it's children.
+By defult the *C4_DIAGRAM* macro will process containers recursivley. To prevent this, the *$DRILL_DOWN* macro variable has been introduced to enable a specifc container to be presented without any of it's children.
 
 .BIAN Container diagram example
 [source, script]
@@ -166,7 +166,7 @@ Boundary(bian,"BIAN Services") {
 
 image::BIAN Overview.svg[BIAN Overview]
 
-Alternatively, using the SHOW_TABLE() macro, it is possible to start laying down how these concepts are relaized through out the Architecture.
+Alternatively, using the SHOW_OBJECT_TABLE() macro, it is possible to start laying down how these concepts are relaized through out the Architecture.
 
 .BIAN Container diagram with table example
 [source, script]
