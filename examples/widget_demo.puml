@@ -28,7 +28,7 @@ SHOW_LEGEND()
 'Call procedure to build the diagram
 C4_DIAGRAM(widget)
 
-hide braintree
+'hide braintree
 'v1.1 introduces
 AddElementTag("v1.1", $fontColor="black", $bgColor="gold")
 AddRelTag("V1.1", $textColor="black", $lineColor="gold")
