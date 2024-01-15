@@ -36,10 +36,11 @@ System(csaa,"CSA Assist","Customer Service Desktop used to record queries and re
 Rel_L(csa,csaa,"looks up",$tags="v1.1")
 'show V1.1 in legend
 SHOW_LEGEND()
+rectangle c4h [
+=Diagram Objects
 SHOW_OBJECT_TABLE()
-
-taxamo .[hidden]. c4h_object_table
-taxamo .[hidden]. c4h_object_table
+]
+taxamo .[hidden]. c4h
 
 @enduml
 
@@ -69,11 +70,14 @@ SHOW_LEGEND()
 '======================================================================
 'Call procedure to build the diagram
 C4_DIAGRAM(widget)
+rectangle c4h [
+=Diagram Objects
 SHOW_OBJECT_TABLE()
+]
 SHOW_LEGEND()
 
-datatier.[hidden].c4h_object_table
-datatier.[hidden].c4h_object_table
+datatier.[hidden].c4h
+datatier.[hidden].c4h
 
 @enduml
 
@@ -88,14 +92,18 @@ datatier.[hidden].c4h_object_table
 '======================================================================
 'Call procedure to build the diagram
 C4_DIAGRAM(widget)
+rectangle c4h [
+=Diagram Objects
 SHOW_OBJECT_TABLE()
+
+=Diagram Relationships
 SHOW_REL_TABLE()
+
+=Information Assets
 SHOW_ASSET_TABLE()
+]
 SHOW_LEGEND()
 
-datatier.[hidden].c4h_object_table
-datatier.[hidden].c4h_object_table
-c4h_object_table.[hidden].c4h_relationship_table
-c4h_relationship_table.[hidden].c4h_asset_table
+datatier.[hidden].c4h
 
 @enduml

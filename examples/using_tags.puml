@@ -1,0 +1,66 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+AddElementTag("v1.0", $borderColor="#d73027")
+AddElementTag("v1.1", $fontColor="#d73027")
+AddElementTag("backup", $fontColor="orange")
+
+AddRelTag("backup", $textColor="orange", $lineColor="orange", $lineStyle = DashedLine())
+
+Person(user, "Customer", "People that need products")
+Person(admin, "Administrator", "People that administrates the products via the new v1.1 components", $tags="v1.1")
+Container(spa, "SPA", "angular", "The main interface that the customer interacts with via v1.0", $tags="v1.0")
+Container(spaAdmin, "Admin SPA", "angular", "The administrator interface that the customer interacts with via new v1.1", $tags="v1.1")
+Container(api, "API", "java", "Handles all business logic (incl. new v1.1 extensions)", $tags="v1.0+v1.1")
+ContainerDb(db, "Database", "Microsoft SQL", "Holds product, order and invoice information")
+Container(archive, "Archive", "Audit logging", "Stores 5 years", $tags="backup")
+
+Rel(user, spa, "Uses", "https")
+Rel(spa, api, "Uses", "https")
+Rel_R(api, db, "Reads/Writes")
+Rel(admin, spaAdmin, "Uses", "https")
+Rel(spaAdmin, api, "Uses", "https")
+Rel_L(api, archive, "Writes", "messages", $tags="backup")
+
+SHOW_LEGEND()
+@enduml
+
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+UpdateElementStyle(person, $fontColor="green")
+AddElementTag("v1.0", $fontColor="#d73027", $borderColor="#d73027")
+AddElementTag("v1.1", $fontColor="#ffffbf", $borderColor="#ffffbf")
+AddElementTag("v1.0&v1.1", $fontColor="#fdae61", $borderColor="#fdae61")
+AddElementTag("fallback", $bgColor="#444444")
+
+' If spaces are requested in the legend, legend text with space has to be defined (incl. all other additional details)
+AddElementTag("microService", $shape=EightSidedShape(), $legendText="micro service (eight sided) (no text, no back color)")
+' If no special tag names should be displayed in legend, no explicit legend text definition is required (all additional details are automatically calculated) 
+AddElementTag("storage", $shape=RoundedBoxShape())
+
+UpdateRelStyle(black, black)
+AddRelTag("service1", $textColor="red")
+AddRelTag("service2", $lineColor="red")
+AddRelTag("service1&service2", $textColor="red", $lineColor="red")
+
+Container(spa, "SPA", "angular", "The main interface that the customer interacts with via v1.0", $tags="v1.0")
+Container(spaAdmin, "Admin SPA", "angular", "The administrator interface that the customer interacts with via new v1.1", $tags="v1.1")
+Container(api, "API", "java", "Handles all business logic (incl. new v1.1 extensions)", $tags="v1.0&v1.1+v1.0+v1.1")
+Container(spa2, "SPA2", "angular", "The main interface that the customer interacts with via v1.0", $tags="v1.0+fallback")
+Container(spaAdmin2, "Admin SPA2", "angular", "The administrator interface that the customer interacts with via new v1.1", $tags="fallback+v1.1")
+
+Container(services, "Services", "techn", $tags="microService")
+Container(fileStorage, "File storage", "techn", $tags="storage")
+
+Rel(spa, api, "Uses", "https")
+Rel(spaAdmin, api, "Uses", "https")
+Rel_L(spa, spa2, "Updates", "https")
+Rel_R(spaAdmin, spaAdmin2, "Updates", "https")
+
+Rel_D(api, services, "uses service1 via this call", $tags="service1")
+Rel_D(api, services, "uses service2 via this call", $tags="service2")
+Rel_D(services, fileStorage, "both services stores via this call", $tags="service1&service2+service1+service2")
+
+SHOW_LEGEND(false)
+@enduml

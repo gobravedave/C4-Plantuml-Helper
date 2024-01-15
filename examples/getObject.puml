@@ -1,0 +1,67 @@
+@startuml get object
+!$json_object = %load_json("C4_objects.json")
+
+label l [
+' =json_object:
+' {{json
+' $json_object
+' }}
+
+' |= $variable          |= <U+0025>get_json_type($var)         | = <U+0025>size($var)         |
+' | json_object         | %get_json_type($json_object)         | %size($json_object) |
+' | json_object.c4ObjectRegistry | %get_json_type($json_objects.c4ObjectRegistry)        | %size($json_object.c4ObjectRegistry) |
+' | json_object.c4ObjectRegistry.objects     | %get_json_type($json_object.c4ObjectRegistry.objects)      |%size($json_object.c4ObjectRegistry.objects) |
+
+' Test on type:
+' !if %get_json_type($json_object4ObjectRegistry.objects)=="array"
+'   json_object.opbjects is an **%get_json_type($json_object.4ObjectRegistry.objects)**
+' !endif
+]
+
+!function $get_c4_objects($id)
+!log checking for $id
+%set_variable_value($object_exist, %false())
+!foreach $object in $json_object.c4ObjectRegistry.objects
+    !log is it $object.c4objectID?
+    !if $object.c4objectID == $id
+        %set_variable_value($object_exist, %true())
+        !log got a hit
+        !log {{json $object}}
+        !return $object
+    !else
+        !log nah.. $object.c4objectID not it
+    !endif
+!endfor
+
+!if $object_exist == %false()
+    !log return as error
+    $object = {"c4objectID":"error","c4objectType":"error","c4objectName":"error","c4objectDesc":"error"}}}
+    !return $object
+!endif
+
+!endfunction
+
+
+label 2 [
+| ** Looking For  **        | ** Found **        | ** Name **| ** Type ** | ** Description ** |
+!$object = $get_c4_objects(customer)
+|customer | $object.c4objectID|$object.c4objectName| $object.c4objectType | $object.c4objectDesc |
+!$object = $get_c4_objects(taxamo)
+|taxamo | $object.c4objectID|$object.c4objectName | $object.c4objectType | $object.c4objectDesc |
+!$object = $get_c4_objects(csa)
+|csa | $object.c4objectID|$object.c4objectName | $object.c4objectType | $object.c4objectDesc |
+!$object = $get_c4_objects(ecommerce)
+|ecommerce | $object.c4objectID|$object.c4objectName | $object.c4objectType | $object.c4objectDesc |
+!$object = $get_c4_objects(post)
+|post | $object.c4objectID|$object.c4objectName | $object.c4objectType | $object.c4objectDesc |
+!$object = $get_c4_objects(fulfillment)
+|fulfillment | $object.c4objectID|$object.c4objectName | $object.c4objectType | $object.c4objectDesc |
+!$object = $get_c4_objects(braintree)
+|braintree | $object.c4objectID|$object.c4objectName | $object.c4objectType | $object.c4objectDesc |
+
+]
+
+
+@enduml
+
+

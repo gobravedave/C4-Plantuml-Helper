@@ -1,0 +1,195 @@
+@startwbs
+
+!$test_cricket_matches_data = {
+"name": "All", "list": [
+    {"name": "India", "list": [
+        {"name": "Eden Gardens, Kolkata", "count": 42},
+        {"name": "Chinnaswamy Stadium, Bengaluru", "count": 23},
+        {"name": "Mumbai", "list": [
+            {"name": "Wankhede Stadium", "count": 25},
+            {"name": "Brabourne Stadium", "count": 18}
+        ]},
+        {"name": "Green Park, Kanpur", "count": 22},
+        {"name": "Arun Jaitley Stadium, Delhi", "count": 34},
+        {"name": "Chidambaram Stadium, Chennai", "count": 34},
+        {"name": "Narendra Modi Stadium, Ahmedabad", "count": 14},
+        {"name": "IS Bindra Stadium, Mohali", "count": 13},
+        {"name": "Others", "count": 53}
+    ]},
+    {"name": "Australia", "list": [
+        {"name": "Adelaide Oval, Adelaide", "count": 79},
+        {"name": "Gabba, Brisbane", "count": 63},
+        {"name": "MCG, Melbourne", "count": 113},
+        {"name": "WACA, Perth", "count": 44},
+        {"name": "SCG, Sydney", "count": 109},
+        {"name": "Bellerive Oval, Hobart", "count": 13},
+        {"name": "Others", "count": 9}
+    ]},
+    {"name": "Pakistan", "list": [
+        {"name": "Gaddafi Stadium, Lahore", "count": 40},
+        {"name": "National Stadium, Karachi", "count": 43},
+        {"name": "Iqbal Stadium, Faisalabad", "count": 24},
+        {"name": "Others", "count": 42}
+    ]},
+    {"name": "England", "list": [
+        {"name": "Lord's, London", "count": 141},
+        {"name": "Kennington Oval, London", "count": 103},
+        {"name": "Trent Bridge, Nottingham", "count": 64},
+        {"name": "Edgbaston, Birmingham", "count": 53},
+        {"name": "Headingley, Leeds", "count": 79},
+        {"name": "Old Trafford, Manchester", "count": 82},
+        {"name": "Others", "count": 14}
+    ]},
+    {"name": "South Africa", "list": [
+        {"name": "Supersport Park, Centurion", "count": 26},
+        {"name": "Newlands, Cape Town", "count": 58},
+        {"name": "Wanderers, Johannesburg", "count": 42},
+        {"name": "Kingsmead, Durban", "count": 44},
+        {"name": "St George's Park, Port Elizabeth", "count": 31},
+        {"name": "Others", "count": 40}
+    ]},
+    {"name": "New Zealand", "list": [
+        {"name": "Lancaster Park, Christchurch", "count": 40},
+        {"name": "Basin Reserve, Wellington", "count": 65},
+        {"name": "Eden Park, Auckland", "count": 50},
+        {"name": "Seddon Park, Hamilton", "count": 44},
+        {"name": "Others", "count": 21}
+    ]},
+    {"name": "Sri Lanka", "list": [
+        {"name": "Colombo", "list": [
+            {"name": "SSC", "count": 43},
+            {"name": "P Sara Oval", "count": 22}
+        ]},
+        {"name": "Galle Stadium, Galle", "count": 35},
+        {"name": "Asgiriya Stadium, Kandy", "count": 21},
+        {"name": "Others", "count": 25}
+    ]},
+    {"name": "West Indies", "list": [
+        {"name": "Antigua Ground, St. John's", "count": 22},
+        {"name": "Kensington Oval, Bridgetown", "count": 54},
+        {"name": "Queen's Park, Port-of-Spain", "count": 61},
+        {"name": "Sabina Park, Kingston", "count": 54},
+        {"name": "Others", "count": 65}
+    ]},
+    {"name": "Others", "count": 177}
+]}
+
+!function $repeat_string($input_string, $times)
+!$str = ""
+!while $times != 0
+    !$str = $str + $input_string
+    !$times = $times - 1
+!endwhile
+!return $str
+!endfunction
+
+!function $make_wbs_code($name, $sum, $level)
+!if %intval($level) >=3 && %intval($sum) >= 100
+    !$background_colour = "[#PaleGreen]"
+!else
+    !$background_colour = ""
+!endif
+
+!$wbs_code = $repeat_string("*", $level) + $background_colour + " <b>" + $name + "</b>  " + $sum + %newline()
+!return $wbs_code
+!endfunction
+
+!function $generate_wbs_code($data, $attr, $level = 1)
+    !$code_string = ""
+    !$sum = 0
+
+    !foreach $item in $data.list
+        !$inner_item_wbs_code = ""
+        !$inner_item_name = ""
+
+        !if %strlen($item.list) != 0 /' hack to check if it is a leaf node '/
+            /' bug/hack: need to store the inner item's name before recursing. below we update a dictionary
+            where each item is mapped to the sum of the counts below it. the preprocessor seems to have
+            either an implementation bug or stack limitation, so $item.name gets replaced at each level,
+            thus the sum gets mapped to the innermost item's name instead.'/
+            !$inner_item_name = $item.name
+
+            /' it is not a leaf node, recurse to the inner level. '/
+            !$inner_item_wbs_code = $generate_wbs_code($item, $attr, $level + 1)
+
+            /' recursive function call at the inner level would have mapped the sum in the dictionary,
+            so add it to the running sum at this level. '/
+            !$sum = $sum + %get_variable_value($inner_item_name)
+        !else
+            /' it is a leaf node, so it is placed at the next level in the wbs code. '/
+            !$inner_item_wbs_code = $make_wbs_code($item.name, $item[$attr], $level + 1)
+
+            /' for a leaf node, the sum is simply its own count. '/
+            !$sum = $sum + %intval($item[$attr])
+        !endif
+
+        /' concatenate the wbs code of this item to the overall wbs code for this level. this works correctly
+        for leaf nodes or non-leaf nodes or mix of the two. leaf node's wbs code is directly computed here.
+        for non-leaf nodes, recursive function call computes the wbs code for lower levels, then that level's
+        wbs code is pre-concatenated outside the loop and returned as the overall wbs code for that level. '/
+        !$code_string = $code_string + $inner_item_wbs_code
+    !endfor
+
+    /' pre-concatenate this level's wbs code to the lower level's wbs code '/
+    !$code_string = $make_wbs_code($data.name, $sum, $level) + $code_string
+
+    /' map the sum of the counts below this level to this level's name. during the recursion unwinding, the outer
+    level functions can refer to this dictionary entry to update the count at that level. '/
+    %set_variable_value($data.name, $sum)
+    !return $code_string
+!endfunction
+
+<style>
+wbsDiagram {
+    LineColor Black
+    arrow {
+        LineColor Blue
+    }
+}
+</style>
+
+title <size:40>**Test cricket matches hosted by cricket grounds**</size>
+
+/' generates wbs (work breakdown structure) diagram from json data.
+   the json data has a recursive structure, consisting of the following fields:
+   - name: string
+   - count: integer (OR)
+   - list: array of this data structure recursively '/
+$generate_wbs_code($test_cricket_matches_data, "count")
+
+@endwbs
+
+@startuml
+!$char = { "quote" : "\"" }
+
+!$foo = { "company": "Skynet", "employees" : [
+  {"name" : "alice", "salary": 100 },
+  {"name" : "bob", "salary": 50} ]
+}
+
+!function $attribute($json, $attr)
+!$lhs=$char.quote+$attr+$char.quote+":"
+!$rhs=%substr($json,%strpos($json, $lhs)+%strlen($lhs))
+!$end=%strlen($rhs) - 1
+!if (%strpos($rhs,$char.quote) == 0)
+  !$rhs=%substr($rhs,1)
+  !$end=$end-1
+  !if (%strpos($rhs, $char.quote) >= 0) && (%strpos($rhs, $char.quote) < $end)
+    !$end=%strpos($rhs, $char.quote)
+  !endif
+!else
+  !if (%strpos($rhs, ",") >= 0) && (%strpos($rhs, ",") < $end)
+    !$end=%strpos($rhs, ",")
+  !endif
+  !if (%strpos($rhs, "}") >= 0) && (%strpos($rhs, "}") < $end)
+    !$end=%strpos($rhs, "}")
+  !endif
+!endif
+!return %substr($rhs,0,$end)
+!endfunction
+
+start
+!$attribute1="name"
+!$attribute2="salary"
+:The salary of <u>$attribute($foo.employees[0], $attribute1)</u> is <u>$attribute($foo.employees[0], $attribute2)</u>;
+@enduml
