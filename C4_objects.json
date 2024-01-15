@@ -370,7 +370,17 @@
         "c4objectTech": "Grouping",
         "c4objectDesc": "The collection of business activities that direct and oversee the corporate relations, enterprise policies, business plans and strategies. Also the management and operation of the business divisions and business units of the overall organization",
         "appearsIn" : ["bian_overview","bian_business_management"],
-        "contains" :[]
+        "contains" :[],
+        "relationships" :[
+          {
+            "c4relationshipType": "Lay_R",
+            "c4relationshipTo": "bian_02"
+          },
+          {
+            "c4relationshipType": "Lay_D",
+            "c4relationshipTo": "bian_04"
+          }                                        
+        ]
         },
         {
         "c4objectID": "bian_02",
@@ -379,7 +389,17 @@
         "c4objectTech": "Grouping",
         "c4objectDesc": "The collection of activities needed to manage the broad range of financial and operational risks and performance controls of the organization and to handle internal audit and the relationships with external industry, legal and regulatory authorities",
         "appearsIn" : ["bian_overview","bian_finance_and_risk_management"],
-        "contains" :[]
+        "contains" :[],
+        "relationships" :[
+          {
+            "c4relationshipType": "Lay_R",
+            "c4relationshipTo": "bian_03"
+          },
+          {
+            "c4relationshipType": "Lay_D",
+            "c4relationshipTo": "bian_05"
+          }                                        
+        ]
         },
         {
         "c4objectID": "bian_03",
@@ -388,7 +408,13 @@
         "c4objectTech": "Grouping",
         "c4objectDesc": "The collection of business activities that manage and oversee the deployment, development and operation of the organizational resources covering buildings and facilities, equipment and human resources ",
         "appearsIn" : ["bian_overview","bian_resource_management"],
-        "contains" :[]
+        "contains" :[],
+        "relationships" :[
+          {
+          "c4relationshipType": "Lay_D",
+          "c4relationshipTo": "bian_06"
+          }                    
+        ]
         },
         {
         "c4objectID": "bian_04",
@@ -397,7 +423,13 @@
         "c4objectTech": "Grouping",
         "appearsIn" : ["bian_overview","bian_business_development"],
         "c4objectDesc": "The collection of business activities that leverage the bank's knowledge and knowhow, define and refine models and analytical views that inform and influence business activity, develop and enhance products and services, drive marketing and sales activities and support the bank's brand/presence.",
-        "contains" :[]
+        "contains" :[],
+        "relationships" :[
+          {
+          "c4relationshipType": "Lay_D",
+          "c4relationshipTo": "bian_07"
+          }                    
+        ]
         },
         {
         "c4objectID": "bian_05",
@@ -406,7 +438,13 @@
         "c4objectTech": "Grouping",
         "c4objectDesc": "The collection of the bank's 'back-office' cross-product delivery operational functions and services",
         "appearsIn" : ["bian_overview","bian_operations"],
-        "contains" :[]
+        "contains" :[],
+        "relationships" :[
+          {
+          "c4relationshipType": "Lay_D",
+          "c4relationshipTo": "bian_08"
+          }                    
+        ]
         },
         {
         "c4objectID": "bian_06",
