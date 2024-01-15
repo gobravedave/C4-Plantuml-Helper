@@ -1,0 +1,215 @@
+@startuml
+!$myjson = {
+"root" : [{
+    "fruits": [
+        {"name": "apple", "colorId": "1"},
+        {"name": "pear", "colorId": "2"},
+        {"name": "pineapple", "colorId": "3"}
+    ]
+},
+{
+    "colors": [
+        {"id": "1", "name": "red"},
+        {"id": "2", "name": "green"},
+        {"id": "3", "name": "yellow"}
+    ]
+}]
+}
+
+!foreach $key in %get_json_keys($myjson.root)
+     rectangle $key
+!endfor
+@enduml
+
+
+
+' @startuml timeline example
+' !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+' !unquoted function DRAW($x) return %set_variable_value($x, 1)
+
+' !procedure addComponent($part, $component, $as)
+'     !if %variable_exists($part)
+'        ' Component($as, "$component","ccc")
+' Component(c4ctxr, "Context Registry ", "json", "list of registered contexts")
+
+'     !endif
+' !end procedure 
+
+' !procedure addBox2($part, $box, $colour, $data)
+'     !if %variable_exists($part)
+'         note as n1  #$colour
+'             !foreach $item in $data.things
+'                 addComponent($part, $item.name, $item.as)
+'             !endfor
+'         end note
+'     !endif
+' !end procedure 
+
+' DRAW(PART25)
+
+' !ifdef PART25
+' title  TESTING  (Boxes & Participants)  //Part25//
+' !endif
+
+' !$data={
+'   "things": [
+'     {"name": "XYZ", "as": "xyz"},
+'     {"name": "RST", "as": "rst"},
+'     {"name": "UVW", "as": "uvw"}]
+' }
+
+' addBox2("PART25", "New Box", "white", $data)
+' @enduml
+
+
+
+' @startuml self descriptive example
+' left to right direction
+
+' !$data={"parts":[
+' {"shape": "cloud",    "name": "id1", "colour": "#palegreen", "desc": "some text"},
+' {"shape": "folder",   "name": "id2", "colour": "#lightblue", "desc": "more text"},
+' {"shape": "database", "name": "id3", "colour": "#pink",      "desc": "even more text"}
+' ]}
+
+' rectangle Outer {
+' rectangle Inner #tan as "
+' {{json
+' $data
+' }}
+' "
+' together {
+' !foreach $part in $data.parts
+'   $part.shape $part.colour $part.name as "$part.desc"
+'   Inner --> $part.name
+' !endfor
+' }
+' }
+' @enduml
+
+
+' @startuml json keys
+' !$myjson = {
+' "root" : [{
+'     "fruits": [
+'         {"name": "apple", "colorId": "1"},
+'         {"name": "pear", "colorId": "2"},
+'         {"name": "pineapple", "colorId": "3"}
+'     ]
+' },
+' {
+'     "colors": [
+'         {"id": "1", "name": "red"},
+'         {"id": "2", "name": "green"},
+'         {"id": "3", "name": "yellow"}
+'     ]
+' }]
+' }
+
+' !foreach $key in %get_json_keys($myjson.root)
+'      rectangle $key
+' !endfor
+' @enduml
+
+' @startwbs wbs
+' !$json_object = {
+'   "name": "Mark McGwire", "hr": 65, "avg":  0.278
+' }
+
+' * json_object
+'  * keys of json_object
+' !foreach $key in %get_json_keys($json_object)
+'   * $key
+' !endfor
+' @endwbs
+
+
+@startuml json type
+!$json_object = {
+  "name": "Mark McGwire", "hr": 65, "avg":  0.278,
+  "letters": ["a", "b", "c"]
+}
+
+label l [
+=json_object:
+{{json
+$json_object
+}}
+
+|= $variable          |= <U+0025>get_json_type($var)         |
+| json_object         | %get_json_type($json_object)         |
+| json_object.name    | %get_json_type($json_object.name)    |
+| json_object.hr      | %get_json_type($json_object.hr)      |
+| json_object.letters | %get_json_type($json_object.letters) |
+
+Test on type:
+!if %get_json_type($json_object.letters)=="array"
+  json_object.letters is an **%get_json_type($json_object.letters)**
+!endif
+]
+
+
+note as n1
+{{json
+$json_object
+}}
+end note
+@enduml
+
+
+' @startuml key exists
+' !$json_object= {
+'   "name": "Mark McGwire", "hr": 65, "avg":  0.278
+' }
+
+' label l [
+' |= key  |= <U+0025>json_key_exists(json_object, key)   |
+' | "hr"  | %json_key_exists($json_object, "hr") |
+' | "foo" | %json_key_exists($json_object, "foo")|
+' | null  | %json_key_exists($json_object, null) |
+' ]
+' @enduml
+
+
+' @startuml size
+' !$json_object= {
+'   "name"   : "Mark McGwire",
+'   "hr"     : 65,
+'   "avg"    : 0.278,
+'   "letters": ["a", "b", "c"]
+' }
+
+' label l [
+' |= $variable          |= <U+0025>get_json_type($var)         |= <U+0025>size($var)         |
+' | json_object         | %get_json_type($json_object)         | %size($json_object)         |
+' | json_object.name    | %get_json_type($json_object.name)    | %size($json_object.name)    |
+' | json_object.hr      | %get_json_type($json_object.hr)      | %size($json_object.hr)      |
+' | json_object.letters | %get_json_type($json_object.letters) | %size($json_object.letters) |
+' ]
+' @enduml
+
+' @startuml
+' !$json_object = {
+'   "name": "Mark McGwire", "hr": 65, "avg":  0.278,
+'   "letters": ["a", "b", "c"]
+' }
+' ' !$json_object = 88888
+
+' label l [
+' =json_object:
+' {{json
+' $json_object
+' }}
+
+' |= $variable          |= <U+0025>get_json_type($var)         |
+' | json_object         | %get_json_type($json_object)         |
+' | json_object.name    | %get_json_type($json_object.name)    |
+' | json_object.hr      | %get_json_type($json_object.hr)      |
+' | json_object.letters | %get_json_type($json_object.letters) |
+
+' Test on type:
+' !if %get_json_type($json_object.letters)=="array"
+'   json_object.letters is an **%get_json_type($json_object.letters)**
+' !endif
+' ]
+' @enduml

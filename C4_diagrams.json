@@ -4,7 +4,7 @@
     {
       "c4Id": "widget",
       "title": "Widget Enterprise",
-      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget",
+      "link": "https://gobravedave.github.io/C4-Plantuml-Helper/widgetC1.htnl",
       "contains" :["customer","widget01","taxamo","braintree","post"]
     },
     {
@@ -15,67 +15,67 @@
     {
       "c4Id": "adr_001",
       "title": "GCP as Cloud Provider Decision",
-      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget/adr_001.md",
       "contains" :[]
     },
     {
       "c4Id": "adr_002",
       "title": "Braintree to provide online payment services",
-      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget/adr_002.md",
       "contains" :[]
     },
     {
       "c4Id": "bian_overview",
       "title": "BIAN Service Landscape V9.0 Overview",
-      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/bian",
+      "link": "https://gobravedave.github.io/C4-Plantuml-Helper/bian.htnl",
       "contains" :["bian_01","bian_02","bian_03","bian_04","bian_05","bian_06","bian_07","bian_08"]
     },
     {
       "c4Id": "bian_business_management",
       "title": "BIAN Business Management",
-      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+      "link": "https://gobravedave.github.io/C4-Plantuml-Helper/bian01.htnl",
       "contains" :["bian_01"]
     },
     {
       "c4Id": "bian_finance_and_risk_management",
       "title": "BIAN Finance & Risk Management",
-      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+      "link": "https://gobravedave.github.io/C4-Plantuml-Helper/bian02.htnl",
       "contains" :["bian_02"]
     },
     {
       "c4Id": "bian_resource_management",
       "title": "BIAN Resource Management",
-      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+      "link": "https://gobravedave.github.io/C4-Plantuml-Helper/bian03.htnl",
       "contains" :["bian_03"]
     },
     {
       "c4Id": "bian_business_development",
       "title": "BIAN Business Development",
-      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+      "link": "https://gobravedave.github.io/C4-Plantuml-Helper/bian04.htnl",
       "contains" :["bian_04"]
     },
     {
       "c4Id": "bian_operations",
       "title": "BIAN Operations",
-      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+      "link": "https://gobravedave.github.io/C4-Plantuml-Helper/bian05.htnl",
       "contains" :["bian_05"]
     },
     {
       "c4Id": "bian_products",
       "title": "BIAN Products",
-      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+      "link": "https://gobravedave.github.io/C4-Plantuml-Helper/bian06.htnl",
       "contains" :["bian_06"]
     },
     {
       "c4Id": "bian_customers",
       "title": "BIAN Customers",
-      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+      "link": "https://gobravedave.github.io/C4-Plantuml-Helper/bian07.htnl",
       "contains" :["bian_07"]
     },
     {
       "c4Id": "bian_channels",
       "title": "BIAN Channels",
-      "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+      "link": "https://gobravedave.github.io/C4-Plantuml-Helper/bian08.htnl",
       "contains" :["bian_08"]
     }
     ]

@@ -1,0 +1,184 @@
+@startuml enterprise component view with assets
+!include C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Component.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Component")
+%set_variable_value("$INCLUDE_DESC", "N")
+%set_variable_value("$INCLUDE_ASSETS", "Y")
+'======================================================================
+'Call procedure to build the diagram
+C4_DIAGRAM(widget)
+
+rectangle c4h [
+=Diagram Objects
+SHOW_OBJECT_TABLE()
+
+=Diagram Relationships
+SHOW_REL_TABLE()
+
+=Information Assets
+SHOW_ASSET_TABLE()
+]
+
+datatier.[hidden].c4h
+SHOW_LEGEND()
+
+' datatier.[hidden].c4h_object_table
+' datatier.[hidden].c4h_object_table
+' c4h_object_table.[hidden].c4h_relationship_table
+' c4h_relationship_table.[hidden].c4h_asset_table
+
+@enduml
+
+@startuml
+<style>
+note {
+  MaximumWidth 200
+  MinimumWidth 200
+  BackGroundColor #white
+  Fontcolor green
+}
+</style>
+
+class myclass
+
+' note left of myclass: left note
+' note as n1 
+' floating note line 1
+' floating note line 2
+' floating note line 3
+' end note
+
+
+circle 1
+
+
+
+rectangle n3 [
+=heading
+|= from |= to |= desc |= assets |
+| here | there | moving house | kitchen sink |
+
+* floating note line 1111111111111111111111111
+* floating note line 2
+* floating note line 3
+]
+
+n2-[hidden]-n3
+@enduml
+
+@startuml
+skinparam ComponentStyle rectangle
+rectangle n2 [
+{{
+digraph foo {
+    b [shape=none, margin=0
+  label=<
+<TABLE BGCOLOR="bisque">
+  <TR><TD COLSPAN="3">elephant</TD> 
+      <TD ROWSPAN="2" BGCOLOR="chartreuse" 
+          VALIGN="bottom" ALIGN="right">two</TD> </TR>
+  <TR><TD COLSPAN="2" ROWSPAN="2">
+        <TABLE BGCOLOR="grey">
+          <TR> <TD>corn</TD> </TR> 
+          <TR> <TD BGCOLOR="yellow">c</TD> </TR> 
+          <TR> <TD>f</TD> </TR> 
+        </TABLE> </TD>
+      <TD BGCOLOR="white">penguin</TD> 
+  </TR> 
+  <TR> <TD COLSPAN="2" BORDER="4" ALIGN="right" PORT="there">4</TD> </TR>
+</TABLE>>
+  ]
+}
+}}
+]
+rectangle n3 [
+{{
+digraph foo {
+struct3 [shape=record style=filled, color=yellow, fontcolor=blue, fillcolor=red, label="hello\nworld |{ b |{c|<here> d|e}| f}| g | h"];
+}
+}}
+The 'record' node is simpler
+to code, but you can't individually 
+colour different boxes.
+]
+[n1] --> n2
+n2 --> n3
+@enduml
+
+
+@startuml
+rectangle "First" <<$Net>>
+note left
+ You can use images
+<img:https://chart.googleapis.com/chart?cht=p3&chd=t:60,40&chs=250x100&chl=Hello%7CWorld>
+end note
+@enduml
+
+@startwbs
+<style>
+wbsDiagram {
+  ' all lines (meaning connector and borders, there are no other lines in WBS) are black by default
+  Linecolor Black
+  arrow {
+    ' Note that connector are actually "arrows" even if they don't look like arrows
+    ' This is to be consistent with other UML diagrams. Not 100% sure that it's a good idea
+    ' So now connectors are green at this level
+    LineColor Green
+  }
+  :depth(0) {
+      ' will target the "root" (first level) node,
+      ' AND root level elements like Arrows (styled by Line styles)
+      ' Note how it will override the
+      BackgroundColor White
+      RoundCorner 10
+      LineColor red
+  }
+  arrow {
+    :depth(2) {
+      ' Targetting only connector between Mexico-Chihuahua and USA-Texas
+      LineColor blue
+      LineStyle 4
+      LineThickness .5
+    }
+  }
+  node {
+    :depth(2) {
+    ' Targetting the Lines at a depth of 2
+      LineStyle 2
+      LineThickness 2.5
+    }
+  }
+
+}
+</style>
+* World
+** America
+*** Canada
+*** Mexico
+**** Chihuahua
+*** USA
+**** Texas
+***< New York
+** Europe
+*** England
+*** Germany
+*** Spain
+@endwbs
+
+@startuml
+hide stereotype 
+show <<example>> stereotype 
+skinparam component {
+    BackgroundColor<<base>> #99ff99
+    BorderColor<<base>> Black
+    BackgroundColor<<example>> Yellow
+    BorderColor<<example>> Maroon
+}
+
+package "Something" {
+    [baseComponent1]<<base>>
+    [exampleComponent1]<<example>>
+}
+@enduml

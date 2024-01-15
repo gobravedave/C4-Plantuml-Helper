@@ -1,0 +1,66 @@
+@startuml build enterprise context view from json using c4 helper
+!include ../C4_helper.iuml
+
+'!include https://raw.githubusercontent.com/gobravedave/C4-Plantuml-Helper/more/C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+'!include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Container.puml
+'!include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Component.puml
+'!include https://raw.githubusercontent.com/gobravedave/C4-Plantuml-Helper/more/C4_helper.iuml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Context")
+'%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
+'%set_variable_value("$C4_DIAGRAM_TYPE", "Component")
+%set_variable_value("$INCLUDE_DESC", "Y")
+'======================================================================
+'Call procedure to build the diagram
+$c4_diagram(enterprise)
+
+'v1.1 introduces
+'System(fulfillment, "Fulfillment System", "Responsible for processing and shipping of customer orders.",$tags="v1.1")
+AddElementTag("v1.1", $fontColor="black", $bgColor="gold")
+AddRelTag("V1.1", $textColor="black", $lineColor="gold")
+System(csaa,"CSA Assist","Customer Service Desktop used to record queries and recommend solution approach",$tags="v1.1") 
+Rel_L(csa,csaa,"looks up",$tags="v1.1")
+'show V1.1 in legend
+
+'hide braintree
+SHOW_LEGEND()
+
+@enduml
+
+
+
+@startuml build enterprise contsiner view from json using c4 helper
+!include ../C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Container.puml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
+%set_variable_value("$INCLUDE_DESC", "Y")
+'======================================================================
+'Call procedure to build the diagram
+$c4_diagram(enterprise)
+SHOW_LEGEND()
+@enduml
+
+@startuml build c4 helper context view from json using c4 helper
+!include ../C4_helper.iuml
+'!include https://raw.githubusercontent.com/gobravedave/C4-Plantuml-Helper/more/C4_helper.iuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+'!include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Container.puml
+'!include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Component.puml
+'!include https://raw.githubusercontent.com/gobravedave/C4-Plantuml-Helper/more/C4_helper.iuml
+'Set Diagram settings
+'=====================================================================
+%set_variable_value("$C4_DIAGRAM_TYPE", "Context")
+'%set_variable_value("$C4_DIAGRAM_TYPE", "Container")
+'%set_variable_value("$C4_DIAGRAM_TYPE", "Component")
+%set_variable_value("$INCLUDE_DESC", "Y")
+'======================================================================
+'Call procedure to build the diagram
+$c4_diagram(c4helper)
+
+SHOW_LEGEND()
+
+@enduml

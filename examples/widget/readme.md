@@ -71,3 +71,4 @@ Key elements of a credit card include:
 * Cardholder: The individual to whom the credit card is issued.
 * Interest Rate: The cost of borrowing if the cardholder does not pay the full balance by the due date.
 * Billing Cycle: The period between credit card statements, typically a month.
+

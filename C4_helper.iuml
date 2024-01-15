@@ -393,9 +393,9 @@ Rel($object.c4objectID, $relationship.c4relationshipTo,"$relationship.c4relation
 'also appears in name/link
 
 !$list = %splitstr($ShownObjects, "~")
-skinparam NoteBackgroundColor #white
-skinparam NoteTextAlignment left
-note as c4h_object_table
+' skinparam NoteBackgroundColor #white
+' skinparam NoteTextAlignment left
+' note as c4h_object_table
 !if $INCLUDE_ASSETS == "Y"
 <#lightblue>|= Name |= Description |= Also Appears In |= Assets |
 !else
@@ -416,15 +416,16 @@ note as c4h_object_table
         !endif
     !endif 
 !endfor
-end note
+
+' end note
 
 !endprocedure
 
 !unquoted procedure SHOW_REL_TABLE()
 !$list = %splitstr($ShownRelationships, "|")
-skinparam NoteBackgroundColor #white
-skinparam NoteTextAlignment left
-note as c4h_relationship_table
+' skinparam NoteBackgroundColor #white
+' skinparam NoteTextAlignment left
+' note as c4h_relationship_table
 !if $INCLUDE_ASSETS == "Y"
 <#lightblue>|= From |= To |= Name |= Description |= Technology |= Assets |
 !else
@@ -460,17 +461,16 @@ note as c4h_relationship_table
 | $c4h_object_name($relFrom) | $c4h_object_name($relTo) | $relName | $wrap_text($relDesc)  | $relTech |
 !endif 
 !endfor
-end note
-'add asset to shownAssets
+' end note
 
 !endprocedure
 
 !unquoted procedure SHOW_ASSET_TABLE()
 '!log "SHOW_ASSET_TABLE" $ShownAssets
 !$list = %splitstr($ShownAssets, "~")
-skinparam NoteBackgroundColor #white
-skinparam NoteTextAlignment left
-note as c4h_asset_table
+' skinparam NoteBackgroundColor #white
+' skinparam NoteTextAlignment left
+' note as c4h_asset_table
 <#lightblue>|= Name |= Description |= Confidentiality |= Integrity |= Availability |
 !foreach $assetID in $list
     !$asset = $get_c4_asset($assetID)
@@ -478,10 +478,9 @@ note as c4h_asset_table
 | $c4h_asset_name($assetID) | $wrap_text($asset.description) | $asset.confidential | $asset.integrity | $asset.availability |
     !endif 
 !endfor
-end note
+' end note
 
 !endprocedure
-
 
 'v1 code below.. refactor based on updates json structure
 !unquoted procedure $c4_context($id)
