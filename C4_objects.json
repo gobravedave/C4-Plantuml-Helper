@@ -37,7 +37,7 @@
         "c4objectType": "Person",
         "c4objectName": "Customer Service Agent",
         "c4objectDesc": "Deals with customer enquiries.",
-        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget",
         "relationships" :[
           {
           "c4relationshipType": "Rel",
@@ -53,7 +53,7 @@
         "c4objectDesc": "Allows customers to buy widgets online via the widgets.com website.",
         "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget#component-view",
         "assets" : [],
-        "appearsIn" : ["enterprise","adr_001","adr_002"],
+        "appearsIn" : ["enterprise","widgetc2","widgetc3","adr_001","adr_002"],
         "contains" :["presentation","apptier","datatier"],
         "components" :[],
         "relationships" :[
@@ -74,7 +74,7 @@
         "c4objectType": "System",
         "c4objectName": "Fulfillment System",
         "c4objectDesc": "Responsible for processing and shipping of customer orders.",
-        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget",
         "assets" : ["IA_002","IA_003"],
         "relationships" :[
           {
@@ -227,7 +227,7 @@
         "c4objectTech": "Spanner",
         "c4objectName": "Data Layer",
         "c4objectDesc": "data related to the ecommerce platform is stored. It includes product information, customer data, order history, and many other details the system may need. ",
-        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget",
         "contains" :[],
         "components" :[],
         "relationships" :[]
@@ -238,13 +238,13 @@
         "c4objectTech": "html/css/jscript",
         "c4objectName": "Product Catalog",
         "c4objectDesc": "Make it easy for a customer to find widgets",
-        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget",
         "relationships" :[
           {
           "c4relationshipType": "Rel_D",
           "c4relationshipTo": "product",
           "c4relationshipName": "Call the Product service",
-          "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+          "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget",
           "assets" : ["IA_001"]
         }                  
           ]
@@ -255,16 +255,17 @@
         "c4objectTech": "html/css/jscript",
         "c4objectName": "Shopping Cart",
         "c4objectDesc": "Customer selects products and quatity they which to purchase",
-        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget",
         "assets" : ["IA_003"],
         "relationships" :[
           {
           "c4relationshipType": "Rel_D",
           "c4relationshipTo": "order",
           "c4relationshipName": "Order service checks product availability and provides prices",
-          "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+          "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget",
           "assets" : ["IA_003"]
-        }                  
+        }       
+                
           ]
         },
         {
@@ -273,20 +274,20 @@
         "c4objectTech": "html/css/jscript",
         "c4objectName": "Checkout",
         "c4objectDesc": "Display and confirm the order and arange payment",
-        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget",
         "assets" : ["IA_003"],
         "relationships" :[
           {
           "c4relationshipType": "Rel_D",
           "c4relationshipTo": "order",
           "c4relationshipName": "Finalise order and arange payment",
-          "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples"
+          "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget"
           },
           {
           "c4relationshipType": "Rel_D",
           "c4relationshipTo": "payment",
           "c4relationshipName": "issue payment request",
-          "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+          "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget",
           "assets" : ["IA_004","IA_005"]
           }                                      
           ]
@@ -297,14 +298,14 @@
         "c4objectTech": "api",
         "c4objectName": "Product Service",
         "c4objectDesc": "Provides Product services",
-        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget",
         "assets" : ["IA_001","IA_005"],
         "relationships" :[
           {
             "c4relationshipType": "Rel_D",
             "c4relationshipTo": "datatier",
             "c4relationshipName": "Read/Write Products",
-            "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples"
+            "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget"
           }                    
         ]
         },
@@ -314,13 +315,13 @@
         "c4objectTech": "api",
         "c4objectName": "Order Service",
         "c4objectDesc": "Provides Order services",
-        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget",
         "relationships" :[
           {
             "c4relationshipType": "Rel_D",
             "c4relationshipTo": "datatier",
             "c4relationshipName": "Read/Write Orders",
-            "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples"
+            "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget"
           }                    
         ]
         },
@@ -330,20 +331,20 @@
         "c4objectTech": "api",
         "c4objectName": "Payment Service",
         "c4objectDesc": "Create Payment Request",
-        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+        "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget",
         "appearsIn" : ["adr_002"],
         "relationships" :[
           {
             "c4relationshipType": "Rel_D",
             "c4relationshipTo": "datatier",
             "c4relationshipName": "Write Payment Details",
-            "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples"
+            "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget"
           },                    
           {
             "c4relationshipType": "Rel_R",
             "c4relationshipTo": "dispatch",
             "c4relationshipName": "Payment has been authorised",
-            "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples"
+            "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget"
           }                    
           ]
         },
@@ -353,13 +354,13 @@
           "c4objectTech": "api",
           "c4objectName": "Dispatch Service",
           "c4objectDesc": "Create Dispatch Request",
-          "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples",
+          "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget",
           "relationships" :[
             {
               "c4relationshipType": "Rel_D",
               "c4relationshipTo": "datatier",
               "c4relationshipName": "Write Dispatch Details",
-              "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples"
+              "link": "https://github.com/gobravedave/C4-Plantuml-Helper/tree/master/examples/widget"
             }                    
           ]
         },        

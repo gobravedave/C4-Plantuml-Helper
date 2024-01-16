@@ -60,6 +60,7 @@ SHOW_LEGEND()
 
 @enduml
 
+
 @startuml widget component view
 !include ../C4_helper.iuml
 !include https://raw.githubusercontent.com/plantuml/plantuml-stdlib/master/C4/C4_Component.puml
