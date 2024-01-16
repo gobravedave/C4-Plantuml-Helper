@@ -8,6 +8,18 @@
       "contains" :["customer","widget01","taxamo","braintree","post"]
     },
     {
+      "c4Id": "widgetc2",
+      "title": "Widget Enterprise Container View",
+      "link": "https://gobravedave.github.io/C4-Plantuml-Helper/widgetC2.html",
+      "contains" :["presentation","apptier","datatier"]
+    },
+    {
+      "c4Id": "widgetc3",
+      "title": "Widget Enterprise Component View",
+      "link": "https://gobravedave.github.io/C4-Plantuml-Helper/widgetC3.html",
+      "contains" :["ecommerce"]
+    },
+    {
       "c4Id": "c4helper",
       "title": "C4 Helper",
       "contains" :["arch","modsys","github","eng","system"]
